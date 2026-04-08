@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agentivestudio — Omar Hamdi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --sand:    #FAF7F2;
+    --sand2:   #F0E8DC;
+    --sand3:   #E8DDD0;
+    --terra:   #C4673A;
+    --terra2:  #A0522D;
+    --espresso:#3D2B1F;
+    --warm:    #7A5C4E;
+    --muted:   #B09A8A;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--sand);
+    color: var(--espresso);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 48px;
+    background: rgba(250,247,242,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(196,103,58,0.12);
+    transition: padding 0.3s;
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--espresso);
+  }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-links a {
+    font-size: 13px; font-weight: 400;
+    color: var(--warm); text-decoration: none;
+    letter-spacing: 0.03em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--terra); }
+  .nav-cta {
+    background: var(--terra); color: var(--sand) !important;
+    padding: 10px 22px; border-radius: 99px;
+    font-size: 13px !important; font-weight: 500 !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--terra2) !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 120px 48px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 80% 50%, rgba(196,103,58,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(196,103,58,0.05) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 1200px; margin: 0 auto; width: 100%;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  }
+  .hero-eyebrow {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 28px;
+  }
+  .eyebrow-line { width: 32px; height: 1px; background: var(--terra); }
+  .eyebrow-text {
+    font-size: 11px; letter-spacing: 0.15em;
+    color: var(--terra); text-transform: uppercase; font-weight: 500;
+  }
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(44px, 5vw, 68px);
+    font-weight: 400; line-height: 1.1;
+    color: var(--espresso);
+    margin-bottom: 24px;
+  }
+  h1 em { font-style: italic; color: var(--terra); }
+  .hero-sub {
+    font-size: 16px; line-height: 1.75;
+    color: var(--warm); max-width: 440px;
+    margin-bottom: 40px; font-weight: 300;
+  }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--espresso); color: var(--sand);
+    padding: 15px 28px; border-radius: 99px;
+    font-size: 14px; font-weight: 500;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    letter-spacing: 0.02em;
+  }
+  .btn-primary:hover { background: var(--terra); transform: translateY(-1px); }
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: transparent; color: var(--espresso);
+    padding: 14px 26px; border-radius: 99px;
+    font-size: 14px; font-weight: 400;
+    text-decoration: none; border: 1px solid var(--sand3); cursor: pointer;
+    transition: border-color 0.2s, transform 0.15s;
+  }
+  .btn-secondary:hover { border-color: var(--terra); transform: translateY(-1px); }
+  .wa-icon { width: 16px; height: 16px; }
+
+  /* HERO RIGHT — STATS */
+  .hero-right {
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .stat-card {
+    background: var(--sand2);
+    border: 1px solid var(--sand3);
+    border-radius: 16px; padding: 28px 32px;
+    transition: transform 0.2s;
+  }
+  .stat-card:hover { transform: translateY(-2px); }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px; font-weight: 400;
+    color: var(--terra); line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label { font-size: 13px; color: var(--warm); font-weight: 300; }
+  .stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  /* DIVIDER */
+  .divider {
+    width: 100%; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--sand3), transparent);
+    margin: 0;
+  }
+
+  /* SECTION */
+  section { padding: 100px 48px; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+  .section-eyebrow {
+    font-size: 11px; letter-spacing: 0.15em;
+    color: var(--terra); text-transform: uppercase;
+    font-weight: 500; margin-bottom: 16px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--terra); }
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 400; line-height: 1.15;
+    color: var(--espresso); margin-bottom: 60px;
+  }
+
+  /* PAIN SECTION */
+  .pain-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  }
+  .pain-card {
+    background: var(--sand2);
+    border: 1px solid var(--sand3);
+    border-radius: 16px; padding: 36px 28px;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .pain-card:hover { transform: translateY(-3px); border-color: var(--muted); }
+  .pain-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px; font-weight: 400;
+    color: var(--sand3); line-height: 1;
+    margin-bottom: 20px;
+  }
+  .pain-title {
+    font-size: 17px; font-weight: 500;
+    color: var(--espresso); margin-bottom: 10px;
+    line-height: 1.3;
+  }
+  .pain-desc { font-size: 14px; color: var(--warm); line-height: 1.65; font-weight: 300; }
+
+  /* ABOUT */
+  .about-section { background: var(--sand2); }
+  .about-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: center;
+  }
+  .about-avatar-wrap { position: relative; }
+  .about-avatar {
+    width: 100%; aspect-ratio: 3/4;
+    border-radius: 120px 120px 120px 40px;
+    background: var(--sand3);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    border: 1px solid var(--sand3);
+  }
+  .about-initials {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 80px; font-weight: 400;
+    color: var(--muted);
+  }
+  .about-tag {
+    position: absolute; bottom: 24px; right: -20px;
+    background: var(--terra); color: var(--sand);
+    padding: 12px 20px; border-radius: 99px;
+    font-size: 12px; font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+  .about-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px; font-weight: 400;
+    color: var(--espresso); margin-bottom: 6px;
+  }
+  .about-role { font-size: 13px; color: var(--terra); margin-bottom: 28px; font-weight: 500; letter-spacing: 0.05em; }
+  .about-bio {
+    font-size: 16px; line-height: 1.8;
+    color: var(--warm); font-weight: 300; margin-bottom: 32px;
+  }
+  .about-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag {
+    font-size: 12px; color: var(--warm);
+    border: 1px solid var(--sand3);
+    padding: 6px 14px; border-radius: 99px;
+    background: var(--sand);
+  }
+
+  /* STEPS */
+  .steps-grid { display: flex; flex-direction: column; gap: 0; }
+  .step-row {
+    display: grid; grid-template-columns: 80px 1fr; gap: 32px;
+    padding: 40px 0; border-bottom: 1px solid var(--sand3);
+    align-items: start;
+  }
+  .step-row:last-child { border-bottom: none; }
+  .step-num-wrap { display: flex; flex-direction: column; align-items: center; gap: 12px; padding-top: 4px; }
+  .step-num {
+    width: 44px; height: 44px; border-radius: 50%;
+    border: 1px solid var(--sand3);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; color: var(--terra);
+  }
+  .step-connector { width: 1px; background: var(--sand3); flex: 1; min-height: 40px; }
+  .step-title { font-size: 20px; font-weight: 500; color: var(--espresso); margin-bottom: 8px; }
+  .step-desc { font-size: 15px; color: var(--warm); line-height: 1.65; font-weight: 300; }
+
+  /* CTA BLOCK */
+  .cta-block {
+    background: var(--espresso);
+    border-radius: 24px;
+    padding: 64px 80px;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .cta-block::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 50% 100%, rgba(196,103,58,0.2), transparent);
+    pointer-events: none;
+  }
+  .cta-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 52px); font-weight: 400;
+    color: var(--sand); line-height: 1.15; margin-bottom: 16px;
+  }
+  .cta-title em { font-style: italic; color: var(--terra); }
+  .cta-sub { font-size: 16px; color: var(--muted); font-weight: 300; margin-bottom: 40px; line-height: 1.6; }
+  .cta-tags { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px; }
+  .cta-tag {
+    font-size: 12px; color: var(--muted);
+    border: 1px solid rgba(176,154,138,0.3);
+    padding: 6px 16px; border-radius: 99px;
+  }
+  .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn-light {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--sand); color: var(--espresso);
+    padding: 15px 28px; border-radius: 99px;
+    font-size: 14px; font-weight: 500; text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-light:hover { background: var(--sand2); transform: translateY(-1px); }
+  .btn-wa {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #25D366; color: #fff;
+    padding: 15px 28px; border-radius: 99px;
+    font-size: 14px; font-weight: 500; text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-wa:hover { background: #20b858; transform: translateY(-1px); }
+
+  /* FOOTER */
+  footer {
+    padding: 40px 48px; text-align: center;
+    border-top: 1px solid var(--sand3);
+  }
+  .footer-text { font-size: 13px; color: var(--muted); font-weight: 300; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up { animation: fadeUp 0.7s ease forwards; }
+  .fade-up-1 { animation-delay: 0.1s; opacity: 0; }
+  .fade-up-2 { animation-delay: 0.25s; opacity: 0; }
+  .fade-up-3 { animation-delay: 0.4s; opacity: 0; }
+  .fade-up-4 { animation-delay: 0.55s; opacity: 0; }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .nav-links a:not(.nav-cta) { display: none; }
+    .hero { padding: 100px 24px 60px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+    .stat-row { grid-template-columns: 1fr 1fr; }
+    section { padding: 64px 24px; }
+    .pain-grid { grid-template-columns: 1fr; }
+    .about-inner { grid-template-columns: 1fr; gap: 40px; }
+    .about-avatar { aspect-ratio: 1/1; max-width: 280px; }
+    .cta-block { padding: 48px 24px; }
+    footer { padding: 32px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Agentivestudio</div>
+  <div class="nav-links">
+    <a href="#aanpak">Aanpak</a>
+    <a href="#over">Over Omar</a>
+    <a href="https://cal.com/agentivestudio" target="_blank" class="nav-cta">Kennismaken</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow fade-up fade-up-1">
+        <div class="eyebrow-line"></div>
+        <span class="eyebrow-text">Voor MKB-ondernemers</span>
+      </div>
+      <h1 class="fade-up fade-up-2">
+        Minder handmatig<br>
+        werk. <em>Meer rust.</em>
+      </h1>
+      <p class="hero-sub fade-up fade-up-3">
+        Ik bouw slimme apps die jouw processen automatiseren — zodat jij je tijd besteedt aan wat écht telt voor je bedrijf.
+      </p>
+      <div class="hero-actions fade-up fade-up-4">
+        <a href="https://cal.com/agentivestudio" target="_blank" class="btn-primary">
+          Plan gratis kennismaking
+        </a>
+        <a href="https://wa.me/31657778357" target="_blank" class="btn-secondary">
+          <svg class="wa-icon" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+    <div class="hero-right fade-up fade-up-3">
+      <div class="stat-row">
+        <div class="stat-card">
+          <div class="stat-num">80%</div>
+          <div class="stat-label">Minder handmatig werk</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">2wk</div>
+          <div class="stat-label">Gemiddelde bouwtijd</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Op maat — voor jouw proces, jouw data, jouw werkwijze</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PAIN -->
+<section>
+  <div class="section-inner">
+    <div class="section-eyebrow">Herken jij dit?</div>
+    <h2>Het knip-en-plak leven<br>van de ondernemer</h2>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-num">01</div>
+        <div class="pain-title">Elke week dezelfde Excel-klus</div>
+        <div class="pain-desc">Kopiëren, plakken, optellen — en dan hopen dat er geen fout in zit. Elke week opnieuw.</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-num">02</div>
+        <div class="pain-title">Data verspreid over vijf plekken</div>
+        <div class="pain-desc">Mail, sheets, mappen, apps — nooit een helder overzicht. Altijd zoeken naar het juiste bestand.</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-num">03</div>
+        <div class="pain-title">Medewerkers doen het handmatige werk</div>
+        <div class="pain-desc">Duur talent bezig met saai kluswerk. Dat kost geld, motivatie en groei.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<section class="about-section" id="over">
+  <div class="about-inner section-inner">
+    <div class="about-avatar-wrap">
+      <div class="about-avatar">
+        <span class="about-initials">OH</span>
+      </div>
+      <div class="about-tag">Leiden, NL</div>
+    </div>
+    <div>
+      <div class="section-eyebrow">Wie ben ik</div>
+      <div class="about-name">Omar Hamdi</div>
+      <div class="about-role">Oprichter — Agentivestudio</div>
+      <p class="about-bio">
+        Ik bouw apps en automatiseringen voor ondernemers die klaar zijn met handmatig werk. Geen technisch gezwam — ik luister rustig naar wat jij nodig hebt, begrijp je proces, en bouw precies wat werkt.<br><br>
+        Met een achtergrond in bouwen en een neus voor praktische oplossingen help ik MKB-ers om uren per week terug te winnen — zonder dat zij ook maar één regel code hoeven te begrijpen.
+      </p>
+      <div class="about-tags">
+        <span class="tag">App-ontwikkeling</span>
+        <span class="tag">Procesautomatisering</span>
+        <span class="tag">Data & Excel</span>
+        <span class="tag">Rustig & direct</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- STEPS -->
+<section id="aanpak">
+  <div class="section-inner">
+    <div class="section-eyebrow">Hoe het werkt</div>
+    <h2>Drie stappen.<br>Dan loopt het vanzelf.</h2>
+    <div class="steps-grid">
+      <div class="step-row">
+        <div class="step-num-wrap">
+          <div class="step-num">1</div>
+          <div class="step-connector"></div>
+        </div>
+        <div>
+          <div class="step-title">Gratis kennismaking — 30 minuten</div>
+          <div class="step-desc">Ik luister naar wat je nu doet, breng de pijnpunten in kaart en zie meteen waar tijdwinst zit. Geen verplichtingen, geen technisch verhaal.</div>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num-wrap">
+          <div class="step-num">2</div>
+          <div class="step-connector"></div>
+        </div>
+        <div>
+          <div class="step-title">Ik bouw jouw oplossing</div>
+          <div class="step-desc">Een app, tool of geautomatiseerde workflow — volledig op maat. Jij hoeft niks te doen behalve akkoord geven. Gemiddeld klaar binnen twee weken.</div>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num-wrap">
+          <div class="step-num">3</div>
+        </div>
+        <div>
+          <div class="step-title">Jij bespaart uren per week</div>
+          <div class="step-desc">Alles draait automatisch. Ik lever op, leg het uit, en zorg dat jij en je team er direct mee aan de slag kunnen.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CTA -->
+<section>
+  <div class="section-inner">
+    <div class="cta-block">
+      <h2 class="cta-title">Klaar om rust<br>te <em>kopen?</em></h2>
+      <p class="cta-sub">Plan een gratis kennismaking van 30 minuten.<br>Geen verplichtingen. Geen technisch verhaal.</p>
+      <div class="cta-tags">
+        <span class="cta-tag">Gratis gesprek</span>
+        <span class="cta-tag">Online of telefonisch</span>
+        <span class="cta-tag">Binnen 2 dagen reactie</span>
+      </div>
+      <div class="cta-actions">
+        <a href="https://cal.com/agentivestudio" target="_blank" class="btn-light">
+          Afspraak inplannen
+        </a>
+        <a href="https://wa.me/31657778357" target="_blank" class="btn-wa">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp mij
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-text">© 2025 Agentivestudio — Omar Hamdi — Leiden, Nederland — <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f09f9d9182b09197959e8499869583848594999fde9e9c">[email&#160;protected]</a></div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// Scroll animation
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.animation = 'fadeUp 0.6s ease forwards';
+      observer.unobserve(entry.target

@@ -20,7 +20,7 @@
   --muted:#A08060;
   --dark:#1C1108;
 }
-html{scroll-behavior:smooth;cursor:none}
+html{scroll-behavior:smooth}
 body{
   font-family:'Syne',sans-serif;
   background:var(--sand);
@@ -183,7 +183,7 @@ h1 .line{display:block;overflow:hidden}
   background:var(--espresso);color:var(--sand);
   padding:16px 32px;border-radius:2px;
   font-size:12px;font-weight:500;
-  text-decoration:none;border:none;cursor:none;
+  text-decoration:none;border:none;
   transition:background 0.2s,transform 0.15s;
   letter-spacing:0.08em;text-transform:uppercase;
 }
@@ -193,7 +193,7 @@ h1 .line{display:block;overflow:hidden}
   background:transparent;color:var(--espresso);
   padding:15px 28px;border-radius:2px;
   font-size:12px;font-weight:500;
-  text-decoration:none;border:1px solid var(--sand3);cursor:none;
+  text-decoration:none;border:1px solid var(--sand3);
   transition:all 0.2s;letter-spacing:0.08em;text-transform:uppercase;
 }
 .btn-secondary:hover{border-color:var(--terra);color:var(--terra)}
@@ -292,7 +292,7 @@ h2 em{font-style:italic;color:var(--terra)}
   border:1px solid rgba(255,255,255,0.06);
   padding:40px 36px;
   position:relative;overflow:hidden;
-  cursor:none;
+  
   transition:background 0.3s;
 }
 .project-card::before{
@@ -480,7 +480,7 @@ h2 em{font-style:italic;color:var(--terra)}
   background:var(--sand);color:var(--espresso);
   padding:16px 32px;border-radius:2px;
   font-size:12px;font-weight:500;text-decoration:none;
-  transition:all 0.2s;letter-spacing:0.08em;text-transform:uppercase;cursor:none;
+  transition:all 0.2s;letter-spacing:0.08em;text-transform:uppercase;
 }
 .btn-light:hover{background:var(--sand2);transform:translateY(-2px)}
 .btn-wa{
@@ -488,7 +488,7 @@ h2 em{font-style:italic;color:var(--terra)}
   background:#25D366;color:#fff;
   padding:16px 32px;border-radius:2px;
   font-size:12px;font-weight:500;text-decoration:none;
-  transition:all 0.2s;letter-spacing:0.08em;text-transform:uppercase;cursor:none;
+  transition:all 0.2s;letter-spacing:0.08em;text-transform:uppercase;
 }
 .btn-wa:hover{background:#20b858;transform:translateY(-2px)}
 
@@ -509,7 +509,7 @@ footer{
   from{opacity:0;transform:translateY(32px)}
   to{opacity:1;transform:translateY(0)}
 }
-.reveal{opacity:0;transform:translateY(40px);transition:opacity 0.8s ease,transform 0.8s ease}
+.reveal{opacity:1;transform:translateY(0);transition:opacity 0.8s ease,transform 0.8s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
 /* MOBILE */

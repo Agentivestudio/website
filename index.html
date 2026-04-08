@@ -5,416 +5,631 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Agentivestudio — Omar Hamdi</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --sand:#F5EFE6;
+  --sand2:#EDE4D7;
+  --sand3:#DDD0BC;
+  --terra:#B85C38;
+  --terra2:#8B4220;
+  --gold:#C9993F;
+  --espresso:#2A1A0E;
+  --warm:#6B4C35;
+  --muted:#A08060;
+  --dark:#1C1108;
+}
+html{scroll-behavior:smooth;cursor:none}
+body{
+  font-family:'Syne',sans-serif;
+  background:var(--sand);
+  color:var(--espresso);
+  overflow-x:hidden;
+}
 
-  :root {
-    --sand:    #FAF7F2;
-    --sand2:   #F0E8DC;
-    --sand3:   #E8DDD0;
-    --terra:   #C4673A;
-    --terra2:  #A0522D;
-    --espresso:#3D2B1F;
-    --warm:    #7A5C4E;
-    --muted:   #B09A8A;
-  }
+/* GRAIN OVERLAY */
+body::before{
+  content:'';
+  position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  opacity:0.04;
+  pointer-events:none;
+  z-index:9999;
+}
 
-  html { scroll-behavior: smooth; }
+/* CUSTOM CURSOR */
+.cursor{
+  width:12px;height:12px;
+  background:var(--terra);
+  border-radius:50%;
+  position:fixed;
+  pointer-events:none;
+  z-index:99999;
+  transform:translate(-50%,-50%);
+  transition:width 0.2s,height 0.2s,background 0.2s;
+  mix-blend-mode:multiply;
+}
+.cursor-ring{
+  width:40px;height:40px;
+  border:1px solid var(--terra);
+  border-radius:50%;
+  position:fixed;
+  pointer-events:none;
+  z-index:99998;
+  transform:translate(-50%,-50%);
+  transition:all 0.12s ease-out;
+  opacity:0.5;
+}
+body:hover .cursor{opacity:1}
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--sand);
-    color: var(--espresso);
-    overflow-x: hidden;
-  }
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:24px 56px;
+  mix-blend-mode:normal;
+}
+.nav-logo{
+  font-family:'Playfair Display',serif;
+  font-size:18px;font-weight:400;
+  color:var(--espresso);
+  letter-spacing:0.02em;
+}
+.nav-links{display:flex;gap:36px;align-items:center}
+.nav-links a{
+  font-size:12px;font-weight:500;
+  color:var(--warm);text-decoration:none;
+  letter-spacing:0.08em;text-transform:uppercase;
+  transition:color 0.2s;
+}
+.nav-links a:hover{color:var(--terra)}
+.nav-cta{
+  background:var(--espresso) !important;
+  color:var(--sand) !important;
+  padding:10px 22px;border-radius:2px;
+  font-size:11px !important;
+  letter-spacing:0.1em !important;
+  transition:background 0.2s !important;
+}
+.nav-cta:hover{background:var(--terra) !important}
 
-  /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 20px 48px;
-    background: rgba(250,247,242,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(196,103,58,0.12);
-    transition: padding 0.3s;
-  }
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px; font-weight: 500;
-    letter-spacing: 0.04em;
-    color: var(--espresso);
-  }
-  .nav-links { display: flex; gap: 32px; align-items: center; }
-  .nav-links a {
-    font-size: 13px; font-weight: 400;
-    color: var(--warm); text-decoration: none;
-    letter-spacing: 0.03em;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--terra); }
-  .nav-cta {
-    background: var(--terra); color: var(--sand) !important;
-    padding: 10px 22px; border-radius: 99px;
-    font-size: 13px !important; font-weight: 500 !important;
-    transition: background 0.2s !important;
-  }
-  .nav-cta:hover { background: var(--terra2) !important; }
+/* MARQUEE */
+.marquee-wrap{
+  overflow:hidden;
+  padding:14px 0;
+  background:var(--espresso);
+  border-bottom:1px solid rgba(196,103,58,0.3);
+  margin-top:0;
+}
+.marquee-track{
+  display:flex;gap:48px;
+  animation:marquee 24s linear infinite;
+  width:max-content;
+}
+.marquee-item{
+  font-size:11px;letter-spacing:0.15em;
+  color:var(--muted);text-transform:uppercase;
+  white-space:nowrap;
+  display:flex;align-items:center;gap:48px;
+}
+.marquee-dot{width:4px;height:4px;border-radius:50%;background:var(--terra);flex-shrink:0}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: flex; align-items: center;
-    padding: 120px 48px 80px;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero-bg {
-    position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse 60% 50% at 80% 50%, rgba(196,103,58,0.08) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(196,103,58,0.05) 0%, transparent 60%);
-    pointer-events: none;
-  }
-  .hero-inner {
-    max-width: 1200px; margin: 0 auto; width: 100%;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
-  }
-  .hero-eyebrow {
-    display: flex; align-items: center; gap: 10px;
-    margin-bottom: 28px;
-  }
-  .eyebrow-line { width: 32px; height: 1px; background: var(--terra); }
-  .eyebrow-text {
-    font-size: 11px; letter-spacing: 0.15em;
-    color: var(--terra); text-transform: uppercase; font-weight: 500;
-  }
-  h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(44px, 5vw, 68px);
-    font-weight: 400; line-height: 1.1;
-    color: var(--espresso);
-    margin-bottom: 24px;
-  }
-  h1 em { font-style: italic; color: var(--terra); }
-  .hero-sub {
-    font-size: 16px; line-height: 1.75;
-    color: var(--warm); max-width: 440px;
-    margin-bottom: 40px; font-weight: 300;
-  }
-  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
-  .btn-primary {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--espresso); color: var(--sand);
-    padding: 15px 28px; border-radius: 99px;
-    font-size: 14px; font-weight: 500;
-    text-decoration: none; border: none; cursor: pointer;
-    transition: background 0.2s, transform 0.15s;
-    letter-spacing: 0.02em;
-  }
-  .btn-primary:hover { background: var(--terra); transform: translateY(-1px); }
-  .btn-secondary {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: transparent; color: var(--espresso);
-    padding: 14px 26px; border-radius: 99px;
-    font-size: 14px; font-weight: 400;
-    text-decoration: none; border: 1px solid var(--sand3); cursor: pointer;
-    transition: border-color 0.2s, transform 0.15s;
-  }
-  .btn-secondary:hover { border-color: var(--terra); transform: translateY(-1px); }
-  .wa-icon { width: 16px; height: 16px; }
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;align-items:center;
+  padding:0 56px;
+  position:relative;
+  overflow:hidden;
+}
+.hero-bg-text{
+  position:absolute;
+  font-family:'Playfair Display',serif;
+  font-size:clamp(140px,20vw,260px);
+  font-weight:700;
+  color:rgba(61,27,15,0.04);
+  right:-2%;top:50%;
+  transform:translateY(-50%);
+  line-height:1;
+  pointer-events:none;
+  white-space:nowrap;
+}
+.hero-left{
+  padding:180px 0 120px;
+  display:flex;flex-direction:column;
+  position:relative;
+  z-index:2;
+  max-width:900px;
+}
+.hero-right{display:none}
+.hero-right::before{
+  content:'';
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 60% at 30% 70%,rgba(196,103,58,0.15),transparent);
+}
+.hero-eyebrow{
+  display:flex;align-items:center;gap:12px;
+  margin-bottom:32px;
+  opacity:0;animation:fadeUp 0.8s 0.2s ease forwards;
+}
+.eyebrow-line{width:40px;height:1px;background:var(--terra)}
+.eyebrow-text{font-size:10px;letter-spacing:0.2em;color:var(--terra);text-transform:uppercase;font-weight:500}
+h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(64px,8vw,112px);
+  font-weight:400;line-height:0.95;
+  letter-spacing:-0.02em;
+  color:var(--espresso);
+  margin-bottom:32px;
+  opacity:0;animation:fadeUp 0.8s 0.4s ease forwards;
+}
+h1 em{font-style:italic;color:var(--terra)}
+h1 .line{display:block;overflow:hidden}
+.hero-sub{
+  font-size:15px;line-height:1.8;
+  color:var(--warm);max-width:580px;
+  margin-bottom:56px;font-weight:400;
+  font-size:18px;
+  opacity:0;animation:fadeUp 0.8s 0.6s ease forwards;
+}
+.hero-actions{
+  display:flex;gap:16px;flex-wrap:wrap;
+  opacity:0;animation:fadeUp 0.8s 0.8s ease forwards;
+}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--espresso);color:var(--sand);
+  padding:16px 32px;border-radius:2px;
+  font-size:12px;font-weight:500;
+  text-decoration:none;border:none;cursor:none;
+  transition:background 0.2s,transform 0.15s;
+  letter-spacing:0.08em;text-transform:uppercase;
+}
+.btn-primary:hover{background:var(--terra);transform:translateY(-2px)}
+.btn-secondary{
+  display:inline-flex;align-items:center;gap:10px;
+  background:transparent;color:var(--espresso);
+  padding:15px 28px;border-radius:2px;
+  font-size:12px;font-weight:500;
+  text-decoration:none;border:1px solid var(--sand3);cursor:none;
+  transition:all 0.2s;letter-spacing:0.08em;text-transform:uppercase;
+}
+.btn-secondary:hover{border-color:var(--terra);color:var(--terra)}
 
-  /* HERO RIGHT — STATS */
-  .hero-right {
-    display: flex; flex-direction: column; gap: 16px;
-  }
-  .stat-card {
-    background: var(--sand2);
-    border: 1px solid var(--sand3);
-    border-radius: 16px; padding: 28px 32px;
-    transition: transform 0.2s;
-  }
-  .stat-card:hover { transform: translateY(-2px); }
-  .stat-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 48px; font-weight: 400;
-    color: var(--terra); line-height: 1;
-    margin-bottom: 6px;
-  }
-  .stat-label { font-size: 13px; color: var(--warm); font-weight: 300; }
-  .stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+/* HERO RIGHT CONTENT */
+.hero-number{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(100px,14vw,180px);
+  font-weight:700;
+  color:rgba(255,255,255,0.04);
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  line-height:1;
+  white-space:nowrap;
+  pointer-events:none;
+}
+.hero-stats{
+  position:relative;z-index:2;
+  width:100%;
+}
+.hero-stat{
+  padding:28px 0;
+  border-top:1px solid rgba(255,255,255,0.08);
+}
+.hero-stat:last-child{border-bottom:1px solid rgba(255,255,255,0.08)}
+.stat-num{
+  font-family:'Playfair Display',serif;
+  font-size:52px;font-weight:400;
+  color:var(--sand);line-height:1;
+  margin-bottom:6px;
+}
+.stat-num span{font-style:italic;color:var(--terra);font-size:32px}
+.hero-stats-row{display:flex;gap:0;border-top:1px solid var(--sand3);margin-top:60px;opacity:0;animation:fadeUp 0.8s 1s ease forwards}
+.hero-stat-item{flex:1;padding:28px 32px 0 0;border-right:1px solid var(--sand3)}
+.hero-stat-item:last-child{border-right:none;padding-right:0;padding-left:32px}
+.hero-stat-item:nth-child(2){padding-left:32px}
+.stat-label{font-size:12px;color:rgba(255,255,255,0.4);letter-spacing:0.06em;text-transform:uppercase}
 
-  /* DIVIDER */
-  .divider {
-    width: 100%; height: 1px;
-    background: linear-gradient(90deg, transparent, var(--sand3), transparent);
-    margin: 0;
-  }
+/* DIVIDER */
+.divider{
+  width:100%;height:1px;
+  background:linear-gradient(90deg,transparent,var(--sand3),transparent);
+}
 
-  /* SECTION */
-  section { padding: 100px 48px; }
-  .section-inner { max-width: 1200px; margin: 0 auto; }
-  .section-eyebrow {
-    font-size: 11px; letter-spacing: 0.15em;
-    color: var(--terra); text-transform: uppercase;
-    font-weight: 500; margin-bottom: 16px;
-    display: flex; align-items: center; gap: 10px;
-  }
-  .section-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--terra); }
-  h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(36px, 4vw, 52px);
-    font-weight: 400; line-height: 1.15;
-    color: var(--espresso); margin-bottom: 60px;
-  }
+/* SECTION */
+section{padding:120px 56px}
+.section-inner{max-width:1280px;margin:0 auto}
+.section-eyebrow{
+  font-size:10px;letter-spacing:0.2em;
+  color:var(--terra);text-transform:uppercase;
+  font-weight:500;margin-bottom:20px;
+  display:flex;align-items:center;gap:12px;
+}
+.section-eyebrow::before{content:'';width:32px;height:1px;background:var(--terra)}
+h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(40px,5vw,64px);
+  font-weight:400;line-height:1.1;
+  color:var(--espresso);margin-bottom:80px;
+}
+h2 em{font-style:italic;color:var(--terra)}
 
-  /* PAIN SECTION */
-  .pain-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
-  }
-  .pain-card {
-    background: var(--sand2);
-    border: 1px solid var(--sand3);
-    border-radius: 16px; padding: 36px 28px;
-    transition: transform 0.2s, border-color 0.2s;
-  }
-  .pain-card:hover { transform: translateY(-3px); border-color: var(--muted); }
-  .pain-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 48px; font-weight: 400;
-    color: var(--sand3); line-height: 1;
-    margin-bottom: 20px;
-  }
-  .pain-title {
-    font-size: 17px; font-weight: 500;
-    color: var(--espresso); margin-bottom: 10px;
-    line-height: 1.3;
-  }
-  .pain-desc { font-size: 14px; color: var(--warm); line-height: 1.65; font-weight: 300; }
+/* PAIN */
+.pain-layout{
+  display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:start;
+}
+.pain-intro{
+  position:sticky;top:140px;
+}
+.pain-intro p{font-size:15px;color:var(--warm);line-height:1.8;font-weight:400}
+.pain-items{display:flex;flex-direction:column;gap:0}
+.pain-item{
+  padding:40px 0;
+  border-bottom:1px solid var(--sand3);
+  display:grid;grid-template-columns:80px 1fr;gap:24px;
+  align-items:start;
+  transition:background 0.2s;
+}
+.pain-num{
+  font-family:'Playfair Display',serif;
+  font-size:64px;font-weight:400;
+  color:var(--sand3);line-height:1;
+  margin-top:-8px;
+}
+.pain-title{font-size:20px;font-weight:500;color:var(--espresso);margin-bottom:10px;letter-spacing:-0.01em}
+.pain-desc{font-size:14px;color:var(--warm);line-height:1.7;font-weight:400}
 
-  /* ABOUT */
-  .about-section { background: var(--sand2); }
-  .about-inner {
-    max-width: 1200px; margin: 0 auto;
-    display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: center;
-  }
-  .about-avatar-wrap { position: relative; }
-  .about-avatar {
-    width: 100%; aspect-ratio: 3/4;
-    border-radius: 120px 120px 120px 40px;
-    background: var(--sand3);
-    display: flex; align-items: center; justify-content: center;
-    overflow: hidden;
-    border: 1px solid var(--sand3);
-  }
-  .about-initials {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 80px; font-weight: 400;
-    color: var(--muted);
-  }
-  .about-tag {
-    position: absolute; bottom: 24px; right: -20px;
-    background: var(--terra); color: var(--sand);
-    padding: 12px 20px; border-radius: 99px;
-    font-size: 12px; font-weight: 500;
-    letter-spacing: 0.05em;
-  }
-  .about-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 40px; font-weight: 400;
-    color: var(--espresso); margin-bottom: 6px;
-  }
-  .about-role { font-size: 13px; color: var(--terra); margin-bottom: 28px; font-weight: 500; letter-spacing: 0.05em; }
-  .about-bio {
-    font-size: 16px; line-height: 1.8;
-    color: var(--warm); font-weight: 300; margin-bottom: 32px;
-  }
-  .about-tags { display: flex; gap: 8px; flex-wrap: wrap; }
-  .tag {
-    font-size: 12px; color: var(--warm);
-    border: 1px solid var(--sand3);
-    padding: 6px 14px; border-radius: 99px;
-    background: var(--sand);
-  }
+/* PROJECTS */
+.projects-section{background:var(--espresso);padding:120px 56px}
+.projects-section h2{color:var(--sand)}
+.projects-section h2 em{color:var(--terra)}
+.projects-section .section-eyebrow{color:var(--terra)}
+.projects-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2px}
+.project-card{
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.06);
+  padding:40px 36px;
+  position:relative;overflow:hidden;
+  cursor:none;
+  transition:background 0.3s;
+}
+.project-card::before{
+  content:'';
+  position:absolute;inset:0;
+  background:var(--terra);
+  transform:translateY(100%);
+  transition:transform 0.4s cubic-bezier(0.16,1,0.3,1);
+  z-index:0;
+}
+.project-card:hover::before{transform:translateY(0)}
+.project-card:hover .project-tag{color:rgba(255,255,255,0.6);border-color:rgba(255,255,255,0.2)}
+.project-card:hover .project-title{color:var(--sand)}
+.project-card:hover .project-desc{color:rgba(255,255,255,0.7)}
+.project-card:hover .project-arrow{color:var(--sand)}
+.project-inner{position:relative;z-index:1}
+.project-tag{
+  font-size:10px;letter-spacing:0.15em;
+  color:var(--muted);text-transform:uppercase;
+  margin-bottom:48px;
+  border:1px solid rgba(255,255,255,0.1);
+  display:inline-block;padding:6px 14px;border-radius:1px;
+  transition:all 0.3s;
+}
+.project-title{
+  font-family:'Playfair Display',serif;
+  font-size:28px;font-weight:400;
+  color:var(--sand);line-height:1.2;
+  margin-bottom:16px;
+  transition:color 0.3s;
+}
+.project-desc{
+  font-size:13px;color:rgba(255,255,255,0.4);
+  line-height:1.7;margin-bottom:32px;
+  transition:color 0.3s;
+}
+.project-features{display:flex;flex-direction:column;gap:8px;margin-bottom:40px}
+.project-feature{
+  font-size:12px;color:rgba(255,255,255,0.3);
+  display:flex;align-items:center;gap:8px;
+  transition:color 0.3s;
+}
+.project-card:hover .project-feature{color:rgba(255,255,255,0.7)}
+.feat-dot{width:4px;height:4px;border-radius:50%;background:var(--terra);flex-shrink:0}
+.project-card:hover .feat-dot{background:var(--sand)}
+.project-result{
+  font-family:'Playfair Display',serif;
+  font-size:36px;font-weight:400;
+  color:var(--terra);margin-bottom:4px;
+  transition:color 0.3s;
+}
+.project-card:hover .project-result{color:var(--sand)}
+.project-result-label{font-size:11px;color:rgba(255,255,255,0.3);letter-spacing:0.06em;text-transform:uppercase}
+.project-card:hover .project-result-label{color:rgba(255,255,255,0.6)}
+.project-arrow{
+  position:absolute;top:40px;right:36px;
+  font-size:20px;color:rgba(255,255,255,0.2);
+  transition:all 0.3s;
+}
+.project-card:hover .project-arrow{transform:translate(4px,-4px)}
+.project-placeholder{
+  background:rgba(255,255,255,0.02);
+  border:1px dashed rgba(255,255,255,0.08);
+  padding:40px 36px;
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:12px;
+}
+.placeholder-text{font-size:13px;color:rgba(255,255,255,0.2);text-align:center;line-height:1.6}
 
-  /* STEPS */
-  .steps-grid { display: flex; flex-direction: column; gap: 0; }
-  .step-row {
-    display: grid; grid-template-columns: 80px 1fr; gap: 32px;
-    padding: 40px 0; border-bottom: 1px solid var(--sand3);
-    align-items: start;
-  }
-  .step-row:last-child { border-bottom: none; }
-  .step-num-wrap { display: flex; flex-direction: column; align-items: center; gap: 12px; padding-top: 4px; }
-  .step-num {
-    width: 44px; height: 44px; border-radius: 50%;
-    border: 1px solid var(--sand3);
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px; color: var(--terra);
-  }
-  .step-connector { width: 1px; background: var(--sand3); flex: 1; min-height: 40px; }
-  .step-title { font-size: 20px; font-weight: 500; color: var(--espresso); margin-bottom: 8px; }
-  .step-desc { font-size: 15px; color: var(--warm); line-height: 1.65; font-weight: 300; }
+/* ABOUT */
+.about-section{background:var(--sand2)}
+.about-layout{
+  display:grid;grid-template-columns:1fr 1fr;gap:120px;align-items:center;
+}
+.about-img-wrap{position:relative}
+.about-img{
+  width:100%;aspect-ratio:3/4;
+  background:var(--sand3);
+  border-radius:2px;
+  overflow:hidden;
+  position:relative;
+}
+.about-img-inner{
+  width:100%;height:100%;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--sand3) 0%,var(--sand2) 100%);
+}
+.about-initials{
+  font-family:'Playfair Display',serif;
+  font-size:120px;font-weight:400;
+  color:var(--sand);
+  opacity:0.6;
+}
+.about-tag{
+  position:absolute;bottom:-20px;right:-20px;
+  background:var(--terra);color:var(--sand);
+  padding:16px 24px;border-radius:2px;
+  font-size:11px;font-weight:500;
+  letter-spacing:0.1em;text-transform:uppercase;
+}
+.about-name{
+  font-family:'Playfair Display',serif;
+  font-size:48px;font-weight:400;
+  color:var(--espresso);margin-bottom:4px;
+  line-height:1.1;
+}
+.about-role{
+  font-size:11px;color:var(--terra);
+  margin-bottom:32px;font-weight:500;
+  letter-spacing:0.12em;text-transform:uppercase;
+}
+.about-bio{
+  font-size:16px;line-height:1.85;
+  color:var(--warm);font-weight:400;margin-bottom:36px;
+}
+.about-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px}
+.tag{
+  font-size:11px;color:var(--warm);
+  border:1px solid var(--sand3);
+  padding:8px 16px;border-radius:2px;
+  background:var(--sand);
+  letter-spacing:0.04em;
+}
 
-  /* CTA BLOCK */
-  .cta-block {
-    background: var(--espresso);
-    border-radius: 24px;
-    padding: 64px 80px;
-    text-align: center;
-    position: relative; overflow: hidden;
-  }
-  .cta-block::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse 60% 80% at 50% 100%, rgba(196,103,58,0.2), transparent);
-    pointer-events: none;
-  }
-  .cta-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(36px, 4vw, 52px); font-weight: 400;
-    color: var(--sand); line-height: 1.15; margin-bottom: 16px;
-  }
-  .cta-title em { font-style: italic; color: var(--terra); }
-  .cta-sub { font-size: 16px; color: var(--muted); font-weight: 300; margin-bottom: 40px; line-height: 1.6; }
-  .cta-tags { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px; }
-  .cta-tag {
-    font-size: 12px; color: var(--muted);
-    border: 1px solid rgba(176,154,138,0.3);
-    padding: 6px 16px; border-radius: 99px;
-  }
-  .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-  .btn-light {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--sand); color: var(--espresso);
-    padding: 15px 28px; border-radius: 99px;
-    font-size: 14px; font-weight: 500; text-decoration: none;
-    transition: background 0.2s, transform 0.15s;
-  }
-  .btn-light:hover { background: var(--sand2); transform: translateY(-1px); }
-  .btn-wa {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: #25D366; color: #fff;
-    padding: 15px 28px; border-radius: 99px;
-    font-size: 14px; font-weight: 500; text-decoration: none;
-    transition: background 0.2s, transform 0.15s;
-  }
-  .btn-wa:hover { background: #20b858; transform: translateY(-1px); }
+/* STEPS */
+.steps-layout{
+  display:grid;grid-template-columns:1fr 1fr;gap:120px;align-items:start;
+}
+.steps-left{position:sticky;top:140px}
+.steps-left p{font-size:15px;color:var(--warm);line-height:1.8}
+.steps-right{display:flex;flex-direction:column}
+.step{
+  padding:40px 0;
+  border-bottom:1px solid var(--sand3);
+  display:flex;gap:32px;
+}
+.step:first-child{border-top:1px solid var(--sand3)}
+.step-num{
+  font-family:'Playfair Display',serif;
+  font-size:14px;color:var(--terra);
+  font-weight:400;padding-top:4px;
+  min-width:32px;
+}
+.step-title{font-size:19px;font-weight:500;color:var(--espresso);margin-bottom:10px;letter-spacing:-0.01em}
+.step-desc{font-size:14px;color:var(--warm);line-height:1.7}
 
-  /* FOOTER */
-  footer {
-    padding: 40px 48px; text-align: center;
-    border-top: 1px solid var(--sand3);
-  }
-  .footer-text { font-size: 13px; color: var(--muted); font-weight: 300; }
+/* CTA */
+.cta-section{
+  background:var(--espresso);
+  padding:120px 56px;
+  position:relative;overflow:hidden;
+}
+.cta-section::before{
+  content:'';
+  position:absolute;
+  width:600px;height:600px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(184,92,56,0.15),transparent 70%);
+  bottom:-200px;right:-100px;
+  pointer-events:none;
+}
+.cta-inner{max-width:800px;margin:0 auto;text-align:center;position:relative;z-index:2}
+.cta-eyebrow{
+  font-size:10px;letter-spacing:0.2em;color:var(--terra);
+  text-transform:uppercase;margin-bottom:24px;
+  display:flex;align-items:center;gap:12px;justify-content:center;
+}
+.cta-eyebrow::before,.cta-eyebrow::after{content:'';width:32px;height:1px;background:var(--terra)}
+.cta-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(44px,5vw,72px);font-weight:400;
+  color:var(--sand);line-height:1.1;margin-bottom:20px;
+}
+.cta-title em{font-style:italic;color:var(--terra)}
+.cta-sub{font-size:15px;color:rgba(255,255,255,0.4);margin-bottom:48px;line-height:1.7}
+.cta-tags{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
+.cta-tag{
+  font-size:11px;color:rgba(255,255,255,0.35);
+  border:1px solid rgba(255,255,255,0.1);
+  padding:8px 18px;border-radius:2px;letter-spacing:0.06em;
+}
+.cta-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-light{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--sand);color:var(--espresso);
+  padding:16px 32px;border-radius:2px;
+  font-size:12px;font-weight:500;text-decoration:none;
+  transition:all 0.2s;letter-spacing:0.08em;text-transform:uppercase;cursor:none;
+}
+.btn-light:hover{background:var(--sand2);transform:translateY(-2px)}
+.btn-wa{
+  display:inline-flex;align-items:center;gap:10px;
+  background:#25D366;color:#fff;
+  padding:16px 32px;border-radius:2px;
+  font-size:12px;font-weight:500;text-decoration:none;
+  transition:all 0.2s;letter-spacing:0.08em;text-transform:uppercase;cursor:none;
+}
+.btn-wa:hover{background:#20b858;transform:translateY(-2px)}
 
-  /* ANIMATIONS */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  .fade-up { animation: fadeUp 0.7s ease forwards; }
-  .fade-up-1 { animation-delay: 0.1s; opacity: 0; }
-  .fade-up-2 { animation-delay: 0.25s; opacity: 0; }
-  .fade-up-3 { animation-delay: 0.4s; opacity: 0; }
-  .fade-up-4 { animation-delay: 0.55s; opacity: 0; }
+/* FOOTER */
+footer{
+  background:var(--dark);
+  padding:40px 56px;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.footer-logo{
+  font-family:'Playfair Display',serif;
+  font-size:16px;color:rgba(255,255,255,0.3);
+}
+.footer-text{font-size:11px;color:rgba(255,255,255,0.2);letter-spacing:0.06em}
 
-  /* MOBILE */
-  @media (max-width: 768px) {
-    nav { padding: 16px 24px; }
-    .nav-links a:not(.nav-cta) { display: none; }
-    .hero { padding: 100px 24px 60px; }
-    .hero-inner { grid-template-columns: 1fr; gap: 48px; }
-    .stat-row { grid-template-columns: 1fr 1fr; }
-    section { padding: 64px 24px; }
-    .pain-grid { grid-template-columns: 1fr; }
-    .about-inner { grid-template-columns: 1fr; gap: 40px; }
-    .about-avatar { aspect-ratio: 1/1; max-width: 280px; }
-    .cta-block { padding: 48px 24px; }
-    footer { padding: 32px 24px; }
-  }
+/* ANIMATIONS */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(32px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 0.8s ease,transform 0.8s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* MOBILE */
+@media(max-width:768px){
+  nav{padding:16px 24px}
+  .nav-links a:not(.nav-cta){display:none}
+  .hero{padding:0 24px;min-height:auto}
+  .hero-left{padding:100px 0 60px}
+  .hero-right{display:none}
+  .hero-stats-row{flex-direction:column;gap:20px}
+  section{padding:80px 24px}
+  .pain-layout{grid-template-columns:1fr}
+  .pain-intro{position:static}
+  .projects-grid{grid-template-columns:1fr}
+  .about-layout{grid-template-columns:1fr;gap:48px}
+  .steps-layout{grid-template-columns:1fr;gap:48px}
+  .steps-left{position:static}
+  .cta-section{padding:80px 24px}
+  footer{flex-direction:column;gap:12px;padding:32px 24px;text-align:center}
+}
 </style>
 </head>
 <body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
 
 <!-- NAV -->
 <nav>
   <div class="nav-logo">Agentivestudio</div>
   <div class="nav-links">
+    <a href="#werk">Werk</a>
     <a href="#aanpak">Aanpak</a>
-    <a href="#over">Over Omar</a>
+    <a href="#over">Over</a>
     <a href="https://cal.com/agentivestudio" target="_blank" class="nav-cta">Kennismaken</a>
   </div>
 </nav>
 
+<!-- MARQUEE -->
+<div class="marquee-wrap" style="margin-top:72px">
+  <div class="marquee-track">
+    <div class="marquee-item">Automatisering<div class="marquee-dot"></div>App-ontwikkeling<div class="marquee-dot"></div>Procesoptimalisatie<div class="marquee-dot"></div>MKB-ondernemer<div class="marquee-dot"></div>Tijdwinst<div class="marquee-dot"></div>Op maat gebouwd<div class="marquee-dot"></div></div>
+    <div class="marquee-item">Automatisering<div class="marquee-dot"></div>App-ontwikkeling<div class="marquee-dot"></div>Procesoptimalisatie<div class="marquee-dot"></div>MKB-ondernemer<div class="marquee-dot"></div>Tijdwinst<div class="marquee-dot"></div>Op maat gebouwd<div class="marquee-dot"></div></div>
+  </div>
+</div>
+
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-inner">
-    <div>
-      <div class="hero-eyebrow fade-up fade-up-1">
-        <div class="eyebrow-line"></div>
-        <span class="eyebrow-text">Voor MKB-ondernemers · Leiden</span>
-      </div>
-      <h1 class="fade-up fade-up-2">
-        Minder handmatig<br>
-        werk. <em>Meer rust.</em>
-      </h1>
-      <p class="hero-sub fade-up fade-up-3">
-        Jij kent je bedrijf. Ik bouw de app die het handmatige werk overneemt — zodat jij doet wat je goed in bent. Geen technisch gezwam. Gewoon resultaat.
-      </p>
-      <div class="hero-actions fade-up fade-up-4">
-        <a href="https://cal.com/agentivestudio" target="_blank" class="btn-primary">
-          Plan gratis kennismaking
-        </a>
-        <a href="https://wa.me/31657778357" target="_blank" class="btn-secondary">
-          <svg class="wa-icon" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          WhatsApp
-        </a>
-      </div>
+<div class="hero">
+  <div class="hero-bg-text">Rust.</div>
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">Voor MKB-ondernemers · Leiden</span>
     </div>
-    <div class="hero-right fade-up fade-up-3">
-      <div class="stat-row">
-        <div class="stat-card">
-          <div class="stat-num">80%</div>
-          <div class="stat-label">Minder handmatig werk</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">2wk</div>
-          <div class="stat-label">Gemiddelde bouwtijd</div>
-        </div>
+    <h1>
+      <span class="line">Stop met</span>
+      <span class="line">handmatig</span>
+      <span class="line"><em>werken.</em></span>
+    </h1>
+    <p class="hero-sub">Jij kent je bedrijf. Ik bouw de app die het handmatige werk overneemt — zodat jij doet wat je goed in bent. Geen technisch gezwam. Gewoon resultaat.</p>
+    <div class="hero-actions">
+      <a href="https://cal.com/agentivestudio" target="_blank" class="btn-primary">
+        Plan gratis kennismaking
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+      </a>
+      <a href="https://wa.me/31657778357" target="_blank" class="btn-secondary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+    <div class="hero-stats-row reveal">
+      <div class="hero-stat-item">
+        <div class="stat-num">80<em>%</em></div>
+        <div class="stat-label">Minder handmatig werk</div>
       </div>
-      <div class="stat-card">
-        <div class="stat-num">100%</div>
-        <div class="stat-label">Op maat — voor jouw proces, jouw data, jouw werkwijze</div>
+      <div class="hero-stat-item">
+        <div class="stat-num">2<em>wk</em></div>
+        <div class="stat-label">Gemiddelde bouwtijd</div>
+      </div>
+      <div class="hero-stat-item">
+        <div class="stat-num">100<em>%</em></div>
+        <div class="stat-label">Op maat gebouwd</div>
       </div>
     </div>
   </div>
-</section>
+</div>
 
 <div class="divider"></div>
 
 <!-- PAIN -->
 <section>
   <div class="section-inner">
-    <div class="section-eyebrow">Herken jij dit?</div>
-    <h2>Het knip-en-plak leven<br>van de ondernemer</h2>
-    <div class="pain-grid">
-      <div class="pain-card">
-        <div class="pain-num">01</div>
-        <div class="pain-title">Elke week dezelfde Excel-klus</div>
-        <div class="pain-desc">Kopiëren, plakken, optellen — en dan hopen dat er geen fout in zit. Elke week opnieuw.</div>
+    <div class="pain-layout">
+      <div class="pain-intro reveal">
+        <div class="section-eyebrow">Herken jij dit?</div>
+        <h2>Het knip-en-plak<br><em>leven</em></h2>
+        <p>Elke week dezelfde handelingen. Elke dag tijd verspild aan werk dat een machine beter kan. Dat is op te lossen.</p>
       </div>
-      <div class="pain-card">
-        <div class="pain-num">02</div>
-        <div class="pain-title">Data verspreid over vijf plekken</div>
-        <div class="pain-desc">Mail, sheets, mappen, apps — nooit een helder overzicht. Altijd zoeken naar het juiste bestand.</div>
-      </div>
-      <div class="pain-card">
-        <div class="pain-num">03</div>
-        <div class="pain-title">Medewerkers doen het handmatige werk</div>
-        <div class="pain-desc">Duur talent bezig met saai kluswerk. Dat kost geld, motivatie en groei.</div>
+      <div class="pain-items">
+        <div class="pain-item reveal">
+          <div class="pain-num">01</div>
+          <div>
+            <div class="pain-title">Elke week dezelfde Excel-klus</div>
+            <div class="pain-desc">Kopiëren, plakken, optellen — en dan hopen dat er geen fout in zit. Elke week opnieuw. Uren die je nooit terugkrijgt.</div>
+          </div>
+        </div>
+        <div class="pain-item reveal">
+          <div class="pain-num">02</div>
+          <div>
+            <div class="pain-title">Data verspreid over vijf plekken</div>
+            <div class="pain-desc">Mail, sheets, mappen, apps — nooit een helder overzicht. Altijd zoeken. Altijd twijfelen of je wel de juiste versie hebt.</div>
+          </div>
+        </div>
+        <div class="pain-item reveal">
+          <div class="pain-num">03</div>
+          <div>
+            <div class="pain-title">Medewerkers doen het handmatige werk</div>
+            <div class="pain-desc">Duur talent bezig met saai kluswerk. Dat kost geld, motivatie en groei — tegelijk.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -422,28 +637,100 @@
 
 <div class="divider"></div>
 
+<!-- PROJECTS -->
+<section class="projects-section" id="werk">
+  <div class="section-inner">
+    <div class="section-eyebrow" style="color:var(--terra)">Gebouwd werk</div>
+    <h2 style="color:var(--sand)">Wat ik al heb<br><em>neergezet</em></h2>
+    <div class="projects-grid">
+
+      <!-- Proofmakr -->
+      <div class="project-card reveal">
+        <div class="project-arrow">↗</div>
+        <div class="project-inner">
+          <div class="project-tag">Native app — Bouwsector</div>
+          <div class="project-title">Proofmakr</div>
+          <div class="project-desc">Aannemers verloren uren aan papierwerk, e-mails en telefoontjes over projectstatus. Proofmakr maakt dat verleden tijd — alles wat een vakman op de bouwplaats nodig heeft, in één app.</div>
+          <div class="project-features">
+            <div class="project-feature"><div class="feat-dot"></div>Voor/na fotodocumentatie per project</div>
+            <div class="project-feature"><div class="feat-dot"></div>Klantportaal met real-time updates</div>
+            <div class="project-feature"><div class="feat-dot"></div>Digitale meerwerk goedkeuring</div>
+            <div class="project-feature"><div class="feat-dot"></div>Direct delen — geen app vereist voor klant</div>
+          </div>
+          <div class="project-result">4u</div>
+          <div class="project-result-label">Minder administratie per week per vakman</div>
+        </div>
+      </div>
+
+      <!-- Aanwezigheidsregistratie -->
+      <div class="project-card reveal">
+        <div class="project-arrow">↗</div>
+        <div class="project-inner">
+          <div class="project-tag">Web-app — Onderwijs · In ontwikkeling</div>
+          <div class="project-title">Schoolpresence</div>
+          <div class="project-desc">Scholen registreren aanwezigheid nog altijd handmatig — lijsten, Excel, losse systemen. Schoolpresence vervangt dat door één slim platform dat leraren, directie en ouders verbindt.</div>
+          <div class="project-features">
+            <div class="project-feature"><div class="feat-dot"></div>Aanwezigheid per klas in één klik</div>
+            <div class="project-feature"><div class="feat-dot"></div>Automatische oudermeldingen bij afwezigheid</div>
+            <div class="project-feature"><div class="feat-dot"></div>Directiedashboard met trends & signalering</div>
+            <div class="project-feature"><div class="feat-dot"></div>Koppeling met leerlingenadministratie</div>
+          </div>
+          <div class="project-result">90%</div>
+          <div class="project-result-label">Minder tijd kwijt aan aanwezigheidsadministratie</div>
+        </div>
+      </div>
+
+      <!-- Planningstool detachering -->
+      <div class="project-card reveal">
+        <div class="project-arrow">↗</div>
+        <div class="project-inner">
+          <div class="project-tag">Web-app — Detachering & HR</div>
+          <div class="project-title">StaffFlow</div>
+          <div class="project-desc">Detacheringsbureaus draaien op Excel, WhatsApp-groepen en losse agenda's. StaffFlow geeft bureaus een professioneel planningsplatform — van beschikbaarheid tot bezetting, realtime inzichtelijk.</div>
+          <div class="project-features">
+            <div class="project-feature"><div class="feat-dot"></div>Personeelsplanning met drag & drop</div>
+            <div class="project-feature"><div class="feat-dot"></div>Beschikbaarheid & contractbeheer</div>
+            <div class="project-feature"><div class="feat-dot"></div>Analysedashboard voor bezettingsgraad</div>
+            <div class="project-feature"><div class="feat-dot"></div>Klantportaal voor opdrachtgevers</div>
+          </div>
+          <div class="project-result">3×</div>
+          <div class="project-result-label">Sneller plannen dan met Excel en WhatsApp</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider" style="background:linear-gradient(90deg,transparent,rgba(255,255,255,0.08),transparent)"></div>
+
 <!-- ABOUT -->
 <section class="about-section" id="over">
-  <div class="about-inner section-inner">
-    <div class="about-avatar-wrap">
-      <div class="about-avatar">
-        <span class="about-initials">OH</span>
+  <div class="section-inner">
+    <div class="about-layout">
+      <div class="about-img-wrap reveal">
+        <div class="about-img">
+          <div class="about-img-inner">
+            <div class="about-initials">OH</div>
+          </div>
+        </div>
+        <div class="about-tag">Leiden, NL</div>
       </div>
-      <div class="about-tag">Leiden, NL</div>
-    </div>
-    <div>
-      <div class="section-eyebrow">Wie ben ik</div>
-      <div class="about-name">Omar Hamdi</div>
-      <div class="about-role">Oprichter — Agentivestudio</div>
-      <p class="about-bio">
-        Ik bouw apps en automatiseringen voor ondernemers die klaar zijn met handmatig werk. Geen technisch gezwam — ik luister rustig naar wat jij nodig hebt, begrijp je proces, en bouw precies wat werkt.<br><br>
-        Met een achtergrond in bouwen en een neus voor praktische oplossingen help ik MKB-ers om uren per week terug te winnen — zonder dat zij ook maar één regel code hoeven te begrijpen.
-      </p>
-      <div class="about-tags">
-        <span class="tag">App-ontwikkeling</span>
-        <span class="tag">Procesautomatisering</span>
-        <span class="tag">Data & Excel</span>
-        <span class="tag">Rustig & direct</span>
+      <div class="reveal">
+        <div class="section-eyebrow">Wie ben ik</div>
+        <div class="about-name">Omar<br>Hamdi</div>
+        <div class="about-role">Oprichter — Agentivestudio</div>
+        <p class="about-bio">
+          Ik bouw apps en automatiseringen voor ondernemers die klaar zijn met handmatig werk. Geen technisch gezwam — ik luister rustig naar wat jij nodig hebt, begrijp je proces, en bouw precies wat werkt.<br><br>
+          Rustig van aard, scherp in de oplossing. Met een achtergrond die begint in Errachidia en eindigt op de bouwplaatsen en kantoren van het Nederlandse MKB.
+        </p>
+        <div class="about-tags">
+          <span class="tag">App-ontwikkeling</span>
+          <span class="tag">Procesautomatisering</span>
+          <span class="tag">Data & Excel</span>
+          <span class="tag">Rustig & direct</span>
+        </div>
+        <a href="https://cal.com/agentivestudio" target="_blank" class="btn-primary">Kennismaking plannen ↗</a>
       </div>
     </div>
   </div>
@@ -454,36 +741,33 @@
 <!-- STEPS -->
 <section id="aanpak">
   <div class="section-inner">
-    <div class="section-eyebrow">Hoe het werkt</div>
-    <h2>Drie stappen.<br>Dan loopt het vanzelf.</h2>
-    <div class="steps-grid">
-      <div class="step-row">
-        <div class="step-num-wrap">
-          <div class="step-num">1</div>
-          <div class="step-connector"></div>
-        </div>
-        <div>
-          <div class="step-title">Gratis kennismaking — 30 minuten</div>
-          <div class="step-desc">Ik luister naar wat je nu doet, breng de pijnpunten in kaart en zie meteen waar tijdwinst zit. Geen verplichtingen, geen technisch verhaal.</div>
-        </div>
+    <div class="steps-layout">
+      <div class="steps-left reveal">
+        <div class="section-eyebrow">Hoe het werkt</div>
+        <h2>Drie stappen.<br>Dan loopt het<br><em>vanzelf.</em></h2>
+        <p>Geen lange trajecten. Geen eindeloze vergaderingen. Jij vertelt wat pijn doet, ik bouw de oplossing.</p>
       </div>
-      <div class="step-row">
-        <div class="step-num-wrap">
-          <div class="step-num">2</div>
-          <div class="step-connector"></div>
+      <div class="steps-right">
+        <div class="step reveal">
+          <div class="step-num">01</div>
+          <div>
+            <div class="step-title">Gratis kennismaking — 30 minuten</div>
+            <div class="step-desc">Ik luister naar wat je nu doet, breng de pijnpunten in kaart en zie meteen waar tijdwinst zit. Geen verplichtingen, geen technisch verhaal.</div>
+          </div>
         </div>
-        <div>
-          <div class="step-title">Ik bouw jouw oplossing</div>
-          <div class="step-desc">Een app, tool of geautomatiseerde workflow — volledig op maat. Jij hoeft niks te doen behalve akkoord geven. Gemiddeld klaar binnen twee weken.</div>
+        <div class="step reveal">
+          <div class="step-num">02</div>
+          <div>
+            <div class="step-title">Ik bouw jouw oplossing</div>
+            <div class="step-desc">Een app, tool of geautomatiseerde workflow — volledig op maat. Jij hoeft niks te doen behalve akkoord geven. Gemiddeld klaar binnen twee weken.</div>
+          </div>
         </div>
-      </div>
-      <div class="step-row">
-        <div class="step-num-wrap">
-          <div class="step-num">3</div>
-        </div>
-        <div>
-          <div class="step-title">Jij bespaart uren per week</div>
-          <div class="step-desc">Alles draait automatisch. Ik lever op, leg het uit, en zorg dat jij en je team er direct mee aan de slag kunnen.</div>
+        <div class="step reveal">
+          <div class="step-num">03</div>
+          <div>
+            <div class="step-title">Jij bespaart uren per week</div>
+            <div class="step-desc">Alles draait automatisch. Ik lever op, leg het uit, en zorg dat jij en je team er direct mee aan de slag kunnen.</div>
+          </div>
         </div>
       </div>
     </div>
@@ -493,38 +777,76 @@
 <div class="divider"></div>
 
 <!-- CTA -->
-<section>
-  <div class="section-inner">
-    <div class="cta-block">
-      <h2 class="cta-title">Klaar om rust<br>te <em>kopen?</em></h2>
-      <p class="cta-sub">Plan een gratis kennismaking van 30 minuten.<br>Geen verplichtingen. Geen technisch verhaal.</p>
-      <div class="cta-tags">
-        <span class="cta-tag">Gratis gesprek</span>
-        <span class="cta-tag">Online of telefonisch</span>
-        <span class="cta-tag">Binnen 2 dagen reactie</span>
-      </div>
-      <div class="cta-actions">
-        <a href="https://cal.com/agentivestudio" target="_blank" class="btn-light">
-          Afspraak inplannen
-        </a>
-        <a href="https://wa.me/31657778357" target="_blank" class="btn-wa">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          WhatsApp mij
-        </a>
-      </div>
+<section class="cta-section">
+  <div class="cta-inner reveal">
+    <div class="cta-eyebrow">Klaar om te starten</div>
+    <h2 class="cta-title">Klaar om rust<br>te <em>kopen?</em></h2>
+    <p class="cta-sub">Plan een gratis kennismaking van 30 minuten.<br>Geen verplichtingen. Geen technisch verhaal.</p>
+    <div class="cta-tags">
+      <span class="cta-tag">Gratis gesprek</span>
+      <span class="cta-tag">Online of telefonisch</span>
+      <span class="cta-tag">Binnen 2 dagen reactie</span>
+    </div>
+    <div class="cta-actions">
+      <a href="https://cal.com/agentivestudio" target="_blank" class="btn-light">Afspraak inplannen ↗</a>
+      <a href="https://wa.me/31657778357" target="_blank" class="btn-wa">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp mij
+      </a>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-text">© 2025 Agentivestudio — Omar Hamdi — Leiden, Nederland — <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f09f9d9182b09197959e8499869583848594999fde9e9c">[email&#160;protected]</a></div>
+  <div class="footer-logo">Agentivestudio</div>
+  <div class="footer-text">© 2025 Omar Hamdi — Leiden — <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3b54565a497b5a5c5e554f524d5e484f4e5f5254155557">[email&#160;protected]</a></div>
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// Scroll animation
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.animation = 'fadeUp 0.6s ease forwards';
-      observer.unobserve(entry.target
+// Custom cursor
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursor-ring');
+let mouseX=0,mouseY=0,ringX=0,ringY=0;
+document.addEventListener('mousemove',e=>{
+  mouseX=e.clientX;mouseY=e.clientY;
+  cursor.style.left=mouseX+'px';cursor.style.top=mouseY+'px';
+});
+function animateRing(){
+  ringX+=(mouseX-ringX)*0.12;
+  ringY+=(mouseY-ringY)*0.12;
+  ring.style.left=ringX+'px';ring.style.top=ringY+'px';
+  requestAnimationFrame(animateRing);
+}
+animateRing();
+document.querySelectorAll('a,button,.project-card').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{
+    cursor.style.width='20px';cursor.style.height='20px';
+    ring.style.width='60px';ring.style.height='60px';
+    ring.style.opacity='0.3';
+  });
+  el.addEventListener('mouseleave',()=>{
+    cursor.style.width='12px';cursor.style.height='12px';
+    ring.style.width='40px';ring.style.height='40px';
+    ring.style.opacity='0.5';
+  });
+});
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach((entry,i)=>{
+    if(entry.isIntersecting){
+      setTimeout(()=>{entry.target.classList.add('visible')},i*80);
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:0.1});
+reveals.forEach(el=>observer.observe(el));
+
+// Nav scroll effect
+window.addEventListener('scroll',()=>{
+  const nav=document.querySelector('nav');
+  if(window.scrollY>50){
+    nav.style.background='rgba(245,239,230,0.95)';
+    nav.style.backdropFilte

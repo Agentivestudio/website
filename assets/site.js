@@ -209,13 +209,29 @@
     if(!zB.childElementCount){ options() }
     if(finePointer) setTimeout(function(){ zIn.focus() }, 60);
   }
-  function closeZand(focusBack){ zp.hidden = true; zOpen = false; zand.classList.remove('open'); zBtn.setAttribute('aria-expanded','false'); zAsk.setAttribute('aria-expanded','false'); if(focusBack) zBtn.focus() }
-  zBtn.addEventListener('click', function(){ zOpen ? closeZand(true) : openZand() });
-  zAsk.addEventListener('click', function(){ zOpen ? closeZand(true) : openZand() });
+  function closeZand(focusBack){ if(rTimer){ clearTimeout(rTimer); rTimer = null; zand.classList.remove('reacting','reaction-hop','reaction-wiggle','reaction-nod') } zp.hidden = true; zOpen = false; zand.classList.remove('open'); zBtn.setAttribute('aria-expanded','false'); zAsk.setAttribute('aria-expanded','false'); if(focusBack) zBtn.focus() }
+  /* Zand reageert eerst, daarna gaat het venster open */
+  var zSay = $('#zandSay'), rTimer = null, rIdx = 0;
+  var REACT = [['reaction-hop','Hoi 👋'], ['reaction-wiggle','Ik luister.'], ['reaction-nod','Kom maar door.']];
+  function stopReact(){ clearTimeout(rTimer); rTimer = null; zand.classList.remove('reacting','reaction-hop','reaction-wiggle','reaction-nod') }
+  function reactThenOpen(){
+    if(zOpen){ stopReact(); closeZand(true); return }
+    if(rTimer) return;
+    if(reduce){ openZand(); return }
+    var r = REACT[rIdx++ % REACT.length];
+    stopReact(); void zand.offsetWidth;
+    zSay.textContent = r[1];
+    zand.classList.add('reacting', r[0]);
+    if(navigator.vibrate){ try{ navigator.vibrate(8) }catch(e){} }
+    zBtn.setAttribute('aria-expanded','true'); zAsk.setAttribute('aria-expanded','true');
+    rTimer = setTimeout(function(){ stopReact(); openZand() }, 520);
+  }
+  zBtn.addEventListener('click', reactThenOpen);
+  zAsk.addEventListener('click', reactThenOpen);
   $('#zpX').addEventListener('click', function(){ closeZand(true) });
   document.addEventListener('keydown', function(e){
     if(e.key !== 'Escape') return;
-    if(zOpen) closeZand(true);
+    if(zOpen || rTimer) closeZand(true);
     else if(mnav.classList.contains('open')) closeMenu(true);
   });
 

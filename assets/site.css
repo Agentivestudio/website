@@ -168,7 +168,7 @@ button{font:inherit; color:inherit}
 .plant-r{position:absolute; right:-5%; bottom:70px; width:15%; z-index:3; pointer-events:none; rotate:14deg}
 .scrib{position:absolute; font-family:var(--hand); font-weight:600; color:var(--copper); white-space:nowrap; pointer-events:none; line-height:1.05}
 .scrib.a{left:0; top:372px; font-size:22px; transform:rotate(-6deg)}
-.scrib.c{right:2%; top:18px; font-size:21px; transform:rotate(-10deg); text-align:left}
+.scrib.c{right:-6%; top:34px; font-size:19px; transform:rotate(-8deg); text-align:left; z-index:3}
 .arw{position:absolute; color:var(--copper); pointer-events:none}
 .arw.a{left:24%; top:130px; width:40px}
 .arw.b{left:50.5%; top:150px; width:36px}

@@ -243,7 +243,7 @@
   if('IntersectionObserver' in window){
     var zIO = new IntersectionObserver(function(es){
       es.forEach(function(e){ vis[e.target === foot ? 'f' : (e.target === track ? 's' : 'c')] = e.isIntersecting });
-      finalInView = window.innerWidth <= 680 && (vis.c || vis.f || vis.s);
+      finalInView = vis.f || (window.innerWidth <= 680 && (vis.c || vis.s));
       if(!zOpen) zand.classList.toggle('away', forcedHide || finalInView);
     }, {threshold:.15});
     ['contact'].forEach(function(id){ var el = document.getElementById(id); if(el) zIO.observe(el) });

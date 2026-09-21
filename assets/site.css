@@ -451,6 +451,7 @@ button{font:inherit; color:inherit}
 .foot .right span + span{padding-left:16px; border-left:1px solid var(--line)}
 .foot .id{grid-column:1/-1; display:flex; flex-wrap:wrap; justify-content:space-between; gap:6px 18px; padding-top:14px; border-top:1px solid var(--line-2); font-size:12px}
 .foot .id div{display:flex; flex-wrap:wrap; gap:4px 16px}
+.foot .id .copy{margin-left:auto}
 @media(max-width:820px){ .foot-in{grid-template-columns:1fr} .foot-in nav{justify-content:flex-start} .foot .right{justify-self:start} }
 
 /* ---------- Zand, de studiometgezel ---------- */
@@ -524,3 +525,24 @@ button{font:inherit; color:inherit}
   .companion-reaction{display:none}
   .zp{animation:none}
 }
+
+/* mobiel: afsluiter en voet rustiger */
+@media(max-width:760px){
+  .cta{gap:22px}
+  .cta .actions{display:grid; grid-template-columns:1fr; gap:10px}
+  .cta .actions .btn{width:100%; justify-content:center; min-height:54px}
+  .checks{gap:0; padding:4px 18px; border:1px solid var(--line-2); border-radius:18px; background:rgba(255,253,249,.7)}
+  .checks li{min-height:46px; font-size:14px}
+  .checks li + li{border-top:1px solid var(--line-2)}
+  .foot{padding-top:34px}
+  .foot-in{gap:18px}
+  .foot-in nav{display:grid; grid-template-columns:repeat(4,auto); justify-content:start; gap:0 22px; font-size:14px; color:var(--ink-2)}
+  .foot .right{gap:0; font-size:13px}
+  .foot .right span + span{padding-left:0; border-left:0}
+  .foot .right span + span::before{content:"·"; margin:0 8px; color:var(--line)}
+  .foot .id{display:grid; grid-template-columns:1fr 1fr; gap:18px 16px; padding-top:20px; font-size:12.5px}
+  .foot .id div{flex-direction:column; flex-wrap:nowrap; gap:8px}
+  .foot .id a{color:var(--ink-2)}
+  .foot .id .copy{grid-column:1/-1; margin-left:0; padding-top:14px; border-top:1px solid var(--line-2); font-size:12px}
+}
+@media(max-width:360px){ .foot .id{grid-template-columns:1fr} }

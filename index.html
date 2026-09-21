@@ -9,7 +9,7 @@
 <link rel="canonical" href="https://www.agentivestudio.nl/">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="author" content="Omar Hamdi">
-<meta name="theme-color" content="#EBE1D0">
+<meta name="theme-color" content="#F5F0E8">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Agentivestudio">
@@ -30,229 +30,9 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-</head>
-<body>
-<style>
-@font-face{font-family:'Fraunces';src:url('/fonts/fraunces-latin.woff2') format('woff2');font-weight:400 700;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'Inter';src:url('/fonts/inter-latin.woff2') format('woff2');font-weight:400 700;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-</style>
-<style>
-/* =========================================================
-   AGENTIVESTUDIO — richting Atelier
-   Warme zandgrond, ossenbloed als enige accent, Fraunces
-   als letter met karakter. Bewust één lichte wereld.
-   ========================================================= */
-:root{
-  color-scheme:light;
-  --paper:#EBE1D0; --paper-2:#E3D6C1; --paper-3:#D9C9AF;
-  --card:#F3EBDE; --line:#D3C2A7; --line-soft:#DFD1B9;
-  --ink:#272017; --ink-2:#4C4132; --ink-soft:#7B6A55;
-  --ac:#7A312B; --ac-2:#9C4A34;
-  --ok:#3D6B4E; --dev:#8A6A22;
-  --display:'Fraunces',Georgia,'Times New Roman',serif;
-  --ui:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-  --ease:cubic-bezier(.22,1,.36,1);
-  --gut:clamp(18px,5vw,60px);
-  --max:1200px;
-}
-*,*::before,*::after{box-sizing:border-box}
-body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--ui); font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden}
-body::after{
-  content:''; position:fixed; inset:0; z-index:9999; pointer-events:none; opacity:.035;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-h1,h2,h3{font-family:var(--display); font-weight:400; margin:0; text-wrap:balance; letter-spacing:-.02em}
-p{margin:0}
-a{color:inherit}
-[hidden]{display:none !important}
-:focus-visible{outline:2px solid var(--ac); outline-offset:3px; border-radius:3px}
-.wrap{max-width:var(--max); margin:0 auto; padding-inline:var(--gut)}
-.eyebrow{font-family:var(--ui); font-size:11px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--ac); margin:0 0 20px}
-
-/* ---------- NAV ---------- */
-nav{position:sticky; top:env(safe-area-inset-top,0px); z-index:900;
-  background:color-mix(in srgb,var(--paper) 86%,transparent);
-  backdrop-filter:saturate(170%) blur(18px); -webkit-backdrop-filter:saturate(170%) blur(18px);
-  border-bottom:1px solid transparent; transition:border-color .3s}
-nav.stuck{border-bottom-color:var(--line)}
-.nav-in{max-width:var(--max); margin:0 auto; padding:13px var(--gut); display:flex; align-items:center; justify-content:space-between; gap:20px}
-.wordmark{font-family:var(--display); font-weight:500; font-size:19.5px; text-decoration:none; letter-spacing:-.01em}
-.wordmark em{font-style:normal; color:var(--ac)}
-.nav-links{display:flex; align-items:center; gap:28px}
-.nav-links a{font-size:13.5px; font-weight:500; text-decoration:none; color:var(--ink-soft); transition:color .2s}
-.nav-links a:hover{color:var(--ink)}
-.pill{display:inline-flex; align-items:center; gap:8px; background:var(--ac); color:#FFF6EC;
-  padding:12px 22px; border-radius:999px; font-size:14.5px; font-weight:500; text-decoration:none;
-  transition:background .2s, transform .2s var(--ease)}
-.pill:hover{background:#621F1B; transform:translateY(-1px)}
-.pill.ghost{background:transparent; color:var(--ink); border:1px solid var(--line)}
-.pill.ghost:hover{background:var(--paper-2); border-color:var(--ac); color:var(--ac)}
-.pill.wa{background:#1F6B44; color:#EFF7F0}
-.pill.wa:hover{background:#175536}
-@media(max-width:840px){.nav-links a:not(.pill){display:none}}
-
-/* ---------- HERO ---------- */
-.hero{padding-block:clamp(44px,8vw,96px) clamp(26px,4vw,44px)}
-.hero h1{font-size:clamp(44px,8vw,96px); line-height:.99; margin:0 0 24px; max-width:13ch}
-.hero-sub{font-size:clamp(16px,1.5vw,19px); color:var(--ink-2); max-width:54ch; line-height:1.64}
-.hero-actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:32px}
-
-/* ---------- WERK: flipkaarten ---------- */
-.werk{background:var(--paper-2); border-block:1px solid var(--line); padding-block:clamp(40px,6vw,76px)}
-.werk-head{display:flex; justify-content:space-between; align-items:flex-end; gap:20px; flex-wrap:wrap; margin-bottom:clamp(22px,3vw,34px)}
-.werk-head h2{font-size:clamp(30px,4.4vw,50px); line-height:1.04}
-.werk-head p{color:var(--ink-soft); font-size:14.5px; max-width:36ch}
-.grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:clamp(14px,2vw,22px)}
-.fc{perspective:1600px}
-.fc-in{position:relative; display:grid; transform-style:preserve-3d; transition:transform .8s var(--ease)}
-.fc.flipped .fc-in{transform:rotateY(180deg)}
-.face{position:relative; grid-area:1/1; backface-visibility:hidden; -webkit-backface-visibility:hidden;
-  background:var(--card); border:1px solid var(--line); border-radius:6px;
-  padding:22px 22px 18px; display:flex; flex-direction:column; gap:13px; min-height:340px;
-  box-shadow:0 18px 40px -32px rgba(39,32,23,.6)}
-.face::after{content:''; position:absolute; inset:0; border-radius:inherit; pointer-events:none; opacity:0; transition:opacity .3s ease;
-  background:radial-gradient(240px 240px at var(--mx,50%) var(--my,50%), rgba(255,252,244,.42), transparent 58%)}
-.face:hover::after{opacity:1}
-.face.back{transform:rotateY(180deg); background:var(--paper-2); justify-content:center; align-items:center; gap:15px}
-.cap{display:flex; align-items:center; gap:9px; flex-wrap:wrap}
-.chip{font-size:9.5px; font-weight:600; letter-spacing:.13em; text-transform:uppercase; padding:4px 9px; border-radius:999px; white-space:nowrap}
-.chip.live{background:color-mix(in srgb,var(--ok) 15%,transparent); color:var(--ok)}
-.chip.dev{background:color-mix(in srgb,var(--dev) 20%,transparent); color:var(--dev)}
-.sector{font-size:10px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-soft)}
-.nm{font-family:var(--display); font-weight:400; font-size:29px; line-height:1.05; letter-spacing:-.02em}
-.tx{font-size:14px; color:var(--ink-2); line-height:1.62}
-.fe{display:flex; gap:6px; flex-wrap:wrap; list-style:none; margin:0; padding:0}
-.fe li{font-size:11.5px; color:var(--ink-2); background:var(--paper); border:1px solid var(--line-soft); padding:5px 10px; border-radius:999px}
-.turn{position:relative; z-index:2; margin-top:auto; display:inline-flex; align-items:center; gap:8px; width:fit-content;
-  background:transparent; border:1px solid var(--line); color:var(--ink); border-radius:999px;
-  padding:10px 18px; font:inherit; font-size:13.5px; font-weight:500; cursor:pointer;
-  transition:border-color .2s, color .2s, transform .2s var(--ease)}
-.turn:hover{border-color:var(--ac); color:var(--ac); transform:translateY(-1px)}
-.back .label{font-size:10px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-soft)}
-.back .note{font-size:11.5px; color:var(--ink-soft); text-align:center; max-width:28ch; line-height:1.5}
-.shots{display:flex; gap:14px; align-items:center; justify-content:center; flex-wrap:wrap}
-.shots.duo{position:relative; display:block; width:250px; height:192px}
-.shots.duo .mini.web{position:absolute; left:0; top:0}
-.shots.duo .mini.phone{position:absolute; right:-4px; bottom:0; width:96px; height:168px; border-radius:15px; padding:3px}
-.shots.duo .mini.phone .scr{border-radius:12px}
-.shots.duo .mini.phone .ph b{font-size:14px}
-.mini{position:relative; overflow:hidden; background:var(--paper-3); flex:none}
-.mini.phone{width:112px; height:196px; border-radius:17px; padding:4px; box-shadow:0 10px 22px -16px rgba(39,32,23,.7), 0 0 0 1px rgba(39,32,23,.12)}
-.mini.phone .scr{width:100%; height:100%; border-radius:14px; overflow:hidden; position:relative}
-.mini.web{width:250px; height:156px; border-radius:7px; box-shadow:0 10px 22px -16px rgba(39,32,23,.6), 0 0 0 1px rgba(39,32,23,.1)}
-.mini.web .bar{height:18px; display:flex; align-items:center; gap:4px; padding:0 8px; background:var(--paper-3); border-bottom:1px solid var(--line)}
-.mini.web .bar i{width:5px; height:5px; border-radius:50%; background:var(--line); flex:none}
-.mini.web .bar u{margin-left:5px; text-decoration:none; font-size:6.5px; color:var(--ink-soft); background:var(--card); border-radius:3px; padding:2px 7px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
-.mini.web .scr{height:138px; position:relative; overflow:hidden}
-.ph{position:absolute; inset:0; background:var(--card); display:grid; place-content:center; text-align:center; padding:10px}
-.ph b{font-family:var(--display); font-weight:500; font-size:17px; color:var(--ac); letter-spacing:-.01em}
-.mini.web .ph b{font-size:19px}
-@media (prefers-reduced-motion:reduce){
-  .fc-in{transition:opacity .2s linear}
-  .fc.flipped .fc-in{transform:none}
-  .face.back{transform:none; opacity:0; pointer-events:none}
-  .fc.flipped .face.back{opacity:1; pointer-events:auto}
-  .fc.flipped .face.front{opacity:0; pointer-events:none}
-}
-
-/* ---------- SECTIES ---------- */
-section{padding-block:clamp(60px,8vw,112px)}
-.split{display:grid; grid-template-columns:.85fr 1.15fr; gap:clamp(32px,6vw,92px); align-items:start}
-.split-sticky{position:sticky; top:100px}
-.split h2{font-size:clamp(32px,4.4vw,50px); line-height:1.06; margin:0 0 18px}
-.split-lead{font-size:15.5px; color:var(--ink-soft); line-height:1.7; max-width:38ch}
-@media(max-width:880px){ .split{grid-template-columns:1fr; gap:32px} .split-sticky{position:static} }
-
-.approach{background:var(--paper-3); border-block:1px solid var(--line)}
-.approach h2{font-size:clamp(30px,4.2vw,48px); line-height:1.08; margin:0 0 20px; max-width:17ch}
-.approach p{font-size:16.5px; color:var(--ink-2); line-height:1.74; max-width:60ch}
-.approach p + p{margin-top:16px}
-
-.steps{display:flex; flex-direction:column}
-.step{display:grid; grid-template-columns:46px 1fr; gap:22px; padding-block:30px; border-top:1px solid var(--line)}
-.step:last-child{border-bottom:1px solid var(--line)}
-.step-n{font-family:var(--display); font-size:17px; color:var(--ac); padding-top:2px; font-variant-numeric:tabular-nums}
-.step-t{font-family:var(--ui); font-size:19px; font-weight:600; letter-spacing:-.015em; margin-bottom:8px}
-.step-d{font-size:14.5px; color:var(--ink-soft); line-height:1.7}
-
-.about{background:var(--paper-2); border-block:1px solid var(--line)}
-.about-grid{display:grid; grid-template-columns:.78fr 1.22fr; gap:clamp(32px,6vw,86px); align-items:center}
-.portrait{position:relative; aspect-ratio:4/5; max-width:100%; border-radius:4px; overflow:hidden;
-  background:linear-gradient(152deg,var(--paper-3),var(--paper-2) 52%,color-mix(in srgb,var(--ac) 22%,var(--paper-3)));
-  display:grid; place-items:center; border:1px solid var(--line)}
-.portrait span{font-family:var(--display); font-size:clamp(68px,9vw,116px); color:color-mix(in srgb,var(--card) 76%,transparent)}
-.portrait::after{content:'Bouwt zelf'; position:absolute; bottom:16px; left:16px; font-size:10px; letter-spacing:.14em; text-transform:uppercase; font-weight:600; background:var(--ac); color:#FFF6EC; padding:6px 13px; border-radius:999px}
-.about-name{font-size:clamp(34px,4.6vw,54px); line-height:1.02; margin:0 0 8px}
-.about-role{font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--ac); font-weight:600; margin-bottom:26px}
-.about-bio{font-size:16px; color:var(--ink-2); line-height:1.8; margin-bottom:26px; max-width:52ch}
-.tags{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:30px}
-.tag{font-size:12.5px; color:var(--ink-2); border:1px solid var(--line); padding:7px 14px; border-radius:999px; background:var(--card)}
-@media(max-width:880px){.about-grid{grid-template-columns:1fr; gap:32px} .portrait{max-width:300px}}
-
-.faq-list{display:flex; flex-direction:column}
-.faq-item{border-top:1px solid var(--line); padding-block:26px}
-.faq-item:last-child{border-bottom:1px solid var(--line)}
-.faq-h{font-family:var(--ui); font-size:17px; font-weight:600; letter-spacing:-.01em; margin:0 0 10px}
-.faq-a{font-size:15px; color:var(--ink-soft); line-height:1.74; max-width:68ch}
-
-.cta{background:var(--paper-3); border-block:1px solid var(--line); position:relative; overflow:hidden}
-.cta::before{content:''; position:absolute; width:720px; height:720px; border-radius:50%;
-  background:radial-gradient(circle, color-mix(in srgb,var(--ac) 16%,transparent), transparent 70%);
-  bottom:-400px; right:-200px; pointer-events:none}
-.cta-in{position:relative; z-index:2; text-align:center; max-width:720px; margin:0 auto}
-.cta h2{font-size:clamp(36px,5.4vw,66px); line-height:1.03; margin:0 0 20px}
-.cta p{color:var(--ink-2); font-size:16px; line-height:1.7; margin-bottom:34px}
-.cta-actions{display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
-
-footer{background:var(--paper); border-top:1px solid var(--line); color:var(--ink-soft)}
-.foot-in{max-width:var(--max); margin:0 auto; padding:26px var(--gut) calc(26px + env(safe-area-inset-bottom,0px));
-  display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; font-size:12.5px}
-.foot-in .wordmark{color:var(--ink); font-size:17px}
-.foot-links a{text-decoration:none; color:var(--ink-soft)}
-.foot-links a:hover{color:var(--ac)}
-.foot-legal .invullen{background:#F6E2C8; border-bottom:2px solid var(--ac); padding:0 5px; border-radius:3px; font-weight:600}
-
-@media (prefers-reduced-motion:reduce){ *{animation-duration:.01ms !important; transition-duration:.01ms !important} }
-
-/* ---------- MAATJE: de zandloper ---------- */
-.buddy{position:fixed; right:clamp(14px,3vw,26px); bottom:calc(clamp(14px,3vw,26px) + env(safe-area-inset-bottom,0px)); z-index:950;
-  display:flex; flex-direction:column; align-items:flex-end; gap:12px}
-.pet{width:70px; height:70px; border:0; padding:0; background:none; cursor:pointer; filter:drop-shadow(0 12px 18px rgba(39,32,23,.3))}
-.pet svg{display:block; width:100%; height:100%; overflow:visible}
-.bob{animation:bob 4.4s ease-in-out infinite}
-@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-.lid{transform-origin:center; animation:blink 6s infinite}
-@keyframes blink{0%,94%,100%{transform:scaleY(0)}96%,98%{transform:scaleY(1)}}
-.grain{animation:fall 2.6s linear infinite}
-@keyframes fall{0%{transform:translateY(-6px); opacity:0}20%{opacity:1}100%{transform:translateY(16px); opacity:0}}
-.bubble{background:var(--card); border:1px solid var(--line); border-radius:14px 14px 4px 14px; padding:9px 13px;
-  font-size:12.5px; white-space:nowrap; box-shadow:0 14px 30px -20px rgba(39,32,23,.7); align-self:flex-end}
-@media(max-width:560px){ .bubble{display:none} }
-.panel{width:min(348px,calc(100vw - 28px)); background:var(--card); border:1px solid var(--line); border-radius:14px;
-  box-shadow:0 34px 70px -34px rgba(39,32,23,.7); overflow:hidden; display:flex; flex-direction:column; max-height:min(540px,70vh)}
-.p-head{display:flex; align-items:center; gap:11px; padding:13px 14px; border-bottom:1px solid var(--line); background:var(--paper-2)}
-.p-head .mini{width:34px; height:34px; flex:none}
-.p-head b{font-family:var(--display); font-weight:500; font-size:16px; display:block; line-height:1.2}
-.p-head .role{font-size:11px; color:var(--ink-soft)}
-.p-x{margin-left:auto; width:28px; height:28px; border-radius:50%; border:1px solid var(--line); background:var(--card);
-  color:var(--ink-soft); cursor:pointer; font-size:15px; line-height:1; display:grid; place-items:center}
-.p-x:hover{border-color:var(--ac); color:var(--ac)}
-.p-body{padding:14px; overflow-y:auto; display:grid; gap:10px; align-content:start}
-.say{background:var(--paper-2); border-radius:12px 12px 12px 3px; padding:11px 13px; font-size:13.5px; line-height:1.6; color:var(--ink-2)}
-.say.me{background:var(--ac); color:#FBF3E8; border-radius:12px 12px 3px 12px; justify-self:end; max-width:86%}
-.qs{display:flex; flex-wrap:wrap; gap:7px}
-.qb{background:var(--paper); border:1px solid var(--line); border-radius:999px; padding:8px 13px; font:inherit; font-size:12.5px;
-  color:var(--ink-2); cursor:pointer; text-align:left}
-.qb:hover{border-color:var(--ac); color:var(--ac)}
-.p-foot{border-top:1px solid var(--line); padding:10px; display:flex; gap:8px; background:var(--paper-2)}
-.p-foot input{flex:1; font:inherit; font-size:13px; padding:9px 12px; border-radius:999px; border:1px solid var(--line); background:var(--card); color:var(--ink); min-width:0}
-.p-foot button{flex:none; width:38px; height:38px; border-radius:50%; border:0; background:var(--ac); color:#FBF3E8; cursor:pointer; display:grid; place-items:center}
-.acts{display:flex; gap:8px; flex-wrap:wrap}
-.acts a{font-size:13px; font-weight:500; text-decoration:none; padding:9px 15px; border-radius:999px; background:var(--ac); color:#FFF6EC}
-.acts a.wa{background:#1F6B44}
-@media (prefers-reduced-motion:reduce){ .bob,.lid,.grain{animation:none} }
-</style>
-
+<link rel="preload" href="/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css">
 <script type="application/ld+json">{
  "@context":"https://schema.org",
  "@graph":[
@@ -274,366 +54,512 @@ footer{background:var(--paper); border-top:1px solid var(--line); color:var(--in
    {"@type":"Question","name":"Wat als ik het later wil uitbreiden?","acceptedAnswer":{"@type":"Answer","text":"Dat kan, en daar is bij het bouwen rekening mee gehouden. Je praat dan opnieuw met dezelfde persoon die het gemaakt heeft, dus niemand hoeft zich eerst in te lezen."}}
   ]}
  ]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Ga naar de inhoud</a>
 
-<nav id="nav">
-  <div class="nav-in">
-    <a class="wordmark" href="#top">Agentive<em>studio</em></a>
-    <div class="nav-links">
+<header class="site-head" id="head">
+  <div class="wrap head-in">
+    <a class="brand" href="#top" aria-label="Agentive Studio, naar boven">AGENTIVE STUDIO</a>
+    <nav class="nav" aria-label="Hoofdnavigatie">
       <a href="#werk">Werk</a>
       <a href="#aanpak">Aanpak</a>
       <a href="#over">Over</a>
       <a href="#vragen">Vragen</a>
-      <a class="pill" href="https://cal.com/agentivestudio" target="_blank" rel="noopener">Plan een gesprek</a>
+    </nav>
+    <div class="head-cta">
+      <a class="btn btn-primary btn-sm" href="https://cal.com/agentivestudio" target="_blank" rel="noopener">Plan een gesprek <span class="arr" aria-hidden="true">→</span></a>
+      <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="mnav">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+      </button>
     </div>
   </div>
-</nav>
+</header>
 
-<main id="top">
+<div class="mnav" id="mnav" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <button class="icon-btn mnav-x" id="menuX" type="button" aria-label="Menu sluiten">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <a class="l" href="#werk">Werk</a>
+  <a class="l" href="#aanpak">Aanpak</a>
+  <a class="l" href="#over">Over</a>
+  <a class="l" href="#vragen">Vragen</a>
+  <a class="btn btn-primary" href="https://cal.com/agentivestudio" target="_blank" rel="noopener">Plan een gesprek <span class="arr" aria-hidden="true">→</span></a>
+</div>
 
-  <header class="hero wrap">
-    <p class="eyebrow">Voor het MKB, vanuit Leiden</p>
-    <h1>Elke week uren terug.</h1>
-    <p class="hero-sub">Ergens in je bedrijf zit werk dat elke week terugkomt en uren kost. Ik zoek dat op en bouw iets wat het overneemt. Hieronder staat wat dat tot nu toe is geworden.</p>
-    <div class="hero-actions">
-      <a class="pill" href="https://cal.com/agentivestudio" target="_blank" rel="noopener">Plan een gesprek</a>
-      <a class="pill ghost" href="#werk">Bekijk het werk</a>
-    </div>
-  </header>
+<main id="main">
 
-  <section class="werk" id="werk" aria-label="Gebouwde software">
-    <div class="wrap">
-      <div class="werk-head">
-        <h2>Gebouwd en in gebruik.</h2>
-        <p>Draai een kaart om en je ziet op welke schermen het draait.</p>
+  <!-- ================= HERO ================= -->
+  <section class="wrap hero" id="top">
+    <div>
+      <p class="eyebrow reveal">Voor het MKB, vanuit Leiden</p>
+      <h1 class="h1 reveal d1">Elke week uren terug.</h1>
+      <p class="lede reveal d2">Ergens in je bedrijf zit werk dat elke week terugkomt en uren kost. Ik zoek dat op en bouw iets wat het overneemt. Hieronder staat wat dat tot nu toe is geworden.</p>
+      <div class="actions reveal d3">
+        <a class="btn btn-primary" href="https://cal.com/agentivestudio" target="_blank" rel="noopener">Plan een gesprek <span class="arr" aria-hidden="true">→</span></a>
+        <a class="btn btn-secondary" href="#werk">Bekijk het werk</a>
       </div>
-      <div class="grid" id="grid"></div>
+      <ul class="facts reveal d3" aria-label="Zo werk ik">
+        <li>Je praat met wie het bouwt</li>
+        <li>Servers in Europa</li>
+        <li>Vaste contactpersoon</li>
+      </ul>
+    </div>
+
+    <div class="stage-hero" role="img" aria-label="Van een handgeschreven lijstje, via hetzelfde werk als proces, naar meer tijd over in de week">
+      <div class="note float reveal d1" aria-hidden="true">
+        <p class="t">Elke week weer…</p>
+        <ul>
+          <li>E-mails overzetten</li>
+          <li>Gegevens invoeren</li>
+          <li>Rapportages maken</li>
+          <li>Klanten informeren</li>
+          <li>Lijstjes bijwerken</li>
+        </ul>
+      </div>
+      <div class="card proc float s2 reveal d2" aria-hidden="true">
+        <p class="kicker">Hetzelfde werk, slimmer</p>
+        <ul>
+          <li><i>✓</i>E-mails verwerkt</li>
+          <li><i>✓</i>Gegevens gekoppeld</li>
+          <li><i>✓</i>Rapportage vanzelf klaar</li>
+          <li><i>✓</i>Klant krijgt bericht</li>
+          <li><i>✓</i>Lijsten altijd actueel</li>
+        </ul>
+      </div>
+      <div class="card res float s3 reveal d3" aria-hidden="true">
+        <p class="kicker">Resultaat</p>
+        <p class="h">Meer tijd voor wat er echt toe doet.</p>
+        <div class="week"><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="row"><b>Rust</b><span>Minder dubbel werk</span></div>
+        <div class="row"><b>Grip</b><span>Meer overzicht</span></div>
+      </div>
+      <svg class="arc a" viewBox="0 0 80 40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 30C22 6 50 4 74 16"/><path d="M66 9l8 7-10 3"/></svg>
+      <svg class="arc b" viewBox="0 0 80 40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 10c20 24 46 26 70 12"/><path d="M64 16l10 6-9 7"/></svg>
+      <span class="scrib a" aria-hidden="true">van handmatig…</span>
+      <span class="scrib b" aria-hidden="true">…naar een slimmer proces</span>
     </div>
   </section>
 
-  <section class="approach">
-    <div class="wrap">
-      <p class="eyebrow">Hoe ik begin</p>
-      <h2>Eerst kijken wat voor bedrijf je bent.</h2>
-      <p>Een aannemer, een school, een uitzendbureau en een webshop hebben weinig gemeen. Toch zit er bij alle vier meestal iemand die elke week dezelfde gegevens overtypt. Daarom begin ik niet met een pakket of een prijslijst, maar met meekijken: wat doe je nu, hoe vaak, en hoeveel tijd kost het je?</p>
-      <p>Pas als duidelijk is waar de uren blijven, bepalen we wat eraan helpt. Soms is dat een app, soms een koppeling tussen twee systemen die je al hebt, en soms is het genoeg om een half uur te sleutelen aan iets wat je al hebt. De software is het middel, nooit het doel.</p>
+  <!-- ================= SCROLLVERHAAL ================= -->
+  <section class="story" aria-labelledby="story-t">
+    <div class="wrap story-head">
+      <div>
+        <p class="eyebrow reveal">Van kladje naar proces</p>
+        <h2 class="h2 reveal d1" id="story-t">Hetzelfde werk. Steeds minder gedoe.</h2>
+      </div>
+      <p class="body reveal d2">Scroll door één herkenbaar voorbeeld: eerst op papier, dan in een spreadsheet, en uiteindelijk als een proces dat vanzelf doorloopt.</p>
+    </div>
+    <div class="story-track" id="story">
+      <div class="wrap story-sticky">
+        <div class="rail" id="rail" aria-label="Stappen">
+          <span class="fill" aria-hidden="true"></span>
+          <button type="button" class="on" data-go="0"><span>Stap 1</span><b>Noteren</b></button>
+          <button type="button" data-go="1"><span>Stap 2</span><b>Overtypen</b></button>
+          <button type="button" data-go="2"><span>Stap 3</span><b>Eén proces</b></button>
+          <button type="button" data-go="3"><span>Stap 4</span><b>Tijd terug</b></button>
+        </div>
+        <div class="canvas">
+
+          <article class="panel on" data-panel="0">
+            <div class="viz">
+              <div class="paper">
+                <p class="t">Vandaag:</p>
+                <p>☐ Aanvraag binnen</p>
+                <p>☐ Gegevens overnemen</p>
+                <p>☐ Offerte maken</p>
+                <p>☐ Mail sturen</p>
+                <p>☐ Vrijdag nabellen</p>
+              </div>
+            </div>
+            <p class="cap"><b>Het begint vaak zo.</b><span>Een lijstje dat jij zelf moet blijven afwerken.</span></p>
+          </article>
+
+          <article class="panel" data-panel="1">
+            <div class="viz">
+              <div>
+                <div class="sheet" role="img" aria-label="Voorbeeld van een spreadsheet met aanvragen, waarin één cel een fout geeft">
+                  <div class="bar"><i></i><i></i><i></i><b>aanvragen.xlsx</b></div>
+                  <div class="fx"><span>fx</span><em>=SOM(D2:D4)*BTW</em></div>
+                  <div class="grid">
+                    <span class="n"></span><span class="h">Klant</span><span class="h">Aanvraag</span><span class="h hide-s">Status</span><span class="h">Bedrag</span>
+                    <span class="n">1</span><span class="c">Jansen</span><span class="c">Kozijnen</span><span class="c hide-s">Nieuw</span><span class="c">€ 2.450</span>
+                    <span class="n">2</span><span class="c">De Vries</span><span class="c">Onderhoud</span><span class="c hide-s">Offerte</span><span class="c">€ 1.850</span>
+                    <span class="n">3</span><span class="c">Bakker</span><span class="c">Installatie</span><span class="c hide-s">Nabellen</span><span class="c cur">€ 980</span>
+                    <span class="n">4</span><span class="c">Totaal</span><span class="c"></span><span class="c hide-s"></span><span class="c err">#WAARDE!</span>
+                  </div>
+                  <div class="tabs"><span class="on">Week 38</span><span>Week 37</span><span>Oud</span></div>
+                </div>
+                <p class="tally" aria-hidden="true">zelfde gegevens, tweede keer ingetypt</p>
+              </div>
+            </div>
+            <p class="cap"><b>Digitaal, maar nog steeds handwerk.</b><span>Dezelfde informatie wordt opnieuw ingevoerd en bijgehouden.</span></p>
+          </article>
+
+          <article class="panel" data-panel="2">
+            <div class="viz">
+              <div class="flow">
+                <div class="top"><b>Aanvraag Kozijnen</b><span class="pill live">Loopt</span></div>
+                <div class="step done"><i>✓</i><span>Aanvraag ontvangen</span><time>09:42</time></div>
+                <div class="step done"><i>✓</i><span>Gegevens overgenomen</span><time>09:42</time></div>
+                <div class="step done"><i>✓</i><span>Offerte klaargezet</span><time>09:43</time></div>
+                <div class="step wait" id="waitStep"><i>·</i><span>Wacht op jouw akkoord</span><time>nu</time></div>
+                <button class="btn btn-primary approve" id="approve" type="button">Akkoord geven <span class="arr" aria-hidden="true">→</span></button>
+              </div>
+            </div>
+            <p class="cap"><b>Eén proces in plaats van losse stappen.</b><span>Jij houdt de regie. De rest loopt netjes door.</span></p>
+          </article>
+
+          <article class="panel" data-panel="3">
+            <div class="viz">
+              <div class="done-card">
+                <p class="h">Tijd terug in je week.</p>
+                <div class="cal" aria-hidden="true">
+                  <div><small>Ma</small><i></i><i></i><i class="free"></i></div>
+                  <div><small>Di</small><i></i><i class="free"></i><i></i></div>
+                  <div><small>Wo</small><i></i><i></i><i class="free"></i></div>
+                  <div><small>Do</small><i class="free"></i><i></i><i></i></div>
+                  <div><small>Vr</small><i></i><i class="free"></i><i></i></div>
+                </div>
+                <div class="legend"><span>Werk dat blijft</span><span class="f">Tijd die vrijkomt</span></div>
+              </div>
+            </div>
+            <p class="cap"><b>Minder terugkerend handwerk.</b><span>De uren gaan weer naar het werk waar je eigenlijk voor gekozen hebt.</span></p>
+          </article>
+
+        </div>
+      </div>
     </div>
   </section>
 
-  <section id="aanpak" class="wrap">
-    <div class="split">
-      <div class="split-sticky">
-        <p class="eyebrow">De aanpak</p>
-        <h2>Zo werkt het.</h2>
-        <p class="split-lead">Je vertelt wat er misgaat, ik bouw het, jij gebruikt het. Geen lang offertetraject vooraf.</p>
+  <!-- ================= WERK ================= -->
+  <section class="wrap werk" id="werk" aria-labelledby="werk-t">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow reveal">Werk</p>
+        <h2 class="h2 reveal d1" id="werk-t">Gebouwd en in gebruik.</h2>
       </div>
-      <div class="steps">
-        <div class="step"><div class="step-n">01</div><div>
-          <h3 class="step-t">Kennismaken in een half uur</h3>
-          <p class="step-d">Je laat zien hoe het nu gaat. In een half uur ken ik je bedrijf niet, maar ik zie meestal wel waar het terugkerende werk zit en wat ik verder moet uitzoeken. Geen techniek, geen verplichting.</p>
-        </div></div>
-        <div class="step"><div class="step-n">02</div><div>
-          <h3 class="step-t">Ik bouw, jij kijkt mee</h3>
-          <p class="step-d">Voor een eerste werkende versie met jouw eigen gegevens reken ik meestal op twee tot vier weken, afhankelijk van wat er nodig is. Je test het op je telefoon en ik pas aan wat je terugkoppelt.</p>
-        </div></div>
-        <div class="step"><div class="step-n">03</div><div>
-          <h3 class="step-t">Live, en het blijft draaien</h3>
-          <p class="step-d">Ik zet het live, leg het je team uit en ben daarna bereikbaar voor onderhoud en uitbreidingen. Je hoeft dan niet opnieuw uit te leggen hoe je werkt.</p>
-        </div></div>
-      </div>
+      <p class="body reveal d2">Draai een kaart om en je ziet welk probleem er lag, wat er gebouwd is en op welke schermen het draait.</p>
     </div>
-  </section>
 
-  <section class="about" id="over">
-    <div class="wrap">
-      <div class="about-grid">
-        <div class="portrait"><span>OH</span></div>
-        <div>
-          <p class="eyebrow">Wie je spreekt</p>
-          <h2 class="about-name">Omar Hamdi</h2>
-          <p class="about-role">Oprichter van Agentivestudio</p>
-          <p class="about-bio">Ik werk daarnaast in het onderwijs, waar veel nog op lijstjes en losse bestanden draait, en bouw software voor bedrijven die daar tegenaan lopen. Daardoor hoef ik niet te raden hoe een werkweek eruitziet en waar de tijd blijft.<br><br>Je praat met de persoon die het ook bouwt. Er zit geen accountmanager tussen, en wat je terugkoppelt gaat rechtstreeks het werk in.</p>
-          <div class="tags">
-            <span class="tag">Web- en app-ontwikkeling</span>
-            <span class="tag">Procesautomatisering</span>
-            <span class="tag">Koppelingen tussen systemen</span>
-            <span class="tag">Servers in Europa, AVG</span>
+    <div class="projects" id="projects">
+
+      <article class="fc" style="--c:#DE7A34">
+        <div class="fc-in">
+          <div class="face front">
+            <div class="prev"><span class="tag">App</span>
+              <div class="m-phone" aria-hidden="true"><i class="ln acc w6"></i><i class="blk"></i><i class="blk"></i><i class="ln w8"></i><i class="ln w4"></i></div>
+            </div>
+            <div class="meta"><span class="pill live">Live</span><span class="sector">Bouw</span></div>
+            <h3 class="nm">Proofmakr</h3>
+            <p class="pay">Vakmensen leggen hun werk vast met foto's voor en na. De klant volgt mee en keurt meerwerk digitaal goed.</p>
+            <div class="chips"><span>Foto's voor en na</span><span>Klant kijkt mee</span><span>Akkoord op meerwerk</span></div>
+            <button class="turn" type="button" aria-expanded="false">Draai om <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg></button>
           </div>
-          <a class="pill" href="https://cal.com/agentivestudio" target="_blank" rel="noopener">Plan een gesprek</a>
+          <div class="face back" inert>
+            <h3>Proofmakr</h3>
+            <dl>
+              <div><dt>Het probleem</dt><dd>Foto's en afspraken over meerwerk raken verspreid over appgroepen en mail. Achteraf is niet meer te zien wat er is afgesproken.</dd></div>
+              <div><dt>Wat er gebouwd is</dt><dd>Een app waarin de vakman per project vastlegt wat hij doet, met een link waarmee de klant meekijkt.</dd></div>
+              <div><dt>Belangrijkste functies</dt><dd><ul class="f"><li>Projecten met foto's voor en na</li><li>Klant kijkt mee zonder account</li><li>Meerwerk voorleggen en aftekenen</li></ul></dd></div>
+              <div><dt>Platformen</dt><dd>App voor de vakman, de klant kijkt mee in de browser</dd></div>
+            </dl>
+            <button class="turn" type="button" aria-expanded="true">Terug <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 0-15-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
+          </div>
         </div>
+      </article>
+
+      <article class="fc" style="--c:#5B4FE0">
+        <div class="fc-in">
+          <div class="face front">
+            <div class="prev"><span class="tag">Web + app</span>
+              <div class="duo" aria-hidden="true">
+                <div class="m-web"><div class="b"><i></i><i></i><i></i></div><div class="c"><div class="side"></div><div class="main"><i class="ln acc w6"></i><i class="blk"></i><i class="blk"></i></div></div></div>
+                <div class="m-phone"><i class="ln acc w6"></i><i class="blk"></i><i class="ln w8"></i></div>
+              </div>
+            </div>
+            <div class="meta"><span class="pill live">Live</span><span class="sector">Beveiliging en uitzendwerk</span></div>
+            <h3 class="nm">Service-Pro</h3>
+            <p class="pay">De planner werkt op de desktop, de medewerker ziet zijn diensten op zijn telefoon en checkt daar in.</p>
+            <div class="chips"><span>Planning en bezetting</span><span>Inchecken op locatie</span></div>
+            <button class="turn" type="button" aria-expanded="false">Draai om <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg></button>
+          </div>
+          <div class="face back" inert>
+            <h3>Service-Pro</h3>
+            <dl>
+              <div><dt>Het probleem</dt><dd>De planning stond in een spreadsheet die steeds opnieuw rondging, en wijzigingen kwamen niet altijd aan.</dd></div>
+              <div><dt>Wat er gebouwd is</dt><dd>Een planbord voor de planner en een app waarin medewerkers hun eigen diensten zien en inchecken.</dd></div>
+              <div><dt>Belangrijkste functies</dt><dd><ul class="f"><li>Planning en bezetting per week</li><li>Inchecken op locatie</li><li>Melding bij wijzigingen</li></ul></dd></div>
+              <div><dt>Platformen</dt><dd>Webapp voor de planner, app voor medewerkers</dd></div>
+            </dl>
+            <button class="turn" type="button" aria-expanded="true">Terug <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 0-15-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
+          </div>
+        </div>
+      </article>
+
+      <article class="fc" style="--c:#B8873F">
+        <div class="fc-in">
+          <div class="face front">
+            <div class="prev"><span class="tag">Web + app</span>
+              <div class="duo" aria-hidden="true">
+                <div class="m-web"><div class="b"><i></i><i></i><i></i></div><div class="c"><div class="side"></div><div class="main"><i class="ln acc w4"></i><i class="ln w8"></i><i class="blk"></i><i class="ln w6"></i></div></div></div>
+                <div class="m-phone"><i class="ln acc w4"></i><i class="blk"></i><i class="blk"></i></div>
+              </div>
+            </div>
+            <div class="meta"><span class="pill live">Live</span><span class="sector">Onderwijs</span></div>
+            <h3 class="nm">Combiworld</h3>
+            <p class="pay">Platform voor taal- en inburgeringsscholen. Elke school werkt in een eigen omgeving, met eigen klassen en docenten.</p>
+            <div class="chips"><span>Voortgang per cursist</span><span>Aanwezigheid in één tik</span></div>
+            <button class="turn" type="button" aria-expanded="false">Draai om <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg></button>
+          </div>
+          <div class="face back" inert>
+            <h3>Combiworld</h3>
+            <dl>
+              <div><dt>Het probleem</dt><dd>Presentie, voortgang en rapportages werden per school en per docent los bijgehouden.</dd></div>
+              <div><dt>Wat er gebouwd is</dt><dd>Een platform waarop elke taalschool een eigen omgeving heeft, met klassen, docenten en leerlijnen.</dd></div>
+              <div><dt>Belangrijkste functies</dt><dd><ul class="f"><li>Voortgang per cursist</li><li>Aanwezigheid in één tik</li><li>Eigen omgeving per school</li></ul></dd></div>
+              <div><dt>Platformen</dt><dd>Webapp voor beheer, presentie op de telefoon</dd></div>
+            </dl>
+            <button class="turn" type="button" aria-expanded="true">Terug <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 0-15-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
+          </div>
+        </div>
+      </article>
+
+      <article class="fc" style="--c:#E0725A">
+        <div class="fc-in">
+          <div class="face front">
+            <div class="prev"><span class="tag">Web + app</span>
+              <div class="duo" aria-hidden="true">
+                <div class="m-web"><div class="b"><i></i><i></i><i></i></div><div class="c"><div class="side"></div><div class="main"><i class="ln acc w6"></i><i class="blk"></i><i class="ln w8"></i></div></div></div>
+                <div class="m-phone"><i class="ln acc w8"></i><i class="blk"></i><i class="ln w4"></i></div>
+              </div>
+            </div>
+            <div class="meta"><span class="pill live">Live</span><span class="sector">Vraag en aanbod</span></div>
+            <h3 class="nm">SkillsWorld</h3>
+            <p class="pay">Nieuwkomers laten met badges zien wat ze kunnen in plaats van met een cv, en werkgevers vinden ze daar terug.</p>
+            <div class="chips"><span>Badges in plaats van cv</span><span>Zoeken op vaardigheden</span></div>
+            <button class="turn" type="button" aria-expanded="false">Draai om <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg></button>
+          </div>
+          <div class="face back" inert>
+            <h3>SkillsWorld</h3>
+            <dl>
+              <div><dt>Het probleem</dt><dd>Wat een nieuwkomer kan, staat vaak niet op een cv. Werkgevers die mensen zoeken, vinden ze daardoor moeilijk.</dd></div>
+              <div><dt>Wat er gebouwd is</dt><dd>Een platform waarop nieuwkomers met badges laten zien wat ze kunnen, en werkgevers gericht zoeken.</dd></div>
+              <div><dt>Belangrijkste functies</dt><dd><ul class="f"><li>Badges in plaats van cv</li><li>Zoeken op vaardigheden</li><li>Werkgever en kandidaat in één omgeving</li></ul></dd></div>
+              <div><dt>Platformen</dt><dd>Webapp, ook op de telefoon</dd></div>
+            </dl>
+            <button class="turn" type="button" aria-expanded="true">Terug <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 0-15-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
+          </div>
+        </div>
+      </article>
+
+      <article class="fc" style="--c:#2E2620">
+        <div class="fc-in">
+          <div class="face front">
+            <div class="prev"><span class="tag">Webshop</span>
+              <div class="m-web" aria-hidden="true" style="width:72%"><div class="b"><i></i><i></i><i></i></div><div class="c" style="grid-template-columns:1fr 1fr"><div class="main"><i class="ln acc w6"></i><i class="blk" style="height:44px"></i></div><div class="main"><i class="ln w4"></i><i class="blk" style="height:44px"></i></div></div></div>
+            </div>
+            <div class="meta"><span class="pill live">Live</span><span class="sector">Webshop</span></div>
+            <h3 class="nm">ÉLUNE</h3>
+            <p class="pay">Webshop voor geurkaarsen met een eigen vormgeving, met Shopify eronder voor voorraad, bestellingen en betalingen.</p>
+            <div class="chips"><span>Eigen vormgeving</span><span>iDEAL</span></div>
+            <button class="turn" type="button" aria-expanded="false">Draai om <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg></button>
+          </div>
+          <div class="face back" inert>
+            <h3>ÉLUNE</h3>
+            <dl>
+              <div><dt>Het probleem</dt><dd>Een eigen merk wil een winkel die er niet uitziet als elke andere, maar wel betrouwbaar afrekent en voorraad bijhoudt.</dd></div>
+              <div><dt>Wat er gebouwd is</dt><dd>Een webshop met een eigen vormgeving, met Shopify eronder voor voorraad, bestellingen en betalingen.</dd></div>
+              <div><dt>Belangrijkste functies</dt><dd><ul class="f"><li>Eigen vormgeving</li><li>Shopify voor voorraad en betalingen</li><li>Afrekenen met iDEAL</li></ul></dd></div>
+              <div><dt>Platformen</dt><dd>Web, op desktop en telefoon</dd></div>
+            </dl>
+            <button class="turn" type="button" aria-expanded="true">Terug <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 0-15-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
+          </div>
+        </div>
+      </article>
+
+      <article class="fc" style="--c:#8B2F28">
+        <div class="fc-in">
+          <div class="face front">
+            <div class="prev"><span class="tag">Web + app</span>
+              <div class="duo" aria-hidden="true">
+                <div class="m-web"><div class="b"><i></i><i></i><i></i></div><div class="c"><div class="side"></div><div class="main"><i class="ln acc w4"></i><i class="ln w8"></i><i class="ln w6"></i><i class="blk"></i></div></div></div>
+                <div class="m-phone"><i class="ln acc w6"></i><i class="ln w8"></i><i class="blk"></i></div>
+              </div>
+            </div>
+            <div class="meta"><span class="pill dev">In ontwikkeling</span><span class="sector">Onderwijs</span></div>
+            <h3 class="nm">Iqrawise</h3>
+            <p class="pay">Leerlingvolgsysteem voor weekend- en moskeescholen. Docenten leggen vast wat een leerling beheerst, ouders kijken thuis mee.</p>
+            <div class="chips"><span>Voortgang per leerling</span><span>Ouders kijken mee</span></div>
+            <button class="turn" type="button" aria-expanded="false">Draai om <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg></button>
+          </div>
+          <div class="face back" inert>
+            <h3>Iqrawise</h3>
+            <dl>
+              <div><dt>Het probleem</dt><dd>Voortgang wordt bijgehouden op papier of in losse appjes, en ouders zien thuis niet wat er geoefend moet worden.</dd></div>
+              <div><dt>Wat er gebouwd wordt</dt><dd>Een leerlingvolgsysteem waarin docenten vastleggen wat een leerling beheerst en ouders meekijken.</dd></div>
+              <div><dt>Belangrijkste functies</dt><dd><ul class="f"><li>Voortgang per leerling</li><li>Ouders kijken mee</li><li>Eigen huisstijl per school</li></ul></dd></div>
+              <div><dt>Platformen</dt><dd>Webapp voor de docent, ouder op de telefoon</dd></div>
+            </dl>
+            <button class="turn" type="button" aria-expanded="true">Terug <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 0-15-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+    <div class="rail-nav" aria-hidden="true">
+      <div class="dots" id="dots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
+      <span class="body" style="font-size:13px">Veeg voor meer</span>
+    </div>
+  </section>
+
+  <!-- ================= HOE IK BEGIN ================= -->
+  <section class="wrap start" aria-labelledby="start-t">
+    <div class="start-grid">
+      <div>
+        <p class="eyebrow reveal">Hoe ik begin</p>
+        <h2 class="h2 reveal d1" id="start-t">Eerst kijken wat voor bedrijf je bent.</h2>
+      </div>
+      <div class="body reveal d1">
+        <p>Een aannemer, een school, een uitzendbureau en een webshop hebben weinig gemeen. Toch zit er bij alle vier meestal iemand die elke week dezelfde gegevens overtypt. Daarom begin ik niet met een pakket of een prijslijst, maar met meekijken: wat doe je nu, hoe vaak, en hoeveel tijd kost het je?</p>
+        <p>Pas als duidelijk is waar de uren blijven, bepalen we wat eraan helpt. Soms is dat een app, soms een koppeling tussen twee systemen die je al hebt, en soms is het genoeg om een half uur te sleutelen aan iets wat je al hebt. De software is het middel, nooit het doel.</p>
+      </div>
+      <div class="reveal d2">
+        <ul class="lines">
+          <li><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg></span>Ik kijk mee in je huidige proces</li>
+          <li><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span>We zoeken samen waar de tijd blijft</li>
+          <li><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17l5-5 4 4 7-8"/><path d="M15 8h5v5"/></svg></span>Daarna bouw ik wat daarbij past</li>
+        </ul>
+        <p class="quote">“Geen standaardpakket, maar iets dat past bij jouw manier van werken.”</p>
       </div>
     </div>
   </section>
 
-  <section id="vragen" class="wrap">
-    <div class="split">
-      <div class="split-sticky">
-        <p class="eyebrow">Veelgestelde vragen</p>
-        <h2>Wat mensen meestal eerst vragen.</h2>
-        <p class="split-lead">Staat je vraag er niet bij, stel hem in het gesprek.</p>
+  <!-- ================= AANPAK ================= -->
+  <section class="wrap approach" id="aanpak" aria-labelledby="aanpak-t">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow reveal">De aanpak</p>
+        <h2 class="h2 reveal d1" id="aanpak-t">Zo werkt het.</h2>
       </div>
-      <div class="faq-list">
-        <div class="faq-item"><h3 class="faq-h">Voor wat voor bedrijven werk je?</h3><p class="faq-a">Voor het MKB in de breedte. Wat ik tot nu toe bouwde draait in de bouw, in het onderwijs, bij een beveiligings- en uitzendbedrijf, in een webshop en op een platform dat nieuwkomers aan werk helpt. De branche maakt niet uit. Wat telt, is of er werk in zit dat elke week op dezelfde manier terugkomt.</p></div>
-        <div class="faq-item"><h3 class="faq-h">Is mijn probleem wel met software op te lossen?</h3><p class="faq-a">Dat hoef je ook niet te weten. Daar is het eerste gesprek voor. Soms is het antwoord een app, soms een koppeling tussen twee systemen die je al hebt, en soms blijkt een half uur instellen in je huidige pakket genoeg. Als er niets te winnen valt, zeg ik dat.</p></div>
-        <div class="faq-item"><h3 class="faq-h">Hoe lang duurt het voordat ik iets heb?</h3><p class="faq-a">Voor een eerste werkende versie met je eigen gegevens reken ik meestal op twee tot vier weken, afhankelijk van wat er nodig is. Je probeert hem uit op je telefoon of laptop, daarna passen we aan op wat je in de praktijk tegenkomt.</p></div>
-        <div class="faq-item"><h3 class="faq-h">Moet ik zelf technisch zijn?</h3><p class="faq-a">Nee. Je vertelt hoe je werkt, ik regel het bouwen, het live zetten en het onderhoud. Je hebt alleen een browser of een telefoon nodig.</p></div>
-        <div class="faq-item"><h3 class="faq-h">Van wie is de software en waar staan mijn gegevens?</h3><p class="faq-a">Wat ik voor je bouw, is van jou. Je gegevens staan op servers in Europa en de verwerking is volgens de AVG ingericht. Je kunt op elk moment alles meekrijgen, inclusief uitleg over hoe het in elkaar zit.</p></div>
-        <div class="faq-item"><h3 class="faq-h">Wat als ik het later wil uitbreiden?</h3><p class="faq-a">Dat kan, en daar is bij het bouwen rekening mee gehouden. Je praat dan opnieuw met dezelfde persoon die het gemaakt heeft, dus niemand hoeft zich eerst in te lezen.</p></div>
+      <p class="body reveal d2">Je vertelt wat er misgaat, ik bouw het, jij gebruikt het. Geen lang offertetraject vooraf.</p>
+    </div>
+    <ol class="steps" style="list-style:none; padding:0; margin:0">
+      <li class="st reveal">
+        <div class="top"><span class="num">01</span><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17"/></svg></span></div>
+        <h3 class="h3">Kennismaken in een half uur</h3>
+        <p>Je laat zien hoe het nu gaat. In een half uur ken ik je bedrijf niet, maar ik zie meestal wel waar het terugkerende werk zit en wat ik verder moet uitzoeken. Geen techniek, geen verplichting.</p>
+      </li>
+      <li class="st reveal d1">
+        <div class="top"><span class="num">02</span><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12" rx="2.5"/><path d="M8.5 20h7M12 16.5V20"/></svg></span></div>
+        <h3 class="h3">Ik bouw, jij kijkt mee</h3>
+        <p>Voor een eerste werkende versie met jouw eigen gegevens reken ik meestal op twee tot vier weken, afhankelijk van wat er nodig is. Je test het op je telefoon en ik pas aan wat je terugkoppelt.</p>
+      </li>
+      <li class="st reveal d2">
+        <div class="top"><span class="num">03</span><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19V11M12 19V6M19 19v-5"/></svg></span></div>
+        <h3 class="h3">Live, en het blijft draaien</h3>
+        <p>Ik zet het live, leg het je team uit en ben daarna bereikbaar voor onderhoud en uitbreidingen. Je hoeft dan niet opnieuw uit te leggen hoe je werkt.</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ================= OVER ================= -->
+  <section class="wrap about" id="over" aria-labelledby="over-t">
+    <div class="about-grid">
+      <div class="portrait reveal" aria-hidden="true"><span class="mono">OH</span><span class="tagline">Bouwt zelf</span></div>
+      <div>
+        <p class="eyebrow reveal">Wie je spreekt</p>
+        <h2 class="name reveal d1" id="over-t">Omar Hamdi</h2>
+        <p class="role reveal d1">Oprichter van Agentivestudio</p>
+        <div class="body reveal d2">
+          <p>Ik werk daarnaast in het onderwijs, waar veel nog op lijstjes en losse bestanden draait, en bouw software voor bedrijven die daar tegenaan lopen. Daardoor hoef ik niet te raden hoe een werkweek eruitziet en waar de tijd blijft.</p>
+          <p>Je praat met de persoon die het ook bouwt. Er zit geen accountmanager tussen, en wat je terugkoppelt gaat rechtstreeks het werk in.</p>
+        </div>
+        <ul class="skills reveal d3">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.5 2.6 2.5 14.4 0 17M12 3.5c-2.5 2.6-2.5 14.4 0 17"/></svg>Web- en app-ontwikkeling</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h11l-3-3M20 17H9l3 3"/></svg>Procesautomatisering</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg>Koppelingen tussen systemen</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10.5" width="14" height="9.5" rx="2.5"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></svg>Servers in Europa, AVG</li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <section class="cta">
-    <div class="wrap">
-      <div class="cta-in">
-        <p class="eyebrow" style="color:var(--ac)">Volgende stap</p>
-        <h2>Waar gaat bij jou de tijd heen?</h2>
-        <p>Plan een gesprek van een half uur, online of telefonisch. Je hoort waar ik kansen zie en wat ik daarna nog moet uitzoeken. Zie ik niets, dan zeg ik dat ook.</p>
-        <div class="cta-actions">
-          <a class="pill" href="https://cal.com/agentivestudio" target="_blank" rel="noopener">Plan een gesprek</a>
-          <a class="pill wa" href="https://wa.me/31657778357" target="_blank" rel="noopener">WhatsApp</a>
+  <!-- ================= VRAGEN ================= -->
+  <section class="wrap faq" id="vragen" aria-labelledby="vragen-t">
+    <div class="faq-grid">
+      <div class="sticky">
+        <p class="eyebrow reveal">Veelgestelde vragen</p>
+        <h2 class="h2 reveal d1" id="vragen-t">Wat mensen meestal eerst vragen.</h2>
+        <p class="body reveal d2" style="margin-top:14px">Staat je vraag er niet bij, stel hem in het gesprek.</p>
+      </div>
+      <div class="acc reveal d1">
+        <details><summary>Voor wat voor bedrijven werk je?<span class="pm" aria-hidden="true">+</span></summary><p>Voor het MKB in de breedte. Wat ik tot nu toe bouwde draait in de bouw, in het onderwijs, bij een beveiligings- en uitzendbedrijf, in een webshop en op een platform dat nieuwkomers aan werk helpt. De branche maakt niet uit. Wat telt, is of er werk in zit dat elke week op dezelfde manier terugkomt.</p></details>
+        <details><summary>Is mijn probleem wel met software op te lossen?<span class="pm" aria-hidden="true">+</span></summary><p>Dat hoef je ook niet te weten. Daar is het eerste gesprek voor. Soms is het antwoord een app, soms een koppeling tussen twee systemen die je al hebt, en soms blijkt een half uur instellen in je huidige pakket genoeg. Als er niets te winnen valt, zeg ik dat.</p></details>
+        <details><summary>Hoe lang duurt het voordat ik iets heb?<span class="pm" aria-hidden="true">+</span></summary><p>Voor een eerste werkende versie met je eigen gegevens reken ik meestal op twee tot vier weken, afhankelijk van wat er nodig is. Je probeert hem uit op je telefoon of laptop, daarna passen we aan op wat je in de praktijk tegenkomt.</p></details>
+        <details><summary>Moet ik zelf technisch zijn?<span class="pm" aria-hidden="true">+</span></summary><p>Nee. Je vertelt hoe je werkt, ik regel het bouwen, het live zetten en het onderhoud. Je hebt alleen een browser of een telefoon nodig.</p></details>
+        <details><summary>Van wie is de software en waar staan mijn gegevens?<span class="pm" aria-hidden="true">+</span></summary><p>Wat ik voor je bouw, is van jou. Je gegevens staan op servers in Europa en de verwerking is volgens de AVG ingericht. Je kunt op elk moment alles meekrijgen, inclusief uitleg over hoe het in elkaar zit.</p></details>
+        <details><summary>Wat als ik het later wil uitbreiden?<span class="pm" aria-hidden="true">+</span></summary><p>Dat kan, en daar is bij het bouwen rekening mee gehouden. Je praat dan opnieuw met dezelfde persoon die het gemaakt heeft, dus niemand hoeft zich eerst in te lezen.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= VOLGENDE STAP ================= -->
+  <section class="wrap final" id="contact" aria-labelledby="final-t">
+    <div class="final-card reveal">
+      <div style="position:relative; z-index:1">
+        <p class="eyebrow">Volgende stap</p>
+        <h2 class="h2" id="final-t">Waar gaat bij jou de tijd heen?</h2>
+        <p class="body">Plan een gesprek van een half uur, online of telefonisch. Je hoort waar ik kansen zie en wat ik daarna nog moet uitzoeken. Zie ik niets, dan zeg ik dat ook.</p>
+      </div>
+      <div class="final-side">
+        <div class="actions">
+          <a class="btn btn-primary" href="https://cal.com/agentivestudio" target="_blank" rel="noopener">Plan een gesprek <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn-wa" href="https://wa.me/31657778357" target="_blank" rel="noopener">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .1-1.2c0-.1-.2-.2-.4-.3z"/></svg>
+            WhatsApp</a>
         </div>
+        <ul class="checks">
+          <li>Vrijblijvend</li>
+          <li>Online of telefonisch</li>
+          <li>Een half uur</li>
+        </ul>
       </div>
     </div>
   </section>
 </main>
 
-<footer>
-  <div class="foot-in">
-    <a class="wordmark" href="#top">Agentive<em>studio</em></a>
-    <span class="foot-legal">KvK 42005967 &middot; Btw-id NL005429711B13 &middot; Leiden</span>
-    <span class="foot-links"><a href="mailto:omar@agentivestudio.nl">omar@agentivestudio.nl</a> &middot; <a href="/privacy.html">Privacyverklaring</a> &middot; <a href="/voorwaarden.html">Algemene voorwaarden</a></span>
-    <span>&copy; 2026 Omar Hamdi</span>
+<footer class="foot">
+  <div class="wrap foot-in">
+    <a class="brand" href="#top">AGENTIVE STUDIO</a>
+    <nav aria-label="Voetnavigatie"><a href="#werk">Werk</a><a href="#aanpak">Aanpak</a><a href="#over">Over</a><a href="#vragen">Vragen</a></nav>
+    <div class="legal"><a href="/privacy.html">Privacyverklaring</a><a href="/voorwaarden.html">Algemene voorwaarden</a></div>
+    <div class="id"><span>KvK 42005967</span><span>Btw-id NL005429711B13</span><span>Leiden</span><a href="mailto:omar@agentivestudio.nl">omar@agentivestudio.nl</a><span>&copy; 2026 Omar Hamdi</span></div>
   </div>
 </footer>
 
-<script>
-(function(){
-  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var P=[
-   {t:'Proofmakr',sector:'Bouw',live:1,
-    d:"Vakmensen leggen hun werk vast met foto's voor en na. De klant volgt mee en keurt meerwerk digitaal goed.",
-    f:["Foto's voor en na",'Klant kijkt mee zonder app','Akkoord op meerwerk'],
-    v:['phone'],url:'',note:'Alles gebeurt in de app, op de bouwplaats.'},
-   {t:'Service-Pro',sector:'Beveiliging en uitzendwerk',live:1,
-    d:'De planner werkt op de desktop, de medewerker ziet zijn diensten op zijn telefoon en checkt daar in.',
-    f:['Planning en bezetting','Inchecken op locatie','Melding bij wijzigingen'],
-    v:['web','phone'],url:'service-pro.nl/beheer',note:'Desktop voor de planner, telefoon voor de medewerker.'},
-   {t:'Combiworld',sector:'Onderwijs',live:1,
-    d:'Platform voor taal- en inburgeringsscholen. Elke school werkt in een eigen omgeving, met eigen klassen en docenten.',
-    f:['Voortgang per cursist','Aanwezigheid in één tik','Eigen omgeving per school'],
-    v:['web','phone'],url:'combiworld.eu/klas',note:'Beheer op de desktop, presentie op de telefoon.'},
-   {t:'SkillsWorld',sector:'Vraag en aanbod',live:1,
-    d:'Nieuwkomers laten met badges zien wat ze kunnen in plaats van met een cv, en werkgevers vinden ze daar terug.',
-    f:['Badges in plaats van cv','Zoeken op vaardigheden','Werkgever en kandidaat in één omgeving'],
-    v:['web','phone'],url:'skillsworld.nl/profiel',note:'Werkgever op de desktop, kandidaat op de telefoon.'},
-   {t:'ÉLUNE',sector:'Webshop',live:1,
-    d:'Webshop voor geurkaarsen met een eigen vormgeving, met Shopify eronder voor voorraad, bestellingen en betalingen.',
-    f:['Eigen vormgeving','Shopify voor voorraad en betalingen','iDEAL'],
-    v:['web'],url:'elune.amsterdam/collectie',note:'Een webshop, dus alles draait in de browser.'},
-   {t:'Iqrawise',sector:'Onderwijs',live:0,
-    d:'Leerlingvolgsysteem voor weekend- en moskeescholen. Docenten leggen vast wat een leerling beheerst, ouders kijken thuis mee.',
-    f:['Voortgang per leerling','Ouders kijken mee','Eigen huisstijl per school'],
-    v:['web','phone'],url:'iqrawise.app/school',note:'Docent op de desktop, ouder op de telefoon.'}
-  ];
-  function esc(s){var d=document.createElement('div'); d.textContent=s; return d.innerHTML}
-  function mini(kind,p){
-    if(kind==='phone') return '<div class="mini phone"><div class="scr"><div class="ph"><b>'+esc(p.t)+'</b></div></div></div>';
-    return '<div class="mini web"><div class="bar"><i></i><i></i><i></i><u>'+esc(p.url)+'</u></div><div class="scr"><div class="ph"><b>'+esc(p.t)+'</b></div></div></div>';
-  }
-  var g=document.getElementById('grid');
-  g.innerHTML=P.map(function(p){
-    var label = p.v.length===2 ? 'Desktop en telefoon' : (p.v[0]==='phone' ? 'Alleen de app' : 'Alleen de webshop');
-    return '<article class="fc"><div class="fc-in">'+
-      '<div class="face front">'+
-        '<div class="cap"><span class="chip '+(p.live?'live':'dev')+'">'+(p.live?'Live':'In ontwikkeling')+'</span><span class="sector">'+esc(p.sector)+'</span></div>'+
-        '<h3 class="nm">'+esc(p.t)+'</h3>'+
-        '<p class="tx">'+esc(p.d)+'</p>'+
-        '<ul class="fe">'+p.f.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul>'+
-        '<button class="turn" type="button">Bekijk de schermen'+
-          '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg>'+
-        '</button>'+
-      '</div>'+
-      '<div class="face back">'+
-        '<span class="label">'+label+'</span>'+
-        '<div class="shots'+(p.v.length===2?' duo':'')+'">'+p.v.map(function(k){return mini(k,p)}).join('')+'</div>'+
-        '<p class="note">'+esc(p.note)+'</p>'+
-        '<button class="turn" type="button">Terug naar de tekst'+
-          '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 0-15-6.7L3 8"/><path d="M3 3v5h5"/></svg>'+
-        '</button>'+
-      '</div></div></article>';
-  }).join('');
-
-  g.addEventListener('click',function(e){
-    var card=e.target.closest('.fc'); if(!card)return;
-    card.classList.toggle('flipped');
-    var to=card.querySelector(card.classList.contains('flipped')?'.back .turn':'.front .turn');
-    if(to&&document.activeElement&&document.activeElement.closest('.fc')===card) setTimeout(function(){to.focus()},reduce?0:420);
-  });
-
-  /* glans die met de muis meeloopt over de kaarten */
-  [].slice.call(g.querySelectorAll('.face')).forEach(function(f){
-    f.addEventListener('pointermove',function(e){
-      var r=f.getBoundingClientRect();
-      f.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');
-      f.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');
-    });
-  });
-
-  /* magneetknoppen: de belangrijkste knop komt je tegemoet */
-  if(!reduce && window.matchMedia('(pointer:fine)').matches){
-    var mags=[].slice.call(document.querySelectorAll('a.pill:not(.ghost)'));
-    var tick=false, last=null;
-    window.addEventListener('pointermove',function(e){ last=e; if(tick)return; tick=true;
-      requestAnimationFrame(function(){
-        tick=false; if(!last)return;
-        mags.forEach(function(el){
-          var r=el.getBoundingClientRect(), cx=r.left+r.width/2, cy=r.top+r.height/2;
-          var dx=last.clientX-cx, dy=last.clientY-cy;
-          if(Math.abs(dx)<r.width/2+70 && Math.abs(dy)<r.height/2+55){
-            var lim=11;
-            el.style.transform='translate('+Math.max(-lim,Math.min(lim,dx*.26)).toFixed(1)+'px,'+Math.max(-lim,Math.min(lim,dy*.26)).toFixed(1)+'px)';
-          } else if(el.style.transform){ el.style.transform='' }
-        });
-      });
-    },{passive:true});
-  }
-
-  var nav=document.getElementById('nav');
-  window.addEventListener('scroll',function(){ nav.classList.toggle('stuck',window.scrollY>12) },{passive:true});
-})();
-</script>
-
-<div class="buddy">
-  <div class="panel" id="panel" hidden role="dialog" aria-label="Vragen aan Agentivestudio">
-    <div class="p-head">
-      <span class="mini" id="petMini"></span>
-      <span><b>Zand</b><span class="role">Antwoordt uit de veelgestelde vragen</span></span>
-      <button class="p-x" id="pClose" type="button" aria-label="Sluiten">&times;</button>
+<!-- ================= ZAND ================= -->
+<div class="zand" id="zand">
+  <div class="zp" id="zp" role="dialog" aria-modal="false" aria-labelledby="zp-t" hidden>
+    <div class="zp-h">
+      <span class="zand-fig" aria-hidden="true" id="zpFig"></span>
+      <div><p class="t" id="zp-t">Kan ik meedenken?</p><small>Ik antwoord uit de veelgestelde vragen</small></div>
+      <button class="zp-x" id="zpX" type="button" aria-label="Sluiten">&times;</button>
     </div>
-    <div class="p-body" id="pBody"></div>
-    <form class="p-foot" id="pForm">
-      <input id="pIn" type="text" autocomplete="off" placeholder="Typ je vraag" aria-label="Typ je vraag">
-      <button type="submit" aria-label="Versturen">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
-      </button>
+    <div class="zp-b" id="zpB" aria-live="polite"></div>
+    <form class="zp-f" id="zpF">
+      <label class="sr-only" for="zpIn">Typ je vraag</label>
+      <input id="zpIn" type="text" autocomplete="off" placeholder="Of typ je vraag">
+      <button type="submit" aria-label="Versturen"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button>
     </form>
   </div>
-  <button class="pet" id="pet" type="button" aria-label="Stel een vraag"></button>
-  <div class="bubble" id="bubble">Vraag maar raak</div>
+  <button class="zand-btn" id="zandBtn" type="button" aria-expanded="false" aria-controls="zp">
+    <span class="lbl">Stel je vraag</span>
+    <span class="zand-fig" id="zandFig" aria-hidden="true"></span>
+    <span class="sr-only">Open Zand, antwoorden op veelgestelde vragen</span>
+  </button>
 </div>
 
-<script>
-(function(){
-  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function zand(){
-    return '<svg viewBox="0 0 100 100" class="bob" aria-hidden="true">'+
-      '<rect x="22" y="8" width="56" height="8" rx="4" fill="#7A312B"/>'+
-      '<rect x="22" y="84" width="56" height="8" rx="4" fill="#7A312B"/>'+
-      '<path d="M30 16 L70 16 L54 50 L70 84 L30 84 L46 50 Z" fill="#F3EBDE" stroke="#7A312B" stroke-width="3" stroke-linejoin="round"/>'+
-      '<path d="M34 20 L66 20 L52 47 L48 47 Z" fill="#D9C9AF"/>'+
-      '<path d="M36 80 L64 80 L56 66 L44 66 Z" fill="#D9C9AF"/>'+
-      '<circle class="grain" cx="50" cy="56" r="2" fill="#A2564A"/>'+
-      '<g><circle cx="43" cy="32" r="5.5" fill="#FBF3E8"/><circle cx="57" cy="32" r="5.5" fill="#FBF3E8"/>'+
-      '<circle class="pupil" cx="43" cy="32" r="2.6" fill="#272017"/><circle class="pupil" cx="57" cy="32" r="2.6" fill="#272017"/>'+
-      '<rect class="lid" x="37" y="27" width="12" height="11" fill="#F3EBDE"/><rect class="lid" x="51" y="27" width="12" height="11" fill="#F3EBDE"/></g>'+
-    '</svg>';
-  }
-  var pet=document.getElementById('pet'), panel=document.getElementById('panel'), body=document.getElementById('pBody');
-  pet.innerHTML=zand(); document.getElementById('petMini').innerHTML=zand();
-
-  var pupils=[].slice.call(document.querySelectorAll('.buddy .pupil'));
-  window.addEventListener('pointermove',function(e){
-    if(reduce)return;
-    pupils.forEach(function(p){
-      var r=p.getBoundingClientRect(), cx=r.left+r.width/2, cy=r.top+r.height/2;
-      var dx=e.clientX-cx, dy=e.clientY-cy, d=Math.hypot(dx,dy)||1, m=Math.min(2.6,d/26);
-      p.setAttribute('transform','translate('+(dx/d*m).toFixed(2)+','+(dy/d*m).toFixed(2)+')');
-    });
-  },{passive:true});
-
-  var QA=[
-   {q:'Voor wat voor bedrijven werk je?', k:'bedrijf bedrijven sector branche wie klanten mkb',
-    a:'Voor het MKB in de breedte. Wat ik tot nu toe bouwde draait in de bouw, in het onderwijs, bij een beveiligings- en uitzendbedrijf, in een webshop en op een platform dat nieuwkomers aan werk helpt. De branche maakt niet uit, het gaat erom of er werk in zit dat elke week op dezelfde manier terugkomt.'},
-   {q:'Hoe lang duurt het?', k:'lang duurt snel wanneer klaar levertijd weken tijd',
-    a:'Voor een eerste werkende versie met je eigen gegevens reken ik meestal op twee tot vier weken, afhankelijk van wat er nodig is. Je probeert hem uit op je telefoon of laptop, daarna passen we aan op wat je in de praktijk tegenkomt.'},
-   {q:'Wat kost het?', k:'kost prijs tarief euro geld offerte budget betalen duur',
-    a:'Dat hangt af van wat er nodig is, en daarom noem ik hier geen bedrag dat toch niet klopt. Na een eerste gesprek weet ik wat ik nog moet uitzoeken, en daarna krijg je een prijs voordat we beginnen.', cta:1},
-   {q:'Moet ik zelf technisch zijn?', k:'technisch ict kennis moeilijk installeren onderhouden zelf',
-    a:'Nee. Je vertelt hoe je werkt, ik regel het bouwen, het live zetten en het onderhoud. Je hebt alleen een browser of een telefoon nodig.'},
-   {q:'Van wie is het en waar staan mijn gegevens?', k:'eigenaar gegevens data avg privacy servers europa eigendom',
-    a:'Wat ik voor je bouw, is van jou. Je gegevens staan op servers in Europa en de verwerking is volgens de AVG ingericht. Je kunt op elk moment alles meekrijgen, inclusief uitleg over hoe het in elkaar zit.'},
-   {q:'Kan ik het later uitbreiden?', k:'uitbreiden later groeien extra aanpassen onderhoud',
-    a:'Dat kan, en daar is bij het bouwen rekening mee gehouden. Je praat dan opnieuw met dezelfde persoon die het gemaakt heeft, dus niemand hoeft zich eerst in te lezen.'},
-   {q:'Is mijn probleem met software op te lossen?', k:'probleem oplossen software app nodig helpt zinvol',
-    a:'Dat hoef je zelf niet te weten, daar is het eerste gesprek voor. Soms is het antwoord een app, soms een koppeling tussen twee systemen die je al hebt, en soms is een half uur instellen genoeg. Als er niets te winnen valt, zeg ik dat.'}
-  ];
-  function say(t,me){ var d=document.createElement('div'); d.className='say'+(me?' me':''); d.textContent=t; body.appendChild(d); body.scrollTop=body.scrollHeight }
-  function chips(){
-    var w=document.createElement('div'); w.className='qs';
-    QA.forEach(function(x,i){
-      var b=document.createElement('button'); b.type='button'; b.className='qb'; b.textContent=x.q;
-      b.addEventListener('click',function(){ ask(i) }); w.appendChild(b);
-    });
-    body.appendChild(w); body.scrollTop=body.scrollHeight;
-  }
-  function actions(){
-    var w=document.createElement('div'); w.className='acts';
-    w.innerHTML='<a href="https://cal.com/agentivestudio" target="_blank" rel="noopener">Plan een gesprek</a>'+
-                '<a class="wa" href="https://wa.me/31657778357" target="_blank" rel="noopener">WhatsApp</a>';
-    body.appendChild(w); body.scrollTop=body.scrollHeight;
-  }
-  function ask(i){
-    say(QA[i].q,true);
-    setTimeout(function(){ say(QA[i].a); if(QA[i].cta) actions(); chips() }, reduce?0:340);
-  }
-  function match(t){
-    t=t.toLowerCase(); var best=-1, score=0;
-    QA.forEach(function(x,i){ var s=0;
-      x.k.split(' ').forEach(function(w){ if(w.length>2 && t.indexOf(w)>-1) s++ });
-      if(s>score){ score=s; best=i }
-    });
-    return score>0?best:-1;
-  }
-  document.getElementById('pForm').addEventListener('submit',function(e){
-    e.preventDefault();
-    var inp=document.getElementById('pIn'), t=inp.value.trim(); if(!t)return;
-    inp.value=''; say(t,true);
-    var i=match(t);
-    setTimeout(function(){
-      if(i>-1){ say(QA[i].a); if(QA[i].cta) actions() }
-      else { say('Daar heb ik geen kant-en-klaar antwoord op, en dan ga ik liever niet gokken. Stel hem in een gesprek van een half uur, dan hoor je het meteen.'); actions() }
-      chips();
-    }, reduce?0:380);
-  });
-
-  var opened=false;
-  function open(){
-    panel.hidden=false; opened=true;
-    document.getElementById('bubble').style.display='none';
-    if(!body.childElementCount){ say('Hoi, ik ben Zand. Ik ken de vragen die hier het vaakst gesteld worden. Kies er een of typ je eigen vraag.'); chips() }
-    setTimeout(function(){ document.getElementById('pIn').focus() },60);
-  }
-  function close(){ panel.hidden=true; opened=false; pet.focus() }
-  pet.addEventListener('click',function(){ opened?close():open() });
-  document.getElementById('pClose').addEventListener('click',close);
-  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&opened)close() });
-
-  if('IntersectionObserver' in window && !reduce){
-    var target=document.getElementById('vragen');
-    if(target){
-      var io=new IntersectionObserver(function(es){
-        es.forEach(function(e){
-          if(e.isIntersecting && !opened){
-            document.getElementById('bubble').textContent='Vragen? Tik maar.';
-            pet.animate([{transform:'rotate(0)'},{transform:'rotate(-12deg)'},{transform:'rotate(10deg)'},{transform:'rotate(0)'}],{duration:700,easing:'ease-in-out'});
-            io.disconnect();
-          }
-        });
-      },{threshold:.2});
-      io.observe(target);
-    }
-  }
-})();
-</script>
+<script src="/assets/site.js" defer></script>
 </body>
 </html>

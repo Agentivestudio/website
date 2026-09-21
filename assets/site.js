@@ -119,6 +119,14 @@
 
   /* stipjes onder de kaarten op mobiel */
   var projects = $('#projects'), dots = $$('#dots i');
+  if(projects){ projects.addEventListener('scroll', railState, {passive:true}); window.addEventListener('resize', railState); setTimeout(railState, 50) }
+  /* pijlen naast de projecten */
+  var prevP = $('#prevP'), nextP = $('#nextP');
+  function railStep(){ var c = $('.fc', projects); return c ? c.getBoundingClientRect().width + 16 : 280 }
+  function railState(){ if(!prevP) return; prevP.disabled = projects.scrollLeft < 8; nextP.disabled = projects.scrollLeft + projects.clientWidth > projects.scrollWidth - 8 }
+  if(prevP){ prevP.addEventListener('click', function(){ projects.scrollBy({left:-railStep(), behavior: reduce ? 'auto' : 'smooth'}) });
+             nextP.addEventListener('click', function(){ projects.scrollBy({left: railStep(), behavior: reduce ? 'auto' : 'smooth'}) }) }
+
   if(projects && dots.length){
     projects.addEventListener('scroll', function(){
       var cards = $$('.fc', projects), sl = projects.scrollLeft, best = 0, bd = 1e9;
@@ -128,33 +136,7 @@
   }
 
   /* ---------- Zand ---------- */
-  function hourglass(){
-    return '<svg viewBox="0 0 40 40" aria-hidden="true"><g class="breathe">'+
-      '<rect x="9" y="4" width="22" height="4" rx="2" fill="#7A4F34"/>'+
-      '<rect x="9" y="32" width="22" height="4" rx="2" fill="#7A4F34"/>'+
-      '<path d="M12 8h16l-6.5 12L28 32H12l6.5-12z" fill="#FFFDF8" stroke="#7A4F34" stroke-width="1.6" stroke-linejoin="round"/>'+
-      '<path d="M14 10h12l-5 9h-2z" fill="#D9BE9C"/>'+
-      '<path d="M15 30h10l-3.2-5.4h-3.6z" fill="#D9BE9C"/>'+
-      '<circle class="grain" cx="20" cy="22" r=".9" fill="#9C6848"/>'+
-      '<circle cx="17.4" cy="13.2" r="1.9" fill="#FFFDF8"/><circle cx="22.6" cy="13.2" r="1.9" fill="#FFFDF8"/>'+
-      '<circle class="pupil" cx="17.4" cy="13.2" r="1" fill="#1B1915"/><circle class="pupil" cx="22.6" cy="13.2" r="1" fill="#1B1915"/>'+
-      '<rect class="lid" x="15.3" y="11.1" width="4.2" height="4.2" fill="#D9BE9C"/><rect class="lid" x="20.5" y="11.1" width="4.2" height="4.2" fill="#D9BE9C"/>'+
-    '</g></svg>';
-  }
-  var zand = $('#zand'), zBtn = $('#zandBtn'), zp = $('#zp'), zB = $('#zpB'), zF = $('#zpF'), zIn = $('#zpIn');
-  $('#zandFig').innerHTML = hourglass(); $('#zpFig').innerHTML = hourglass();
-
-  var pupils = $$('.zand .pupil');
-  if(finePointer && !reduce){
-    var pt = false, last;
-    window.addEventListener('pointermove', function(e){ last = e; if(pt) return; pt = true;
-      requestAnimationFrame(function(){ pt = false;
-        pupils.forEach(function(p){ var r = p.getBoundingClientRect(); if(!r.width) return;
-          var dx = last.clientX - (r.left + r.width/2), dy = last.clientY - (r.top + r.height/2), d = Math.hypot(dx,dy) || 1, m = Math.min(.7, d/60);
-          p.setAttribute('transform','translate('+(dx/d*m).toFixed(2)+','+(dy/d*m).toFixed(2)+')') });
-      });
-    }, {passive:true});
-  }
+  var zand = $('#zand'), zBtn = $('#zandBtn'), zAsk = $('#zandAsk'), zp = $('#zp'), zB = $('#zpB'), zF = $('#zpF'), zIn = $('#zpIn');
 
   var QA = {
     kost:{q:'Wat kost zoiets?', a:'Dat hangt af van wat er nodig is, en daarom noem ik hier geen bedrag dat toch niet klopt. Na een eerste gesprek weet ik wat ik nog moet uitzoeken, en daarna krijg je een prijs voordat we beginnen.', cta:true,
@@ -189,7 +171,7 @@
       {id:'kost', label:QA.kost.q, icon:ICON.vraag},
       {id:'duur', label:QA.duur.q, icon:ICON.vraag},
       {id:'wie',  label:QA.wie.q,  icon:ICON.vraag},
-      {id:'plan', label:'Plan een gesprek', icon:ICON.cal}
+      {id:'plan', label:'Plan direct een gesprek', icon:ICON.cal}
     ];
     list.forEach(function(o){
       var b = document.createElement(o.id === 'plan' ? 'a' : 'button');
@@ -223,12 +205,13 @@
   });
   var zOpen = false;
   function openZand(){
-    zp.hidden = false; zOpen = true; zand.classList.add('open'); zBtn.setAttribute('aria-expanded','true');
-    if(!zB.childElementCount){ msg('Hoi, ik ben Zand. Ik ken de vragen die hier het vaakst gesteld worden. Kies er een, of typ je eigen vraag.'); options() }
+    zp.hidden = false; zOpen = true; zand.classList.add('open'); zBtn.setAttribute('aria-expanded','true'); zAsk.setAttribute('aria-expanded','true');
+    if(!zB.childElementCount){ options() }
     if(finePointer) setTimeout(function(){ zIn.focus() }, 60);
   }
-  function closeZand(focusBack){ zp.hidden = true; zOpen = false; zand.classList.remove('open'); zBtn.setAttribute('aria-expanded','false'); if(focusBack) zBtn.focus() }
+  function closeZand(focusBack){ zp.hidden = true; zOpen = false; zand.classList.remove('open'); zBtn.setAttribute('aria-expanded','false'); zAsk.setAttribute('aria-expanded','false'); if(focusBack) zBtn.focus() }
   zBtn.addEventListener('click', function(){ zOpen ? closeZand(true) : openZand() });
+  zAsk.addEventListener('click', function(){ zOpen ? closeZand(true) : openZand() });
   $('#zpX').addEventListener('click', function(){ closeZand(true) });
   document.addEventListener('keydown', function(e){
     if(e.key !== 'Escape') return;

@@ -9,7 +9,7 @@
 <link rel="canonical" href="https://www.agentivestudio.nl/">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="author" content="Omar Hamdi">
-<meta name="theme-color" content="#F5F0E8">
+<meta name="theme-color" content="#F6F1EA">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Agentivestudio">
@@ -32,6 +32,7 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/img/desk.webp" as="image" type="image/webp">
 <link rel="stylesheet" href="/assets/site.css">
 <script type="application/ld+json">{
  "@context":"https://schema.org",
@@ -68,7 +69,8 @@
       <a href="#vragen">Vragen</a>
     </nav>
     <div class="head-cta">
-      <a class="btn btn-primary btn-sm" href="https://cal.com/agentivestudio" target="_blank" rel="noopener">Plan een gesprek <span class="arr" aria-hidden="true">→</span></a>
+      <a class="btn btn-primary" href="https://cal.com/agentivestudio" target="_blank" rel="noopener">Plan een gesprek <span class="arr" aria-hidden="true">→</span></a>
+      <p class="tagline">Praktische software voor mensen die vooruit willen.</p>
       <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="mnav">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
       </button>
@@ -90,54 +92,225 @@
 <main id="main">
 
   <!-- ================= HERO ================= -->
-  <section class="wrap hero" id="top">
-    <div>
-      <p class="eyebrow reveal">Voor het MKB, vanuit Leiden</p>
-      <h1 class="h1 reveal d1">Elke week uren terug.</h1>
-      <p class="lede reveal d2">Ergens in je bedrijf zit werk dat elke week terugkomt en uren kost. Ik zoek dat op en bouw iets wat het overneemt. Hieronder staat wat dat tot nu toe is geworden.</p>
-      <div class="actions reveal d3">
-        <a class="btn btn-primary" href="https://cal.com/agentivestudio" target="_blank" rel="noopener">Plan een gesprek <span class="arr" aria-hidden="true">→</span></a>
-        <a class="btn btn-secondary" href="#werk">Bekijk het werk</a>
+  <section class="hero" id="top">
+    <div class="wrap hero-in">
+      <div>
+        <p class="eyebrow reveal">Voor het MKB, vanuit Leiden</p>
+        <h1 class="h1 reveal d1">Elke week uren terug.</h1>
+        <p class="lede reveal d2">Ergens in je bedrijf zit werk dat elke week terugkomt en uren kost. Ik zoek dat op en bouw iets wat het overneemt. Hieronder staat wat dat tot nu toe is geworden.</p>
+        <div class="actions reveal d3">
+          <a class="btn btn-primary" href="https://cal.com/agentivestudio" target="_blank" rel="noopener">Plan een gesprek <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn-secondary" href="#werk">Bekijk het werk</a>
+        </div>
+        <ul class="facts reveal d4" aria-label="Zo werk ik">
+          <li>Je praat met wie het bouwt</li>
+          <li>Servers in Europa</li>
+          <li>Vaste contactpersoon</li>
+        </ul>
       </div>
-      <ul class="facts reveal d3" aria-label="Zo werk ik">
-        <li>Je praat met wie het bouwt</li>
-        <li>Servers in Europa</li>
-        <li>Vaste contactpersoon</li>
-      </ul>
-    </div>
 
-    <div class="stage-hero" role="img" aria-label="Van een handgeschreven lijstje, via hetzelfde werk als proces, naar meer tijd over in de week">
-      <div class="note float reveal d1" aria-hidden="true">
-        <p class="t">Elke week weer…</p>
-        <ul>
-          <li>E-mails overzetten</li>
-          <li>Gegevens invoeren</li>
-          <li>Rapportages maken</li>
-          <li>Klanten informeren</li>
-          <li>Lijstjes bijwerken</li>
-        </ul>
+      <div class="art" role="img" aria-label="Van een handgeschreven lijstje, via hetzelfde werk als proces, naar meer tijd voor wat ertoe doet">
+        <div class="nb float reveal d1" aria-hidden="true">
+          <p class="t">Elke week weer…</p>
+          <ul>
+            <li>E-mails overzetten</li>
+            <li>Gegevens invoeren</li>
+            <li>Rapportages maken</li>
+            <li>Klanten informeren</li>
+            <li>Bestanden zoeken</li>
+            <li>Lijsten bijwerken</li>
+            <li>En weer opnieuw…</li>
+          </ul>
+        </div>
+        <div class="proc float s2 reveal d2" aria-hidden="true">
+          <p class="k">Hetzelfde werk, slimmer</p>
+          <ul>
+            <li><i><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 7l9 6 9-6"/></svg></i>E-mails verwerken</li>
+            <li><i><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 14-5l2 2M20 12a8 8 0 0 1-14 5l-2-2"/><path d="M20 4v5h-5M4 20v-5h5"/></svg></i>Data synchroniseren</li>
+            <li><i><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"/><path d="M9 13h7M9 17h5"/></svg></i>Rapportages genereren</li>
+            <li><i><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H8l-4 4z"/></svg></i>Klanten automatisch informeren</li>
+            <li><i><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></i>Bestanden koppelen</li>
+            <li><i><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19V11M12 19V6M19 19v-5"/></svg></i>Inzichten verzamelen</li>
+          </ul>
+        </div>
+        <div class="res float s3 reveal d3" aria-hidden="true">
+          <div class="ph">
+            <img src="/assets/img/desk.webp" alt="" width="820" height="459" decoding="async" fetchpriority="high">
+            <span class="chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Tijd terug</span>
+          </div>
+          <p class="h">Meer tijd voor wat er echt toe doet.</p>
+          <div class="tiles">
+            <div><b>Minder</b><span>handmatig werk</span></div>
+            <div><b>Sneller</b><span>processen</span></div>
+            <div><b>Meer</b><span>overzicht</span></div>
+          </div>
+          <p class="grow"><i><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 19v-6M12 19V8M18 19V4"/></svg></i>Groei met een lichtere organisatie.</p>
+        </div>
+        <img class="plant-r" src="/assets/img/plant.webp" alt="" width="520" height="690" decoding="async" aria-hidden="true">
+        <img class="decor float s2" src="/assets/img/decor.webp" alt="" width="440" height="550" decoding="async" aria-hidden="true">
+        <svg class="arw a" viewBox="0 0 60 30" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 22C18 6 36 4 54 12"/><path d="M47 6l8 6-9 4"/></svg>
+        <svg class="arw b" viewBox="0 0 60 30" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 22C18 6 36 4 54 12"/><path d="M47 6l8 6-9 4"/></svg>
+        <svg class="arw c" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M8 36C6 22 12 10 26 4"/><path d="M19 3l8 1-3 8"/></svg>
+        <span class="scrib a" aria-hidden="true">Van handmatig…</span>
+        <span class="scrib c" aria-hidden="true">Zelfde mensen.<br>Grotere<br>mogelijkheden.</span>
+        <svg class="arw d" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M34 34C22 30 12 20 8 6"/><path d="M4 13l4-8 7 5"/></svg>
       </div>
-      <div class="card proc float s2 reveal d2" aria-hidden="true">
-        <p class="kicker">Hetzelfde werk, slimmer</p>
-        <ul>
-          <li><i>✓</i>E-mails verwerkt</li>
-          <li><i>✓</i>Gegevens gekoppeld</li>
-          <li><i>✓</i>Rapportage vanzelf klaar</li>
-          <li><i>✓</i>Klant krijgt bericht</li>
-          <li><i>✓</i>Lijsten altijd actueel</li>
-        </ul>
+    </div>
+  </section>
+
+  <!-- ================= WERK ================= -->
+  <section class="werk" id="werk" aria-labelledby="werk-t">
+    <div class="wrap werk-in">
+      <div class="werk-intro">
+        <p class="eyebrow reveal">Gebouwd en in gebruik</p>
+        <h2 class="h2 reveal d1" id="werk-t">Projecten die het verschil maken.</h2>
+        <p class="body reveal d2">Draai een kaart om en je ziet op welke schermen het draait.</p>
+        <div class="rail-ctl reveal d3">
+          <button class="icon-btn" id="prevP" type="button" aria-label="Vorige projecten"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+          <button class="icon-btn" id="nextP" type="button" aria-label="Volgende projecten"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
       </div>
-      <div class="card res float s3 reveal d3" aria-hidden="true">
-        <p class="kicker">Resultaat</p>
-        <p class="h">Meer tijd voor wat er echt toe doet.</p>
-        <div class="week"><span></span><span></span><span></span><span></span><span></span></div>
-        <div class="row"><b>Rust</b><span>Minder dubbel werk</span></div>
-        <div class="row"><b>Grip</b><span>Meer overzicht</span></div>
+
+      <div class="rail-wrap">
+        <div class="projects" id="projects">
+          <article class="fc">
+            <div class="fc-in">
+              <div class="face front">
+                <div class="shot"><img src="/assets/img/p-proofmakr.webp" alt="" width="720" height="542" loading="eager" decoding="async"><span class="st"><span class="pill live">Live</span></span><span class="tag">App</span></div>
+                <h3 class="nm">Proofmakr</h3>
+                <p class="pay">Vakmensen leggen hun werk vast met foto's voor en na. De klant volgt mee en keurt meerwerk digitaal goed.</p>
+                <div class="chips"><span>Foto's voor en na</span><span>Klant kijkt mee</span><span>Meerwerk</span></div>
+                <button class="turn" type="button" aria-expanded="false">Draai om <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg></button>
+              </div>
+              <div class="face back" inert>
+                <p class="bh">Wat er gebouwd is</p>
+                <p class="nmb">Proofmakr · Bouw</p>
+                <p class="prob">Foto's en afspraken over meerwerk raken verspreid over appgroepen en mail.</p>
+                <ul class="f"><li>Projecten met foto's voor en na</li><li>Klant kijkt mee zonder account</li><li>Meerwerk voorleggen en aftekenen</li></ul>
+                <p class="plat">App, klant kijkt mee in de browser</p>
+                <button class="turn" type="button" aria-expanded="true">Terug <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 0-15-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
+              </div>
+            </div>
+          </article>
+          <article class="fc">
+            <div class="fc-in">
+              <div class="face front">
+                <div class="shot"><img src="/assets/img/p-servicepro.webp" alt="" width="720" height="542" loading="eager" decoding="async"><span class="st"><span class="pill live">Live</span></span><span class="tag">Mobiel + web</span></div>
+                <h3 class="nm">Service-Pro</h3>
+                <p class="pay">De planner werkt op de desktop, de medewerker ziet zijn diensten op zijn telefoon en checkt daar in.</p>
+                <div class="chips"><span>Planning</span><span>Inchecken</span><span>Meldingen</span></div>
+                <button class="turn" type="button" aria-expanded="false">Draai om <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg></button>
+              </div>
+              <div class="face back" inert>
+                <p class="bh">Wat er gebouwd is</p>
+                <p class="nmb">Service-Pro · Beveiliging en uitzendwerk</p>
+                <p class="prob">De planning stond in een spreadsheet die steeds opnieuw rondging.</p>
+                <ul class="f"><li>Planning en bezetting per week</li><li>Inchecken op locatie</li><li>Melding bij wijzigingen</li></ul>
+                <p class="plat">Webapp voor de planner, app voor medewerkers</p>
+                <button class="turn" type="button" aria-expanded="true">Terug <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 0-15-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
+              </div>
+            </div>
+          </article>
+          <article class="fc">
+            <div class="fc-in">
+              <div class="face front">
+                <div class="shot"><img src="/assets/img/p-combiworld.webp" alt="" width="720" height="542" loading="eager" decoding="async"><span class="st"><span class="pill live">Live</span></span><span class="tag">Web + app</span></div>
+                <h3 class="nm">Combiworld</h3>
+                <p class="pay">Platform voor taal- en inburgeringsscholen. Elke school werkt in een eigen omgeving.</p>
+                <div class="chips"><span>Voortgang</span><span>Presentie</span><span>Scholen</span></div>
+                <button class="turn" type="button" aria-expanded="false">Draai om <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg></button>
+              </div>
+              <div class="face back" inert>
+                <p class="bh">Wat er gebouwd is</p>
+                <p class="nmb">Combiworld · Onderwijs</p>
+                <p class="prob">Presentie, voortgang en rapportages werden per school los bijgehouden.</p>
+                <ul class="f"><li>Voortgang per cursist</li><li>Aanwezigheid in één tik</li><li>Eigen omgeving per school</li></ul>
+                <p class="plat">Webapp voor beheer, presentie op de telefoon</p>
+                <button class="turn" type="button" aria-expanded="true">Terug <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 0-15-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
+              </div>
+            </div>
+          </article>
+          <article class="fc">
+            <div class="fc-in">
+              <div class="face front">
+                <div class="shot"><img src="/assets/img/p-skillsworld.webp" alt="" width="720" height="542" loading="lazy" decoding="async"><span class="st"><span class="pill live">Live</span></span><span class="tag">Webapp</span></div>
+                <h3 class="nm">SkillsWorld</h3>
+                <p class="pay">Nieuwkomers laten met badges zien wat ze kunnen, werkgevers die mensen zoeken vinden ze daar terug.</p>
+                <div class="chips"><span>Badges</span><span>Matching</span><span>Werkgevers</span></div>
+                <button class="turn" type="button" aria-expanded="false">Draai om <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg></button>
+              </div>
+              <div class="face back" inert>
+                <p class="bh">Wat er gebouwd is</p>
+                <p class="nmb">SkillsWorld · Vraag en aanbod</p>
+                <p class="prob">Wat een nieuwkomer kan, staat vaak niet op een cv.</p>
+                <ul class="f"><li>Badges in plaats van cv</li><li>Zoeken op vaardigheden</li><li>Werkgever en kandidaat in één omgeving</li></ul>
+                <p class="plat">Webapp, ook op de telefoon</p>
+                <button class="turn" type="button" aria-expanded="true">Terug <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 0-15-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
+              </div>
+            </div>
+          </article>
+          <article class="fc">
+            <div class="fc-in">
+              <div class="face front">
+                <div class="shot"><img src="/assets/img/p-elune.webp" alt="" width="720" height="542" loading="lazy" decoding="async"><span class="st"><span class="pill live">Live</span></span><span class="tag">Webshop</span></div>
+                <h3 class="nm">ÉLUNE</h3>
+                <p class="pay">Webshop voor geurkaarsen met een eigen vormgeving, met Shopify eronder voor voorraad en betalingen.</p>
+                <div class="chips"><span>Eigen vormgeving</span><span>Shopify</span><span>iDEAL</span></div>
+                <button class="turn" type="button" aria-expanded="false">Draai om <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg></button>
+              </div>
+              <div class="face back" inert>
+                <p class="bh">Wat er gebouwd is</p>
+                <p class="nmb">ÉLUNE · Webshop</p>
+                <p class="prob">Een eigen merk wil een winkel die er niet uitziet als elke andere, maar wel betrouwbaar afrekent.</p>
+                <ul class="f"><li>Eigen vormgeving</li><li>Shopify voor voorraad en betalingen</li><li>Afrekenen met iDEAL</li></ul>
+                <p class="plat">Web, op desktop en telefoon</p>
+                <button class="turn" type="button" aria-expanded="true">Terug <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 0-15-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
+              </div>
+            </div>
+          </article>
+          <article class="fc">
+            <div class="fc-in">
+              <div class="face front">
+                <div class="shot"><img src="/assets/img/p-iqrawise.webp" alt="" width="720" height="542" loading="lazy" decoding="async"><span class="st"><span class="pill dev">In ontwikkeling</span></span><span class="tag">Web + app</span></div>
+                <h3 class="nm">Iqrawise</h3>
+                <p class="pay">Leerlingvolgsysteem voor weekendscholen. Docenten leggen vast wat een leerling beheerst, ouders kijken mee.</p>
+                <div class="chips"><span>Voortgang</span><span>Ouders</span><span>Huisstijl</span></div>
+                <button class="turn" type="button" aria-expanded="false">Draai om <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg></button>
+              </div>
+              <div class="face back" inert>
+                <p class="bh">Wat er gebouwd wordt</p>
+                <p class="nmb">Iqrawise · Onderwijs</p>
+                <p class="prob">Voortgang staat op papier of in losse appjes, en ouders zien thuis niet wat er geoefend moet worden.</p>
+                <ul class="f"><li>Voortgang per leerling</li><li>Ouders kijken mee</li><li>Eigen huisstijl per school</li></ul>
+                <p class="plat">Webapp voor de docent, ouder op de telefoon</p>
+                <button class="turn" type="button" aria-expanded="true">Terug <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 0-15-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="dots" id="dots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
+        <span class="flip-note" aria-hidden="true">Draai om <svg width="26" height="26" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6c16 2 26 12 26 28"/><path d="M25 28l7 7 5-8"/></svg></span>
       </div>
-      <svg class="arc a" viewBox="0 0 80 40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 30C22 6 50 4 74 16"/><path d="M66 9l8 7-10 3"/></svg>
-      <svg class="arc b" viewBox="0 0 80 40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 10c20 24 46 26 70 12"/><path d="M64 16l10 6-9 7"/></svg>
-      <span class="scrib a" aria-hidden="true">van handmatig…</span>
-      <span class="scrib b" aria-hidden="true">…naar een slimmer proces</span>
+    </div>
+  </section>
+
+  <!-- ================= HOE IK BEGIN ================= -->
+  <section class="band" aria-labelledby="begin-t">
+    <div class="wrap begin">
+      <div>
+        <p class="eyebrow reveal">Hoe ik begin</p>
+        <h2 class="h2 reveal d1" id="begin-t">Eerst kijken wat voor bedrijf je bent.</h2>
+      </div>
+      <div class="body reveal d1">
+        <p>Een aannemer, een school, een uitzendbureau en een webshop hebben weinig gemeen. Toch zit er bij alle vier meestal iemand die elke week dezelfde gegevens overtypt. Daarom begin ik niet met een pakket of een prijslijst, maar met meekijken: wat doe je nu, hoe vaak, en hoeveel tijd kost het je?</p>
+        <p>Pas als duidelijk is waar de uren blijven, bepalen we wat eraan helpt. Soms is dat een app, soms een koppeling tussen twee systemen die je al hebt, en soms is het genoeg om een half uur te sleutelen aan iets wat je al hebt. De software is het middel, nooit het doel.</p>
+      </div>
+      <ul class="lines reveal d2">
+        <li><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg></span>Ik kijk mee in je huidige proces</li>
+        <li><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><circle cx="17" cy="9" r="2.6"/><path d="M3.5 19c.6-3.3 2.9-5 5.5-5s4.9 1.7 5.5 5M14.5 14.6c.8-.4 1.6-.6 2.5-.6 2.2 0 3.9 1.5 4.4 4.5"/></svg></span>We zoeken samen de grootste tijdswinst</li>
+        <li><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 2 5 13.5h6L10 22l9-12h-6.2z"/></svg></span>Daarna bouw ik een oplossing die past</li>
+      </ul>
+      <p class="quote reveal d3">“Geen standaardpakket, maar iets dat past bij jouw manier van werken.”<img src="/assets/img/sprig.webp" alt="" width="320" height="425" loading="lazy" decoding="async"></p>
     </div>
   </section>
 
@@ -160,7 +333,6 @@
           <button type="button" data-go="3"><span>Stap 4</span><b>Tijd terug</b></button>
         </div>
         <div class="canvas">
-
           <article class="panel on" data-panel="0">
             <div class="viz">
               <div class="paper">
@@ -174,7 +346,6 @@
             </div>
             <p class="cap"><b>Het begint vaak zo.</b><span>Een lijstje dat jij zelf moet blijven afwerken.</span></p>
           </article>
-
           <article class="panel" data-panel="1">
             <div class="viz">
               <div>
@@ -195,7 +366,6 @@
             </div>
             <p class="cap"><b>Digitaal, maar nog steeds handwerk.</b><span>Dezelfde informatie wordt opnieuw ingevoerd en bijgehouden.</span></p>
           </article>
-
           <article class="panel" data-panel="2">
             <div class="viz">
               <div class="flow">
@@ -209,7 +379,6 @@
             </div>
             <p class="cap"><b>Eén proces in plaats van losse stappen.</b><span>Jij houdt de regie. De rest loopt netjes door.</span></p>
           </article>
-
           <article class="panel" data-panel="3">
             <div class="viz">
               <div class="done-card">
@@ -226,305 +395,102 @@
             </div>
             <p class="cap"><b>Minder terugkerend handwerk.</b><span>De uren gaan weer naar het werk waar je eigenlijk voor gekozen hebt.</span></p>
           </article>
-
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= WERK ================= -->
-  <section class="wrap werk" id="werk" aria-labelledby="werk-t">
-    <div class="sec-head">
-      <div>
-        <p class="eyebrow reveal">Werk</p>
-        <h2 class="h2 reveal d1" id="werk-t">Gebouwd en in gebruik.</h2>
-      </div>
-      <p class="body reveal d2">Draai een kaart om en je ziet welk probleem er lag, wat er gebouwd is en op welke schermen het draait.</p>
-    </div>
-
-    <div class="projects" id="projects">
-
-      <article class="fc" style="--c:#DE7A34">
-        <div class="fc-in">
-          <div class="face front">
-            <div class="prev"><span class="tag">App</span>
-              <div class="m-phone" aria-hidden="true"><i class="ln acc w6"></i><i class="blk"></i><i class="blk"></i><i class="ln w8"></i><i class="ln w4"></i></div>
-            </div>
-            <div class="meta"><span class="pill live">Live</span><span class="sector">Bouw</span></div>
-            <h3 class="nm">Proofmakr</h3>
-            <p class="pay">Vakmensen leggen hun werk vast met foto's voor en na. De klant volgt mee en keurt meerwerk digitaal goed.</p>
-            <div class="chips"><span>Foto's voor en na</span><span>Klant kijkt mee</span><span>Akkoord op meerwerk</span></div>
-            <button class="turn" type="button" aria-expanded="false">Draai om <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg></button>
-          </div>
-          <div class="face back" inert>
-            <h3>Proofmakr</h3>
-            <dl>
-              <div><dt>Het probleem</dt><dd>Foto's en afspraken over meerwerk raken verspreid over appgroepen en mail. Achteraf is niet meer te zien wat er is afgesproken.</dd></div>
-              <div><dt>Wat er gebouwd is</dt><dd>Een app waarin de vakman per project vastlegt wat hij doet, met een link waarmee de klant meekijkt.</dd></div>
-              <div><dt>Belangrijkste functies</dt><dd><ul class="f"><li>Projecten met foto's voor en na</li><li>Klant kijkt mee zonder account</li><li>Meerwerk voorleggen en aftekenen</li></ul></dd></div>
-              <div><dt>Platformen</dt><dd>App voor de vakman, de klant kijkt mee in de browser</dd></div>
-            </dl>
-            <button class="turn" type="button" aria-expanded="true">Terug <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 0-15-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
-          </div>
-        </div>
-      </article>
-
-      <article class="fc" style="--c:#5B4FE0">
-        <div class="fc-in">
-          <div class="face front">
-            <div class="prev"><span class="tag">Web + app</span>
-              <div class="duo" aria-hidden="true">
-                <div class="m-web"><div class="b"><i></i><i></i><i></i></div><div class="c"><div class="side"></div><div class="main"><i class="ln acc w6"></i><i class="blk"></i><i class="blk"></i></div></div></div>
-                <div class="m-phone"><i class="ln acc w6"></i><i class="blk"></i><i class="ln w8"></i></div>
-              </div>
-            </div>
-            <div class="meta"><span class="pill live">Live</span><span class="sector">Beveiliging en uitzendwerk</span></div>
-            <h3 class="nm">Service-Pro</h3>
-            <p class="pay">De planner werkt op de desktop, de medewerker ziet zijn diensten op zijn telefoon en checkt daar in.</p>
-            <div class="chips"><span>Planning en bezetting</span><span>Inchecken op locatie</span></div>
-            <button class="turn" type="button" aria-expanded="false">Draai om <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg></button>
-          </div>
-          <div class="face back" inert>
-            <h3>Service-Pro</h3>
-            <dl>
-              <div><dt>Het probleem</dt><dd>De planning stond in een spreadsheet die steeds opnieuw rondging, en wijzigingen kwamen niet altijd aan.</dd></div>
-              <div><dt>Wat er gebouwd is</dt><dd>Een planbord voor de planner en een app waarin medewerkers hun eigen diensten zien en inchecken.</dd></div>
-              <div><dt>Belangrijkste functies</dt><dd><ul class="f"><li>Planning en bezetting per week</li><li>Inchecken op locatie</li><li>Melding bij wijzigingen</li></ul></dd></div>
-              <div><dt>Platformen</dt><dd>Webapp voor de planner, app voor medewerkers</dd></div>
-            </dl>
-            <button class="turn" type="button" aria-expanded="true">Terug <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 0-15-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
-          </div>
-        </div>
-      </article>
-
-      <article class="fc" style="--c:#B8873F">
-        <div class="fc-in">
-          <div class="face front">
-            <div class="prev"><span class="tag">Web + app</span>
-              <div class="duo" aria-hidden="true">
-                <div class="m-web"><div class="b"><i></i><i></i><i></i></div><div class="c"><div class="side"></div><div class="main"><i class="ln acc w4"></i><i class="ln w8"></i><i class="blk"></i><i class="ln w6"></i></div></div></div>
-                <div class="m-phone"><i class="ln acc w4"></i><i class="blk"></i><i class="blk"></i></div>
-              </div>
-            </div>
-            <div class="meta"><span class="pill live">Live</span><span class="sector">Onderwijs</span></div>
-            <h3 class="nm">Combiworld</h3>
-            <p class="pay">Platform voor taal- en inburgeringsscholen. Elke school werkt in een eigen omgeving, met eigen klassen en docenten.</p>
-            <div class="chips"><span>Voortgang per cursist</span><span>Aanwezigheid in één tik</span></div>
-            <button class="turn" type="button" aria-expanded="false">Draai om <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg></button>
-          </div>
-          <div class="face back" inert>
-            <h3>Combiworld</h3>
-            <dl>
-              <div><dt>Het probleem</dt><dd>Presentie, voortgang en rapportages werden per school en per docent los bijgehouden.</dd></div>
-              <div><dt>Wat er gebouwd is</dt><dd>Een platform waarop elke taalschool een eigen omgeving heeft, met klassen, docenten en leerlijnen.</dd></div>
-              <div><dt>Belangrijkste functies</dt><dd><ul class="f"><li>Voortgang per cursist</li><li>Aanwezigheid in één tik</li><li>Eigen omgeving per school</li></ul></dd></div>
-              <div><dt>Platformen</dt><dd>Webapp voor beheer, presentie op de telefoon</dd></div>
-            </dl>
-            <button class="turn" type="button" aria-expanded="true">Terug <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 0-15-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
-          </div>
-        </div>
-      </article>
-
-      <article class="fc" style="--c:#E0725A">
-        <div class="fc-in">
-          <div class="face front">
-            <div class="prev"><span class="tag">Web + app</span>
-              <div class="duo" aria-hidden="true">
-                <div class="m-web"><div class="b"><i></i><i></i><i></i></div><div class="c"><div class="side"></div><div class="main"><i class="ln acc w6"></i><i class="blk"></i><i class="ln w8"></i></div></div></div>
-                <div class="m-phone"><i class="ln acc w8"></i><i class="blk"></i><i class="ln w4"></i></div>
-              </div>
-            </div>
-            <div class="meta"><span class="pill live">Live</span><span class="sector">Vraag en aanbod</span></div>
-            <h3 class="nm">SkillsWorld</h3>
-            <p class="pay">Nieuwkomers laten met badges zien wat ze kunnen in plaats van met een cv, en werkgevers vinden ze daar terug.</p>
-            <div class="chips"><span>Badges in plaats van cv</span><span>Zoeken op vaardigheden</span></div>
-            <button class="turn" type="button" aria-expanded="false">Draai om <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg></button>
-          </div>
-          <div class="face back" inert>
-            <h3>SkillsWorld</h3>
-            <dl>
-              <div><dt>Het probleem</dt><dd>Wat een nieuwkomer kan, staat vaak niet op een cv. Werkgevers die mensen zoeken, vinden ze daardoor moeilijk.</dd></div>
-              <div><dt>Wat er gebouwd is</dt><dd>Een platform waarop nieuwkomers met badges laten zien wat ze kunnen, en werkgevers gericht zoeken.</dd></div>
-              <div><dt>Belangrijkste functies</dt><dd><ul class="f"><li>Badges in plaats van cv</li><li>Zoeken op vaardigheden</li><li>Werkgever en kandidaat in één omgeving</li></ul></dd></div>
-              <div><dt>Platformen</dt><dd>Webapp, ook op de telefoon</dd></div>
-            </dl>
-            <button class="turn" type="button" aria-expanded="true">Terug <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 0-15-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
-          </div>
-        </div>
-      </article>
-
-      <article class="fc" style="--c:#2E2620">
-        <div class="fc-in">
-          <div class="face front">
-            <div class="prev"><span class="tag">Webshop</span>
-              <div class="m-web" aria-hidden="true" style="width:72%"><div class="b"><i></i><i></i><i></i></div><div class="c" style="grid-template-columns:1fr 1fr"><div class="main"><i class="ln acc w6"></i><i class="blk" style="height:44px"></i></div><div class="main"><i class="ln w4"></i><i class="blk" style="height:44px"></i></div></div></div>
-            </div>
-            <div class="meta"><span class="pill live">Live</span><span class="sector">Webshop</span></div>
-            <h3 class="nm">ÉLUNE</h3>
-            <p class="pay">Webshop voor geurkaarsen met een eigen vormgeving, met Shopify eronder voor voorraad, bestellingen en betalingen.</p>
-            <div class="chips"><span>Eigen vormgeving</span><span>iDEAL</span></div>
-            <button class="turn" type="button" aria-expanded="false">Draai om <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg></button>
-          </div>
-          <div class="face back" inert>
-            <h3>ÉLUNE</h3>
-            <dl>
-              <div><dt>Het probleem</dt><dd>Een eigen merk wil een winkel die er niet uitziet als elke andere, maar wel betrouwbaar afrekent en voorraad bijhoudt.</dd></div>
-              <div><dt>Wat er gebouwd is</dt><dd>Een webshop met een eigen vormgeving, met Shopify eronder voor voorraad, bestellingen en betalingen.</dd></div>
-              <div><dt>Belangrijkste functies</dt><dd><ul class="f"><li>Eigen vormgeving</li><li>Shopify voor voorraad en betalingen</li><li>Afrekenen met iDEAL</li></ul></dd></div>
-              <div><dt>Platformen</dt><dd>Web, op desktop en telefoon</dd></div>
-            </dl>
-            <button class="turn" type="button" aria-expanded="true">Terug <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 0-15-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
-          </div>
-        </div>
-      </article>
-
-      <article class="fc" style="--c:#8B2F28">
-        <div class="fc-in">
-          <div class="face front">
-            <div class="prev"><span class="tag">Web + app</span>
-              <div class="duo" aria-hidden="true">
-                <div class="m-web"><div class="b"><i></i><i></i><i></i></div><div class="c"><div class="side"></div><div class="main"><i class="ln acc w4"></i><i class="ln w8"></i><i class="ln w6"></i><i class="blk"></i></div></div></div>
-                <div class="m-phone"><i class="ln acc w6"></i><i class="ln w8"></i><i class="blk"></i></div>
-              </div>
-            </div>
-            <div class="meta"><span class="pill dev">In ontwikkeling</span><span class="sector">Onderwijs</span></div>
-            <h3 class="nm">Iqrawise</h3>
-            <p class="pay">Leerlingvolgsysteem voor weekend- en moskeescholen. Docenten leggen vast wat een leerling beheerst, ouders kijken thuis mee.</p>
-            <div class="chips"><span>Voortgang per leerling</span><span>Ouders kijken mee</span></div>
-            <button class="turn" type="button" aria-expanded="false">Draai om <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg></button>
-          </div>
-          <div class="face back" inert>
-            <h3>Iqrawise</h3>
-            <dl>
-              <div><dt>Het probleem</dt><dd>Voortgang wordt bijgehouden op papier of in losse appjes, en ouders zien thuis niet wat er geoefend moet worden.</dd></div>
-              <div><dt>Wat er gebouwd wordt</dt><dd>Een leerlingvolgsysteem waarin docenten vastleggen wat een leerling beheerst en ouders meekijken.</dd></div>
-              <div><dt>Belangrijkste functies</dt><dd><ul class="f"><li>Voortgang per leerling</li><li>Ouders kijken mee</li><li>Eigen huisstijl per school</li></ul></dd></div>
-              <div><dt>Platformen</dt><dd>Webapp voor de docent, ouder op de telefoon</dd></div>
-            </dl>
-            <button class="turn" type="button" aria-expanded="true">Terug <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 0-15-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
-          </div>
-        </div>
-      </article>
-
-    </div>
-    <div class="rail-nav" aria-hidden="true">
-      <div class="dots" id="dots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
-      <span class="body" style="font-size:13px">Veeg voor meer</span>
-    </div>
-  </section>
-
-  <!-- ================= HOE IK BEGIN ================= -->
-  <section class="wrap start" aria-labelledby="start-t">
-    <div class="start-grid">
-      <div>
-        <p class="eyebrow reveal">Hoe ik begin</p>
-        <h2 class="h2 reveal d1" id="start-t">Eerst kijken wat voor bedrijf je bent.</h2>
-      </div>
-      <div class="body reveal d1">
-        <p>Een aannemer, een school, een uitzendbureau en een webshop hebben weinig gemeen. Toch zit er bij alle vier meestal iemand die elke week dezelfde gegevens overtypt. Daarom begin ik niet met een pakket of een prijslijst, maar met meekijken: wat doe je nu, hoe vaak, en hoeveel tijd kost het je?</p>
-        <p>Pas als duidelijk is waar de uren blijven, bepalen we wat eraan helpt. Soms is dat een app, soms een koppeling tussen twee systemen die je al hebt, en soms is het genoeg om een half uur te sleutelen aan iets wat je al hebt. De software is het middel, nooit het doel.</p>
-      </div>
-      <div class="reveal d2">
-        <ul class="lines">
-          <li><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg></span>Ik kijk mee in je huidige proces</li>
-          <li><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span>We zoeken samen waar de tijd blijft</li>
-          <li><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17l5-5 4 4 7-8"/><path d="M15 8h5v5"/></svg></span>Daarna bouw ik wat daarbij past</li>
-        </ul>
-        <p class="quote">“Geen standaardpakket, maar iets dat past bij jouw manier van werken.”</p>
       </div>
     </div>
   </section>
 
   <!-- ================= AANPAK ================= -->
-  <section class="wrap approach" id="aanpak" aria-labelledby="aanpak-t">
-    <div class="sec-head">
+  <section class="band" id="aanpak" aria-labelledby="aanpak-t">
+    <div class="wrap aanpak">
       <div>
         <p class="eyebrow reveal">De aanpak</p>
         <h2 class="h2 reveal d1" id="aanpak-t">Zo werkt het.</h2>
+        <p class="sub reveal d2">Je vertelt wat er misgaat, ik bouw het, jij gebruikt het. Geen lang offertetraject vooraf.</p>
       </div>
-      <p class="body reveal d2">Je vertelt wat er misgaat, ik bouw het, jij gebruikt het. Geen lang offertetraject vooraf.</p>
+      <ol class="steps">
+        <li class="stepc reveal d1">
+          <span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17"/></svg></span>
+          <span class="num">01</span>
+          <h3>Kennismaken in een half uur</h3>
+          <p>Je laat zien hoe het nu gaat. In een half uur ken ik je bedrijf niet, maar ik zie meestal wel waar het terugkerende werk zit en wat ik verder moet uitzoeken. Geen techniek, geen verplichting.</p>
+        </li>
+        <li class="chev" aria-hidden="true"><svg width="14" height="28" viewBox="0 0 14 28" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M3 3l8 11-8 11"/></svg></li>
+        <li class="stepc reveal d2">
+          <span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12" rx="2.5"/><path d="M8.5 20h7M12 16.5V20"/></svg></span>
+          <span class="num">02</span>
+          <h3>Ik bouw, jij kijkt mee</h3>
+          <p>Voor een eerste werkende versie met jouw eigen gegevens reken ik meestal op twee tot vier weken, afhankelijk van wat er nodig is. Je test het op je telefoon en ik pas aan wat je terugkoppelt.</p>
+        </li>
+        <li class="chev" aria-hidden="true"><svg width="14" height="28" viewBox="0 0 14 28" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M3 3l8 11-8 11"/></svg></li>
+        <li class="stepc reveal d3">
+          <span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="4" y="12" width="4" height="8" rx="1"/><rect x="10" y="7" width="4" height="13" rx="1"/><rect x="16" y="3" width="4" height="17" rx="1"/></svg></span>
+          <span class="num">03</span>
+          <h3>Live, en het blijft draaien</h3>
+          <p>Ik zet het live, leg het je team uit en ben daarna bereikbaar voor onderhoud en uitbreidingen. Je hoeft dan niet opnieuw uit te leggen hoe je werkt.</p>
+        </li>
+      </ol>
     </div>
-    <ol class="steps" style="list-style:none; padding:0; margin:0">
-      <li class="st reveal">
-        <div class="top"><span class="num">01</span><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17"/></svg></span></div>
-        <h3 class="h3">Kennismaken in een half uur</h3>
-        <p>Je laat zien hoe het nu gaat. In een half uur ken ik je bedrijf niet, maar ik zie meestal wel waar het terugkerende werk zit en wat ik verder moet uitzoeken. Geen techniek, geen verplichting.</p>
-      </li>
-      <li class="st reveal d1">
-        <div class="top"><span class="num">02</span><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12" rx="2.5"/><path d="M8.5 20h7M12 16.5V20"/></svg></span></div>
-        <h3 class="h3">Ik bouw, jij kijkt mee</h3>
-        <p>Voor een eerste werkende versie met jouw eigen gegevens reken ik meestal op twee tot vier weken, afhankelijk van wat er nodig is. Je test het op je telefoon en ik pas aan wat je terugkoppelt.</p>
-      </li>
-      <li class="st reveal d2">
-        <div class="top"><span class="num">03</span><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19V11M12 19V6M19 19v-5"/></svg></span></div>
-        <h3 class="h3">Live, en het blijft draaien</h3>
-        <p>Ik zet het live, leg het je team uit en ben daarna bereikbaar voor onderhoud en uitbreidingen. Je hoeft dan niet opnieuw uit te leggen hoe je werkt.</p>
-      </li>
-    </ol>
   </section>
 
-  <!-- ================= OVER ================= -->
-  <section class="wrap about" id="over" aria-labelledby="over-t">
-    <div class="about-grid">
-      <div class="portrait reveal" aria-hidden="true"><span class="mono">OH</span><span class="tagline">Bouwt zelf</span></div>
-      <div>
+  <!-- ================= OVER + VRAGEN ================= -->
+  <section class="band" aria-label="Over Omar en veelgestelde vragen">
+    <div class="wrap overq">
+      <img class="leaf-l" src="/assets/img/plant.webp" alt="" width="520" height="690" loading="lazy" decoding="async" aria-hidden="true">
+      <div id="over">
         <p class="eyebrow reveal">Wie je spreekt</p>
-        <h2 class="name reveal d1" id="over-t">Omar Hamdi</h2>
-        <p class="role reveal d1">Oprichter van Agentivestudio</p>
-        <div class="body reveal d2">
-          <p>Ik werk daarnaast in het onderwijs, waar veel nog op lijstjes en losse bestanden draait, en bouw software voor bedrijven die daar tegenaan lopen. Daardoor hoef ik niet te raden hoe een werkweek eruitziet en waar de tijd blijft.</p>
-          <p>Je praat met de persoon die het ook bouwt. Er zit geen accountmanager tussen, en wat je terugkoppelt gaat rechtstreeks het werk in.</p>
+        <div class="about reveal d1">
+          <div class="portrait" aria-hidden="true">OH</div>
+          <div>
+            <h2 class="name">Omar Hamdi</h2>
+            <p class="role">Oprichter van Agentivestudio</p>
+            <div class="body">
+              <p>Ik werk daarnaast in het onderwijs, waar veel nog op lijstjes en losse bestanden draait, en bouw software voor bedrijven die daar tegenaan lopen. Daardoor hoef ik niet te raden hoe een werkweek eruitziet en waar de tijd blijft.</p>
+              <p>Je praat met de persoon die het ook bouwt. Er zit geen accountmanager tussen, en wat je terugkoppelt gaat rechtstreeks het werk in.</p>
+            </div>
+          </div>
+          <ul class="skills">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.5 2.6 2.5 14.4 0 17M12 3.5c-2.5 2.6-2.5 14.4 0 17"/></svg>Web- en app-ontwikkeling</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h11l-3-3M20 17H9l3 3"/></svg>Procesautomatisering</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg>Koppelingen tussen systemen</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.5 2.6 2.5 14.4 0 17"/></svg>Servers in Europa, AVG</li>
+          </ul>
         </div>
-        <ul class="skills reveal d3">
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.5 2.6 2.5 14.4 0 17M12 3.5c-2.5 2.6-2.5 14.4 0 17"/></svg>Web- en app-ontwikkeling</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h11l-3-3M20 17H9l3 3"/></svg>Procesautomatisering</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg>Koppelingen tussen systemen</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10.5" width="14" height="9.5" rx="2.5"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></svg>Servers in Europa, AVG</li>
-        </ul>
       </div>
-    </div>
-  </section>
 
-  <!-- ================= VRAGEN ================= -->
-  <section class="wrap faq" id="vragen" aria-labelledby="vragen-t">
-    <div class="faq-grid">
-      <div class="sticky">
+      <div id="vragen">
         <p class="eyebrow reveal">Veelgestelde vragen</p>
-        <h2 class="h2 reveal d1" id="vragen-t">Wat mensen meestal eerst vragen.</h2>
-        <p class="body reveal d2" style="margin-top:14px">Staat je vraag er niet bij, stel hem in het gesprek.</p>
-      </div>
-      <div class="acc reveal d1">
-        <details><summary>Voor wat voor bedrijven werk je?<span class="pm" aria-hidden="true">+</span></summary><p>Voor het MKB in de breedte. Wat ik tot nu toe bouwde draait in de bouw, in het onderwijs, bij een beveiligings- en uitzendbedrijf, in een webshop en op een platform dat nieuwkomers aan werk helpt. De branche maakt niet uit. Wat telt, is of er werk in zit dat elke week op dezelfde manier terugkomt.</p></details>
-        <details><summary>Is mijn probleem wel met software op te lossen?<span class="pm" aria-hidden="true">+</span></summary><p>Dat hoef je ook niet te weten. Daar is het eerste gesprek voor. Soms is het antwoord een app, soms een koppeling tussen twee systemen die je al hebt, en soms blijkt een half uur instellen in je huidige pakket genoeg. Als er niets te winnen valt, zeg ik dat.</p></details>
-        <details><summary>Hoe lang duurt het voordat ik iets heb?<span class="pm" aria-hidden="true">+</span></summary><p>Voor een eerste werkende versie met je eigen gegevens reken ik meestal op twee tot vier weken, afhankelijk van wat er nodig is. Je probeert hem uit op je telefoon of laptop, daarna passen we aan op wat je in de praktijk tegenkomt.</p></details>
-        <details><summary>Moet ik zelf technisch zijn?<span class="pm" aria-hidden="true">+</span></summary><p>Nee. Je vertelt hoe je werkt, ik regel het bouwen, het live zetten en het onderhoud. Je hebt alleen een browser of een telefoon nodig.</p></details>
-        <details><summary>Van wie is de software en waar staan mijn gegevens?<span class="pm" aria-hidden="true">+</span></summary><p>Wat ik voor je bouw, is van jou. Je gegevens staan op servers in Europa en de verwerking is volgens de AVG ingericht. Je kunt op elk moment alles meekrijgen, inclusief uitleg over hoe het in elkaar zit.</p></details>
-        <details><summary>Wat als ik het later wil uitbreiden?<span class="pm" aria-hidden="true">+</span></summary><p>Dat kan, en daar is bij het bouwen rekening mee gehouden. Je praat dan opnieuw met dezelfde persoon die het gemaakt heeft, dus niemand hoeft zich eerst in te lezen.</p></details>
+        <h2 class="h2 reveal d1">Wat mensen meestal eerst vragen.</h2>
+        <div class="acc reveal d2">
+          <details><summary>Voor wat voor bedrijven werk je?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><p>Voor het MKB in de breedte. Wat ik tot nu toe bouwde draait in de bouw, in het onderwijs, bij een beveiligings- en uitzendbedrijf, in een webshop en op een platform dat nieuwkomers aan werk helpt. De branche maakt niet uit. Wat telt, is of er werk in zit dat elke week op dezelfde manier terugkomt.</p></details>
+          <details><summary>Is mijn probleem wel met software op te lossen?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><p>Dat hoef je ook niet te weten. Daar is het eerste gesprek voor. Soms is het antwoord een app, soms een koppeling tussen twee systemen die je al hebt, en soms blijkt een half uur instellen in je huidige pakket genoeg. Als er niets te winnen valt, zeg ik dat.</p></details>
+          <details><summary>Hoe lang duurt het voordat ik iets heb?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><p>Voor een eerste werkende versie met je eigen gegevens reken ik meestal op twee tot vier weken, afhankelijk van wat er nodig is. Je probeert hem uit op je telefoon of laptop, daarna passen we aan op wat je in de praktijk tegenkomt.</p></details>
+          <details><summary>Moet ik zelf technisch zijn?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><p>Nee. Je vertelt hoe je werkt, ik regel het bouwen, het live zetten en het onderhoud. Je hebt alleen een browser of een telefoon nodig.</p></details>
+          <details><summary>Van wie is de software en waar staan mijn gegevens?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><p>Wat ik voor je bouw, is van jou. Je gegevens staan op servers in Europa en de verwerking is volgens de AVG ingericht. Je kunt op elk moment alles meekrijgen, inclusief uitleg over hoe het in elkaar zit.</p></details>
+          <details><summary>Wat als ik het later wil uitbreiden?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><p>Dat kan, en daar is bij het bouwen rekening mee gehouden. Je praat dan opnieuw met dezelfde persoon die het gemaakt heeft, dus niemand hoeft zich eerst in te lezen.</p></details>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ================= VOLGENDE STAP ================= -->
-  <section class="wrap final" id="contact" aria-labelledby="final-t">
-    <div class="final-card reveal">
-      <div style="position:relative; z-index:1">
+  <section class="band" id="contact" aria-labelledby="final-t">
+    <div class="wrap cta">
+      <p class="note reveal" aria-hidden="true">Slimmere<br>bedrijven.<br>Mooier werk.</p>
+      <div class="reveal d1">
         <p class="eyebrow">Volgende stap</p>
         <h2 class="h2" id="final-t">Waar gaat bij jou de tijd heen?</h2>
-        <p class="body">Plan een gesprek van een half uur, online of telefonisch. Je hoort waar ik kansen zie en wat ik daarna nog moet uitzoeken. Zie ik niets, dan zeg ik dat ook.</p>
       </div>
-      <div class="final-side">
-        <div class="actions">
-          <a class="btn btn-primary" href="https://cal.com/agentivestudio" target="_blank" rel="noopener">Plan een gesprek <span class="arr" aria-hidden="true">→</span></a>
-          <a class="btn btn-wa" href="https://wa.me/31657778357" target="_blank" rel="noopener">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .1-1.2c0-.1-.2-.2-.4-.3z"/></svg>
-            WhatsApp</a>
-        </div>
-        <ul class="checks">
-          <li>Vrijblijvend</li>
-          <li>Online of telefonisch</li>
-          <li>Een half uur</li>
-        </ul>
+      <p class="body reveal d2">Plan een gesprek van een half uur, online of telefonisch. Je hoort waar ik kansen zie en wat ik daarna nog moet uitzoeken. Zie ik niets, dan zeg ik dat ook.</p>
+      <div class="actions reveal d3">
+        <a class="btn btn-primary" href="https://cal.com/agentivestudio" target="_blank" rel="noopener">Plan een gesprek <span class="arr" aria-hidden="true">→</span></a>
+        <a class="btn btn-ghost" href="https://wa.me/31657778357" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .1-1.2c0-.1-.2-.2-.4-.3z"/></svg>WhatsApp</a>
       </div>
+      <ul class="checks reveal d4">
+        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Vrijblijvend gesprek</li>
+        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Online of telefonisch</li>
+        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Een half uur</li>
+      </ul>
     </div>
   </section>
 </main>
@@ -533,8 +499,11 @@
   <div class="wrap foot-in">
     <a class="brand" href="#top">AGENTIVE STUDIO</a>
     <nav aria-label="Voetnavigatie"><a href="#werk">Werk</a><a href="#aanpak">Aanpak</a><a href="#over">Over</a><a href="#vragen">Vragen</a></nav>
-    <div class="legal"><a href="/privacy.html">Privacyverklaring</a><a href="/voorwaarden.html">Algemene voorwaarden</a></div>
-    <div class="id"><span>KvK 42005967</span><span>Btw-id NL005429711B13</span><span>Leiden</span><a href="mailto:omar@agentivestudio.nl">omar@agentivestudio.nl</a><span>&copy; 2026 Omar Hamdi</span></div>
+    <p class="right"><span>Leiden, Nederland</span><span>Vooruit, samen.</span></p>
+    <div class="id">
+      <div><span>KvK 42005967</span><span>Btw-id NL005429711B13</span><a href="mailto:omar@agentivestudio.nl">omar@agentivestudio.nl</a></div>
+      <div><a href="/privacy.html">Privacyverklaring</a><a href="/voorwaarden.html">Algemene voorwaarden</a><span>&copy; 2026 Omar Hamdi</span></div>
+    </div>
   </div>
 </footer>
 
@@ -542,8 +511,7 @@
 <div class="zand" id="zand">
   <div class="zp" id="zp" role="dialog" aria-modal="false" aria-labelledby="zp-t" hidden>
     <div class="zp-h">
-      <span class="zand-fig" aria-hidden="true" id="zpFig"></span>
-      <div><p class="t" id="zp-t">Kan ik meedenken?</p><small>Ik antwoord uit de veelgestelde vragen</small></div>
+      <p class="t" id="zp-t">Kan ik meedenken?</p>
       <button class="zp-x" id="zpX" type="button" aria-label="Sluiten">&times;</button>
     </div>
     <div class="zp-b" id="zpB" aria-live="polite"></div>
@@ -553,11 +521,13 @@
       <button type="submit" aria-label="Versturen"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button>
     </form>
   </div>
-  <button class="zand-btn" id="zandBtn" type="button" aria-expanded="false" aria-controls="zp">
-    <span class="lbl">Stel je vraag</span>
-    <span class="zand-fig" id="zandFig" aria-hidden="true"></span>
-    <span class="sr-only">Open Zand, antwoorden op veelgestelde vragen</span>
-  </button>
+  <div class="zand-row">
+    <button class="zand-ask" id="zandAsk" type="button" aria-expanded="false" aria-controls="zp">Stel je vraag <span aria-hidden="true">✨</span></button>
+    <button class="zand-cat" id="zandBtn" type="button" aria-expanded="false" aria-controls="zp" aria-label="Open Zand, antwoorden op veelgestelde vragen">
+      <img src="/assets/img/cat.webp" alt="" width="380" height="286" decoding="async">
+    </button>
+  </div>
+  <p class="zand-cap" aria-hidden="true">Je studio companion</p>
 </div>
 
 <script src="/assets/site.js" defer></script>

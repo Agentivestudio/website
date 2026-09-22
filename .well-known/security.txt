@@ -1,0 +1,4 @@
+Contact: https://www.agentivestudio.nl/privacy.html
+Expires: 2027-09-22T00:00:00.000Z
+Preferred-Languages: nl, en
+Canonical: https://www.agentivestudio.nl/.well-known/security.txt

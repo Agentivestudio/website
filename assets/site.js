@@ -162,7 +162,7 @@
   function msg(t, me){ var d = document.createElement('p'); d.className = 'msg' + (me ? ' me' : ''); d.textContent = t; zB.appendChild(d); zB.scrollTop = zB.scrollHeight }
   function ctaRow(){ var w = document.createElement('div'); w.className = 'cta-row';
     w.innerHTML = '<a class="btn btn-primary btn-sm" href="https://cal.com/agentivestudio" target="_blank" rel="noopener">Plan een gesprek <span class="arr" aria-hidden="true">→</span></a>'+
-                  '<a class="btn btn-wa btn-sm" href="https://wa.me/31657778357" target="_blank" rel="noopener">WhatsApp</a>';
+                  '<a class="btn btn-wa btn-sm" href="' + (window.AS_WA || '#contact') + '" target="_blank" rel="noopener">WhatsApp</a>';
     zB.appendChild(w); zB.scrollTop = zB.scrollHeight }
   function options(){
     var w = document.createElement('div'); w.className = 'opts';

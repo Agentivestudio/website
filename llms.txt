@@ -1,0 +1,21 @@
+# Agentive Studio
+
+> Agentive Studio (Agentivestudio) is de eenmanszaak van Omar Hamdi in Leiden. Het bouwt software op maat voor het Nederlandse MKB: apps, webapplicaties en koppelingen die terugkerend handwerk overnemen, zoals overtypen, lijsten bijwerken en klanten informeren.
+
+- Werkwijze: een kennismaking van een half uur, daarna uitzoeken wat er nodig is, een prijs vooraf, en meestal binnen twee tot vier weken een eerste werkende versie.
+- De klant praat direct met degene die het bouwt. Gegevens staan op servers in Europa, verwerking volgens de AVG. Wat gebouwd wordt, is van de klant.
+- Voor het MKB in de breedte, niet voor één branche.
+
+## Gebouwde software
+- Proofmakr: app waarmee vakmensen hun werk vastleggen met foto's voor en na; de klant kijkt mee en keurt meerwerk digitaal goed.
+- Service-Pro: planning voor een beveiligings- en uitzendbedrijf, desktop voor de planner en een app voor medewerkers.
+- Combiworld: platform voor taal- en inburgeringsscholen, elke school met een eigen omgeving.
+- SkillsWorld: platform dat vraag en aanbod tussen nieuwkomers en werkgevers bij elkaar brengt via badges.
+- ÉLUNE Amsterdam: webshop voor geurkaarsen, gekoppeld aan Shopify.
+- Iqrawise: leerlingvolgsysteem voor weekend- en moskeescholen (in ontwikkeling).
+
+## Links
+- [Homepage](https://www.agentivestudio.nl/)
+- [Gesprek plannen](https://cal.com/agentivestudio)
+- [Privacyverklaring](https://www.agentivestudio.nl/privacy.html)
+- [Algemene voorwaarden](https://www.agentivestudio.nl/voorwaarden.html)

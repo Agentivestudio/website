@@ -571,87 +571,19 @@
   </section>
 
   <!-- ================= SCROLLVERHAAL ================= -->
-  <section class="story" aria-labelledby="story-t">
-    <div class="wrap story-head">
-      <div>
-        <p class="eyebrow reveal">Van kladje naar proces</p>
-        <h2 class="h2 reveal d1" id="story-t">Hetzelfde werk. Steeds minder gedoe.</h2>
+  <section class="band hk" id="herkenbaar" aria-labelledby="hk-t">
+    <div class="wrap">
+      <div class="hk-head">
+        <p class="eyebrow reveal">Waar de tijd blijft</p>
+        <h2 class="h2 reveal d1" id="hk-t">Herken je hier je eigen week in?</h2>
+        <p class="body reveal d2">Kies wat bij jou speelt. Links staat hoe het meestal gaat, rechts hoe hetzelfde werk kan verlopen.</p>
       </div>
-    </div>
-    <div class="story-track" id="story">
-      <div class="wrap story-sticky">
-        <div class="rail" id="rail" aria-label="Stappen">
-          <span class="fill" aria-hidden="true"></span>
-          <button type="button" class="on" data-go="0"><span>Stap 1</span><b>Noteren</b></button>
-          <button type="button" data-go="1"><span>Stap 2</span><b>Overtypen</b></button>
-          <button type="button" data-go="2"><span>Stap 3</span><b>Eén proces</b></button>
-          <button type="button" data-go="3"><span>Stap 4</span><b>Tijd terug</b></button>
-        </div>
-        <div class="canvas">
-          <article class="panel on" data-panel="0">
-            <div class="viz">
-              <div class="paper">
-                <p class="t">Vandaag:</p>
-                <p>☐ Aanvraag binnen</p>
-                <p>☐ Gegevens overnemen</p>
-                <p>☐ Offerte maken</p>
-                <p>☐ Mail sturen</p>
-                <p>☐ Vrijdag nabellen</p>
-              </div>
-            </div>
-            <p class="cap"><b>Het begint vaak zo.</b><span>Een lijstje dat jij zelf moet blijven afwerken.</span></p>
-          </article>
-          <article class="panel" data-panel="1">
-            <div class="viz">
-              <div>
-                <div class="sheet" role="img" aria-label="Voorbeeld van een spreadsheet met aanvragen, waarin één cel een fout geeft">
-                  <div class="bar"><i></i><i></i><i></i><b>aanvragen.xlsx</b></div>
-                  <div class="fx"><span>fx</span><em>=SOM(D2:D4)*BTW</em></div>
-                  <div class="grid">
-                    <span class="n"></span><span class="h">Klant</span><span class="h">Aanvraag</span><span class="h hide-s">Status</span><span class="h">Bedrag</span>
-                    <span class="n">1</span><span class="c">Jansen</span><span class="c">Kozijnen</span><span class="c hide-s">Nieuw</span><span class="c">€ 2.450</span>
-                    <span class="n">2</span><span class="c">De Vries</span><span class="c">Onderhoud</span><span class="c hide-s">Offerte</span><span class="c">€ 1.850</span>
-                    <span class="n">3</span><span class="c">Bakker</span><span class="c">Installatie</span><span class="c hide-s">Nabellen</span><span class="c cur">€ 980</span>
-                    <span class="n">4</span><span class="c">Totaal</span><span class="c"></span><span class="c hide-s"></span><span class="c err">#WAARDE!</span>
-                  </div>
-                  <div class="tabs"><span class="on">Week 38</span><span>Week 37</span><span>Oud</span></div>
-                </div>
-                <p class="tally" aria-hidden="true">zelfde gegevens, tweede keer ingetypt</p>
-              </div>
-            </div>
-            <p class="cap"><b>Digitaal, maar nog steeds handwerk.</b><span>Dezelfde informatie wordt opnieuw ingevoerd en bijgehouden.</span></p>
-          </article>
-          <article class="panel" data-panel="2">
-            <div class="viz">
-              <div class="flow">
-                <div class="top"><b>Aanvraag Kozijnen</b><span class="pill live">Loopt</span></div>
-                <div class="step done"><i>✓</i><span>Aanvraag ontvangen</span><time>09:42</time></div>
-                <div class="step done"><i>✓</i><span>Gegevens overgenomen</span><time>09:42</time></div>
-                <div class="step done"><i>✓</i><span>Offerte klaargezet</span><time>09:43</time></div>
-                <div class="step wait" id="waitStep"><i>·</i><span>Wacht op jouw akkoord</span><time>nu</time></div>
-                <button class="btn btn-primary approve" id="approve" type="button">Akkoord geven <span class="arr" aria-hidden="true">→</span></button>
-              </div>
-            </div>
-            <p class="cap"><b>Eén proces in plaats van losse stappen.</b><span>Jij houdt de regie. De rest loopt netjes door.</span></p>
-          </article>
-          <article class="panel" data-panel="3">
-            <div class="viz">
-              <div class="done-card">
-                <p class="h">Tijd terug in je week.</p>
-                <div class="cal" aria-hidden="true">
-                  <div><small>Ma</small><i></i><i></i><i class="free"></i></div>
-                  <div><small>Di</small><i></i><i class="free"></i><i></i></div>
-                  <div><small>Wo</small><i></i><i></i><i class="free"></i></div>
-                  <div><small>Do</small><i class="free"></i><i></i><i></i></div>
-                  <div><small>Vr</small><i></i><i class="free"></i><i></i></div>
-                </div>
-                <div class="legend"><span>Werk dat blijft</span><span class="f">Tijd die vrijkomt</span></div>
-              </div>
-            </div>
-            <p class="cap"><b>Minder terugkerend handwerk.</b><span>De uren gaan weer naar het werk waar je eigenlijk voor gekozen hebt.</span></p>
-          </article>
-        </div>
+      <div class="hk-box reveal d3">
+        <div class="hk-tabs" role="tablist" aria-label="Situaties"><button class="hk-tab on" type="button" role="tab" id="hk-t-over" aria-controls="hk-p-over" aria-selected="true">Gegevens overtypen</button><button class="hk-tab" type="button" role="tab" id="hk-t-vast" aria-controls="hk-p-vast" aria-selected="false" tabindex="-1">Werk vastleggen op locatie</button><button class="hk-tab" type="button" role="tab" id="hk-t-plan" aria-controls="hk-p-plan" aria-selected="false" tabindex="-1">Planning en beschikbaarheid</button><button class="hk-tab" type="button" role="tab" id="hk-t-klant" aria-controls="hk-p-klant" aria-selected="false" tabindex="-1">Klanten op de hoogte houden</button><button class="hk-tab" type="button" role="tab" id="hk-t-rap" aria-controls="hk-p-rap" aria-selected="false" tabindex="-1">Terugkerende rapportages</button></div>
+        <div class="hk-panels"><div class="hk-panel on" role="tabpanel" id="hk-p-over" aria-labelledby="hk-t-over"><div class="hk-col hk-now"><p class="hk-k">Zoals het nu gaat</p><ul><li>Aanvragen komen binnen via mail of een formulier.</li><li>Iemand typt ze over in een spreadsheet of in je pakket.</li><li>Een typefout merk je pas als een klant belt.</li></ul></div><div class="hk-col hk-next"><p class="hk-k">Zoals het kan werken</p><ul><li>Wat binnenkomt staat meteen op de juiste plek.</li><li>Altijd hetzelfde format, dus niets raakt kwijt.</li><li>Jij kijkt alleen nog of het klopt.</li></ul></div></div><div class="hk-panel" role="tabpanel" id="hk-p-vast" aria-labelledby="hk-t-vast" hidden><div class="hk-col hk-now"><p class="hk-k">Zoals het nu gaat</p><ul><li>Foto's staan in de appgroep, notities op papier.</li><li>'s Avonds zoekt iemand uit wat bij welke klus hoort.</li><li>Bij discussie achteraf ontbreekt het bewijs.</li></ul></div><div class="hk-col hk-next"><p class="hk-k">Zoals het kan werken</p><ul><li>Op locatie vastgelegd, met foto, tijd en locatie.</li><li>Meteen gekoppeld aan de juiste klant en opdracht.</li><li>Terug te vinden zonder iemand te bellen.</li></ul></div></div><div class="hk-panel" role="tabpanel" id="hk-p-plan" aria-labelledby="hk-t-plan" hidden><div class="hk-col hk-now"><p class="hk-k">Zoals het nu gaat</p><ul><li>De planning staat in Excel, wijzigingen gaan per app.</li><li>Medewerkers bellen om te vragen waar ze heen moeten.</li><li>Bij uitval begint het puzzelen opnieuw.</li></ul></div><div class="hk-col hk-next"><p class="hk-k">Zoals het kan werken</p><ul><li>Eén planning, die iedereen op zijn telefoon ziet.</li><li>Een wijziging komt bij de juiste mensen aan.</li><li>Wie waar staat, is in één blik duidelijk.</li></ul></div></div><div class="hk-panel" role="tabpanel" id="hk-p-klant" aria-labelledby="hk-t-klant" hidden><div class="hk-col hk-now"><p class="hk-k">Zoals het nu gaat</p><ul><li>Klanten bellen voor de stand van zaken.</li><li>Jij zoekt het na en belt terug.</li><li>Iedereen hoort iets anders, afhankelijk van wie hij spreekt.</li></ul></div><div class="hk-col hk-next"><p class="hk-k">Zoals het kan werken</p><ul><li>De klant volgt zelf wat er gebeurd is.</li><li>Bij elke stap gaat er automatisch bericht uit.</li><li>Minder tussendoor-telefoontjes, hetzelfde verhaal voor iedereen.</li></ul></div></div><div class="hk-panel" role="tabpanel" id="hk-p-rap" aria-labelledby="hk-t-rap" hidden><div class="hk-col hk-now"><p class="hk-k">Zoals het nu gaat</p><ul><li>Elke maand cijfers uit verschillende bestanden bij elkaar zoeken.</li><li>Het kost een avond en het is de volgende dag alweer oud.</li><li>Niemand anders kan het overnemen.</li></ul></div><div class="hk-col hk-next"><p class="hk-k">Zoals het kan werken</p><ul><li>Het overzicht staat klaar en werkt zichzelf bij.</li><li>Jij kijkt alleen nog naar wat opvalt.</li><li>Ook bruikbaar als jij er even niet bent.</li></ul></div></div></div>
       </div>
+      <p class="hk-foot reveal d4">Zit jouw situatie er niet bij? Dan hoor ik hem graag in een gesprek van een half uur.
+        <a class="btn btn-secondary btn-sm" href="https://cal.com/agentivestudio" target="_blank" rel="noopener">Plan een gesprek</a></p>
     </div>
   </section>
 

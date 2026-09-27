@@ -135,6 +135,33 @@
     }, {passive:true});
   }
 
+
+  /* ---------- Herkenbare situaties ---------- */
+  var hkTabs = $$('.hk-tab');
+  if(hkTabs.length){
+    var hkPanels = $$('.hk-panel');
+    function hkShow(i, focus){
+      hkTabs.forEach(function(t, k){
+        var on = k === i;
+        t.classList.toggle('on', on);
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        if(on){ t.removeAttribute('tabindex') } else { t.setAttribute('tabindex','-1') }
+        hkPanels[k].hidden = !on;
+        hkPanels[k].classList.toggle('on', on);
+      });
+      if(focus) hkTabs[i].focus();
+    }
+    hkTabs.forEach(function(t, i){
+      t.addEventListener('click', function(){ hkShow(i) });
+      t.addEventListener('keydown', function(e){
+        var n = e.key === 'ArrowRight' || e.key === 'ArrowDown' ? 1 : (e.key === 'ArrowLeft' || e.key === 'ArrowUp' ? -1 : 0);
+        if(!n) return;
+        e.preventDefault();
+        hkShow((i + n + hkTabs.length) % hkTabs.length, true);
+      });
+    });
+  }
+
   /* ---------- Zand ---------- */
   var zand = $('#zand'), zBtn = $('#zandBtn'), zAsk = $('#zandAsk'), zp = $('#zp'), zB = $('#zpB'), zF = $('#zpF'), zIn = $('#zpIn');
 

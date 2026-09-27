@@ -9,9 +9,9 @@
 :root{
   color-scheme:light;
   --bg:#F6F1EA; --bg-2:#FBF8F3; --paper:#FFFDF9; --sand:#EFE6DA; --sand-2:#E6DACB; --cream:#F3ECE2;
-  --ink:#1D1A16; --ink-2:#3F3A33; --muted:#6D665D; --faint:#9C948A;
+  --ink:#1D1A16; --ink-2:#3B362F; --muted:#5B544B; --faint:#837B71;
   --line:rgba(29,26,22,.10); --line-2:rgba(29,26,22,.06);
-  --brown:#6E4A33; --brown-2:#5C3C28; --copper:#B0714A; --copper-soft:#F4E6D8; --copper-ink:#8A5334;
+  --brown:#6E4A33; --brown-2:#5C3C28; --copper:#9C5F38; --copper-soft:#F4E6D8; --copper-ink:#8A5334;
   --espresso:#2B231D; --espresso-2:#3A3029;
   --green:#4E7A5C; --green-soft:#E4EEE6; --amber:#9A6A22; --amber-soft:#F5E8CF;
   --display:'Fraunces',Georgia,'Times New Roman',serif;
@@ -50,12 +50,12 @@ button{font:inherit; color:inherit}
 
 /* ---------- typografie ---------- */
 .eyebrow{display:flex; align-items:center; gap:12px; margin:0 0 14px;
-  font-size:10.5px; font-weight:600; letter-spacing:.22em; text-transform:uppercase; color:var(--copper)}
-.eyebrow::before{content:""; width:22px; height:1px; background:currentColor; opacity:.8; flex:none}
+  font-size:11px; font-weight:600; letter-spacing:.22em; text-transform:uppercase; color:var(--copper)}
+
 .h1{font-family:var(--display); font-weight:400; font-size:clamp(44px,5.2vw,74px); line-height:1.02; letter-spacing:-.032em; text-wrap:balance}
 .h2{font-family:var(--display); font-weight:400; font-size:clamp(30px,3.2vw,42px); line-height:1.06; letter-spacing:-.025em; text-wrap:balance}
 .lede{font-size:clamp(16.5px,1.35vw,19px); color:var(--ink-2); line-height:1.58; max-width:48ch}
-.body{font-size:15px; color:var(--muted); line-height:1.7}
+.body{font-size:15.5px; color:var(--muted); line-height:1.7}
 
 /* ---------- knoppen ---------- */
 .btn{position:relative; display:inline-flex; align-items:center; justify-content:center; gap:12px;
@@ -287,10 +287,10 @@ button{font:inherit; color:inherit}
 .story-sticky{position:sticky; top:calc(var(--head-h) + 12px); height:calc(100vh - var(--head-h) - 28px); min-height:500px; max-height:700px;
   display:grid; grid-template-columns:210px minmax(0,1fr); gap:clamp(18px,3vw,40px); align-items:center; padding-bottom:28px}
 .rail{display:flex; flex-direction:column; gap:4px; position:relative; padding-left:24px}
-.rail::before{content:""; position:absolute; left:4px; top:12px; bottom:12px; width:2px; border-radius:2px; background:var(--line)}
+
 .rail .fill{position:absolute; left:4px; top:12px; width:2px; height:calc((100% - 24px) * var(--p,0)); border-radius:2px; background:var(--copper)}
 .rail button{all:unset; cursor:pointer; position:relative; padding:12px 0; display:grid; gap:2px}
-.rail button::before{content:""; position:absolute; left:-24px; top:18px; width:10px; height:10px; border-radius:50%; background:var(--bg); border:2px solid var(--line); transition:border-color .3s, background-color .3s, transform .4s var(--spring-out)}
+.rail button::before{content:""; position:absolute; left:-24px; top:18px; width:9px; height:9px; border-radius:50%; background:var(--line); border:2px solid transparent; transition:border-color .3s, background-color .3s, transform .4s var(--spring-out)}
 .rail button span{font-size:10.5px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--faint); transition:color .3s}
 .rail button b{font-family:var(--display); font-weight:400; font-size:21px; color:var(--faint); transition:color .3s}
 .rail button.on::before{border-color:var(--copper); background:var(--copper); transform:scale(1.15)}
@@ -410,7 +410,7 @@ button{font:inherit; color:inherit}
 
 /* ---------- over + vragen ---------- */
 .overq{position:relative; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(24px,4vw,64px); align-items:start}
-.overq::before{content:""; position:absolute; left:50%; top:0; bottom:0; width:1px; background:var(--line); transform:translateX(-50%)}
+
 .about{display:grid; grid-template-columns:minmax(0,1fr); gap:18px}
 .about .name{font-family:var(--display); font-weight:400; font-size:28px; letter-spacing:-.02em; line-height:1.1}
 .about .role{font-size:13px; color:var(--muted); margin:4px 0 12px}
@@ -438,7 +438,7 @@ button{font:inherit; color:inherit}
 .cta .h2{font-size:clamp(28px,2.6vw,36px)}
 .cta .body{font-size:14.5px}
 .cta .actions{flex-wrap:nowrap}
-.checks{display:grid; gap:8px; padding-left:22px; border-left:1px solid var(--line); font-size:13px; color:var(--ink-2)}
+.checks{display:grid; gap:8px; font-size:13px; color:var(--ink-2)}
 .checks li{display:flex; align-items:center; gap:9px; white-space:nowrap}
 .checks li svg{color:var(--brown); flex:none}
 @media(max-width:1240px){ .cta{grid-template-columns:minmax(0,1fr) minmax(0,1fr)} .cta .note{display:none} .cta .actions,.checks{grid-column:auto} }
@@ -451,7 +451,7 @@ button{font:inherit; color:inherit}
 .foot a{text-decoration:none}
 .foot a:hover{color:var(--ink)}
 .foot .right{justify-self:end; display:flex; gap:16px; flex-wrap:wrap}
-.foot .right span + span{padding-left:16px; border-left:1px solid var(--line)}
+.foot .right span + span::before{content:"·"; margin:0 10px; color:var(--faint)}
 .foot .id{grid-column:1/-1; display:flex; flex-wrap:wrap; justify-content:space-between; gap:6px 18px; padding-top:14px; border-top:1px solid var(--line-2); font-size:12px}
 .foot .id div{display:flex; flex-wrap:wrap; gap:4px 16px}
 .foot .id .copy{margin-left:auto}
@@ -467,10 +467,10 @@ button{font:inherit; color:inherit}
   transition:transform .35s var(--spring)}
 .zand-ask:hover{transform:translateY(-2px)}
 .zand-ask:active{transform:scale(.97)}
-.zand-cat{width:170px; border:0; padding:0; background:none; cursor:pointer; position:relative}
+.zand-cat{width:132px; border:0; padding:0; background:none; cursor:pointer; position:relative}
 .zand-cat{-webkit-tap-highlight-color:transparent; touch-action:manipulation}
 .companion-pet{display:block; transform-origin:50% 88%; will-change:transform; animation:companion-breathe 3.8s ease-in-out infinite; transition:transform .18s ease}
-.zand-cat img{width:100%; filter:drop-shadow(0 14px 16px rgba(70,50,35,.18)); -webkit-user-drag:none; user-select:none; pointer-events:none}
+.zand-cat img{width:100%; filter:drop-shadow(0 16px 18px rgba(70,50,35,.22)); -webkit-user-drag:none; user-select:none; pointer-events:none}
 .zand-cat:active .companion-pet{transform:scale(.94)}
 .zand.reacting .zand-cat{pointer-events:none}
 .zand.reaction-hop .companion-pet{animation:companion-hop .62s cubic-bezier(.22,.92,.3,1)}
@@ -512,8 +512,8 @@ button{font:inherit; color:inherit}
 .zp-f button{width:44px; height:44px; border-radius:50%; border:0; background:var(--brown); color:#FFF8F1; cursor:pointer; display:grid; place-items:center; flex:none}
 .zp .cta-row{display:flex; gap:8px; flex-wrap:wrap}
 @media(max-width:760px){
-  .zand-cat{width:82px; padding:6px 4px 2px; border-radius:22px; background:rgba(255,253,249,.9); border:1px solid var(--line); box-shadow:var(--sh-2); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px)}
-  .zand-cat img{filter:none}
+  .zand-cat{width:92px}
+  .zand-cat img{filter:drop-shadow(0 10px 14px rgba(70,50,35,.25))}
   .companion-reaction{right:0}
   .zand-ask{display:none}
   .zand-cap{display:none}

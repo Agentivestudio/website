@@ -587,3 +587,64 @@ button{font:inherit; color:inherit}
   -webkit-mask-image:linear-gradient(180deg,transparent,#000 55%,#000 92%,transparent);
   mask-image:linear-gradient(180deg,transparent,#000 55%,#000 92%,transparent)}
 @media(max-width:760px){ #contact::after{height:min(40%,150px); opacity:.3} }
+
+/* ================= ONTWERPSYSTEEM =================
+   Eén knop, één set hoeken, één schaduw, rustige beweging. */
+:root{
+  --r-xs:10px; --r-sm:14px; --r-md:18px; --r-lg:24px;
+  --sh-card:0 18px 40px -30px rgba(70,50,35,.55);
+  --sh-lift:0 24px 48px -28px rgba(70,50,35,.62);
+  --e-out:cubic-bezier(.22,.9,.28,1);
+  --e-soft:cubic-bezier(.3,.8,.35,1);
+  --t-1:.24s; --t-2:.42s;
+}
+
+/* Knoppen: primair, secundair, stil */
+.btn,.v2btn{display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  min-height:48px; padding:0 22px; border-radius:var(--r-sm); border:1px solid transparent;
+  font-family:var(--ui); font-size:15px; font-weight:500; line-height:1; letter-spacing:0; text-decoration:none; cursor:pointer;
+  transition:transform var(--t-1) var(--e-out), box-shadow var(--t-2) var(--e-out), background-color var(--t-1) linear, border-color var(--t-1) linear}
+.btn:hover,.v2btn:hover{transform:translateY(-2px)}
+.btn:active,.v2btn:active{transform:translateY(0) scale(.99)}
+.btn-primary,.v2btn-dark{background:var(--brown); color:#FDF9F3; box-shadow:0 14px 28px -18px rgba(92,60,40,.95)}
+.btn-primary:hover,.v2btn-dark:hover{background:#63412B; box-shadow:0 20px 34px -18px rgba(92,60,40,.95)}
+.btn-secondary,.btn-ghost,.v2btn-light{background:var(--paper); color:var(--ink); border-color:var(--line); box-shadow:none}
+.btn-secondary:hover,.btn-ghost:hover,.v2btn-light:hover{border-color:var(--copper); box-shadow:var(--sh-card)}
+.btn-sm{min-height:44px; padding:0 18px; font-size:14px}
+.btn .arr,.v2btn span{opacity:.72; transition:transform var(--t-1) var(--e-out)}
+.btn:hover .arr,.v2btn:hover span{transform:translateX(3px)}
+.btn-wa{background:var(--green); color:#F7FBF7; border-color:transparent}
+.btn-wa:hover{background:#456B51}
+:where(a,button,summary,input,[tabindex]):focus-visible{outline:2px solid var(--copper); outline-offset:3px; border-radius:var(--r-xs)}
+
+/* Kleine acties: omdraaien, opties, tabbladen */
+.turn,.opt,.hk-tab,.zand-ask{border-radius:var(--r-sm); font-size:14px; font-weight:500;
+  transition:background-color var(--t-1) linear, color var(--t-1) linear, transform var(--t-1) var(--e-out)}
+.turn{min-height:44px; padding:0 16px}
+.turn:hover,.opt:hover{transform:translateY(-1px)}
+.hk-tab{font-size:15px}
+.zand-ask{border-radius:var(--r-sm) var(--r-sm) 6px var(--r-sm); min-height:46px; font-size:14.5px}
+
+/* Kaarten en vlakken */
+.face,.hk-col,.stepc,.acc details,.quote,.zp,.skills li,.chip,.res,.proc{border-radius:var(--r-md)}
+.face{box-shadow:var(--sh-card)}
+.hk-col,.stepc,.acc details{box-shadow:none; border:1px solid var(--line-2); background:rgba(255,253,249,.72)}
+.hk-next,.acc details[open]{background:var(--paper); border-color:var(--line); box-shadow:var(--sh-card)}
+.skills li{border:1px solid var(--line-2)}
+.tag,.pill,.chip-sm,.fc .chips span{border-radius:999px}
+
+/* Beweging: één taal. Rustig omhoog, nooit springen. */
+.reveal{transform:translateY(16px); transition:opacity .6s var(--e-soft), transform .7s var(--e-out)}
+.reveal.in{transform:none}
+.d1{transition-delay:.06s} .d2{transition-delay:.12s} .d3{transition-delay:.18s} .d4{transition-delay:.24s}
+.fc{transition:transform var(--t-2) var(--e-out)}
+.fc:hover{transform:translateY(-4px)}
+.shot img{transition:transform .8s var(--e-out)}
+.fc:hover .shot img{transform:scale(1.04)}
+.hk-panel{animation:hk-in .4s var(--e-out) both}
+@keyframes hk-in{from{opacity:0; transform:translateY(8px)}to{opacity:1; transform:none}}
+.acc details summary{transition:color var(--t-1) linear}
+@media(prefers-reduced-motion:reduce){
+  .btn,.v2btn,.fc,.shot img,.reveal{transition:none !important; transform:none !important}
+  .hk-panel{animation:none}
+}

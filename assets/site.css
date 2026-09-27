@@ -648,3 +648,15 @@ button{font:inherit; color:inherit}
   .btn,.v2btn,.fc,.shot img,.reveal{transition:none !important; transform:none !important}
   .hk-panel{animation:none}
 }
+
+/* Projecten op desktop: alles in beeld, geen halve kaart meer */
+@media(min-width:1100px){
+  .werk-in{display:grid; grid-template-columns:minmax(230px,.8fr) 3fr; gap:clamp(24px,3vw,48px); align-items:start}
+  .rail-wrap,.projects{overflow:visible}
+  #projects{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(16px,1.6vw,22px); overflow:visible; scroll-snap-type:none}
+  #projects .fc{flex:initial; width:auto}
+  #prevP,#nextP,.dots{display:none}
+  .werk-intro{position:sticky; top:calc(var(--head-h) + 28px)}
+}
+/* Zand blijft van de projectnamen af */
+@media(min-width:761px){ .zand{bottom:calc(clamp(8px,1.4vw,16px) + env(safe-area-inset-bottom,0px))} }

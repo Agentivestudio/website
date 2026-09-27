@@ -660,3 +660,9 @@ button{font:inherit; color:inherit}
 }
 /* Zand blijft van de projectnamen af */
 @media(min-width:761px){ .zand{bottom:calc(clamp(8px,1.4vw,16px) + env(safe-area-inset-bottom,0px))} }
+
+.cta .mail-line{grid-column:1/-1; margin-top:2px}
+.mail-line{margin-top:16px; font-size:14.5px; color:var(--muted)}
+.mail-line a{color:var(--ink); text-underline-offset:3px}
+.eyebrow{font-size:12px}
+@media(min-width:761px){ .zand.away{opacity:0; transform:translateY(16px)} }

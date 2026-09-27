@@ -579,3 +579,11 @@ button{font:inherit; color:inherit}
   .hk-tab{flex:0 0 auto; scroll-snap-align:start; border:1px solid var(--line-2); background:rgba(255,253,249,.6)}
   .hk-panel{grid-template-columns:1fr}
 }
+
+/* ---------- Leidse horizon achter het slotblok ---------- */
+#contact{position:relative; isolation:isolate; overflow:hidden}
+#contact::after{content:""; position:absolute; inset:auto 0 0 0; height:min(56%,220px); z-index:-1; pointer-events:none;
+  background:url('/assets/img/skyline.webp') center bottom / cover no-repeat; opacity:.34; mix-blend-mode:multiply;
+  -webkit-mask-image:linear-gradient(180deg,transparent,#000 55%,#000 92%,transparent);
+  mask-image:linear-gradient(180deg,transparent,#000 55%,#000 92%,transparent)}
+@media(max-width:760px){ #contact::after{height:min(40%,150px); opacity:.3} }

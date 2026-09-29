@@ -6,7 +6,6 @@
   var $  = function(s, r){ return (r || document).querySelector(s) };
   var $$ = function(s, r){ return [].slice.call((r || document).querySelectorAll(s)) };
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var finePointer = matchMedia('(pointer: fine)').matches;
   var clamp = function(v, a, b){ return Math.max(a, Math.min(b, v)) };
   var lerp = function(a, b, t){ return a + (b - a) * t };
   function tick(){ try{ navigator.vibrate && navigator.vibrate(6) }catch(e){} }
@@ -74,22 +73,15 @@
     reveals.forEach(function(el){ rIO.observe(el) });
   }
 
-  /* ---------- Zand (voor de rest nodig: tonen en verbergen) ---------- */
-  var zand = $('#zand'), hideReasons = {}, finalInView = false;
-  function zandHide(reason, on){
-    if(on) hideReasons[reason] = 1; else delete hideReasons[reason];
-    if(zand) zand.classList.toggle('away', Object.keys(hideReasons).length > 0 || finalInView);
-  }
-
   /* ---------- mobiel menu ---------- */
   var mnav = $('#mnav'), menuBtn = $('#menuBtn'), menuX = $('#menuX'), mUntrap = null;
   function openMenu(){
     mnav.hidden = false; requestAnimationFrame(function(){ mnav.classList.add('open') });
-    menuBtn.setAttribute('aria-expanded','true'); lock(); zandHide('menu', true); mUntrap = trap(mnav); menuX.focus();
+    menuBtn.setAttribute('aria-expanded','true'); lock(); mUntrap = trap(mnav); menuX.focus();
   }
   function closeMenu(focusBack){
     if(mnav.hidden) return;
-    mnav.classList.remove('open'); menuBtn.setAttribute('aria-expanded','false'); unlock(); zandHide('menu', false);
+    mnav.classList.remove('open'); menuBtn.setAttribute('aria-expanded','false'); unlock();
     mUntrap && mUntrap(); setTimeout(function(){ mnav.hidden = true }, reduce ? 0 : 300);
     if(focusBack) menuBtn.focus();
   }
@@ -162,7 +154,7 @@
     fillDetail(card);
     D.from = rectOf(card); D.to = targetRect();
     dScroll.scrollTop = 0;
-    detail.hidden = false; scrimOwners++; lock(); zandHide('detail', true);
+    detail.hidden = false; scrimOwners++; lock();
     card.classList.add('hide');
     applyDetail(0); tick();
     D.anim && D.anim.stop();
@@ -184,7 +176,7 @@
       update:function(p){ applyDetail(p) },
       done:function(){
         D.anim = null; detail.hidden = true; card.classList.remove('hide');
-        scrimOwners--; scrimTo(0); unlock(); zandHide('detail', false);
+        scrimOwners--; scrimTo(0); unlock();
         D.untrap && D.untrap(); $('.card-hit', card).focus({preventScroll:true});
       }});
     if(!fromHistory && history.state && history.state.layer === 'detail') history.back();
@@ -367,7 +359,7 @@
     S.open = true; S.returnFocus = e && e.currentTarget && e.currentTarget.focus ? e.currentTarget : null;
     S.step = 0; S.data = fresh();
     stage.innerHTML = ''; goto(0, 1);
-    sheet.hidden = false; scrimOwners++; lock(); zandHide('sheet', true);
+    sheet.hidden = false; scrimOwners++; lock();
     applySheet(1); tick();
     sheetTo(0, 0, function(){ focusStep(stage.firstElementChild) });
     S.untrap = trap(sheet);
@@ -378,7 +370,7 @@
     if(!S.open) return;
     S.open = false;
     sheetTo(1, v, function(){
-      sheet.hidden = true; scrimOwners--; scrimTo(D.open ? 1 : 0); unlock(); zandHide('sheet', false);
+      sheet.hidden = true; scrimOwners--; scrimTo(D.open ? 1 : 0); unlock();
       S.untrap && S.untrap();
       var back = D.open ? dClose : S.returnFocus;
       back && back.focus({preventScroll:true});
@@ -432,126 +424,11 @@
   });
   addEventListener('resize', function(){ if(D.open){ D.to = targetRect(); if(!D.anim) applyDetail(1) } });
 
-  /* ==================================================================
-     Zand: reageert eerst, opent dan een klein venster met antwoorden
-     ================================================================== */
-  var zBtn = $('#zandBtn'), zAsk = $('#zandAsk'), zp = $('#zp'), zB = $('#zpB'), zF = $('#zpF'), zIn = $('#zpIn');
-  var QA = {
-    kost:{q:'Wat kost zoiets?', a:'Dat hangt af van wat er nodig is, en daarom noem ik hier geen bedrag dat toch niet klopt. Na een eerste gesprek weet ik wat ik nog moet uitzoeken, en daarna krijg je een prijs voordat we beginnen.', cta:true,
-      k:'kost kosten prijs tarief euro geld offerte budget betalen duur'},
-    duur:{q:'Hoe lang duurt het?', a:'Voor een eerste werkende versie met je eigen gegevens reken ik meestal op twee tot vier weken, afhankelijk van wat er nodig is. Je probeert hem uit op je telefoon of laptop, daarna passen we aan op wat je in de praktijk tegenkomt.',
-      k:'lang duurt snel wanneer klaar levertijd weken tijd'},
-    wie:{q:'Voor wat voor bedrijven werk je?', a:'Voor het MKB in de breedte. Wat ik tot nu toe bouwde draait in de bouw, in het onderwijs, bij een beveiligings- en uitzendbedrijf, in een webshop en op een platform dat nieuwkomers aan werk helpt. De branche maakt niet uit, het gaat erom of er werk in zit dat elke week op dezelfde manier terugkomt.',
-      k:'bedrijf bedrijven sector branche klanten mkb soort'},
-    tech:{q:'Moet ik zelf technisch zijn?', a:'Nee. Je vertelt hoe je werkt, ik regel het bouwen, het live zetten en het onderhoud. Je hebt alleen een browser of een telefoon nodig.',
-      k:'technisch ict kennis moeilijk installeren onderhouden zelf'},
-    data:{q:'Van wie is het en waar staan mijn gegevens?', a:'Wat ik voor je bouw, is van jou. Je gegevens staan op servers in Europa en de verwerking is volgens de AVG ingericht. Je kunt op elk moment alles meekrijgen, inclusief uitleg over hoe het in elkaar zit.',
-      k:'eigenaar eigendom gegevens data avg privacy servers europa'},
-    groei:{q:'Kan ik het later uitbreiden?', a:'Dat kan, en daar is bij het bouwen rekening mee gehouden. Je praat dan opnieuw met dezelfde persoon die het gemaakt heeft, dus niemand hoeft zich eerst in te lezen.',
-      k:'uitbreiden later groeien extra aanpassen'},
-    kan:{q:'Is mijn probleem met software op te lossen?', a:'Dat hoef je zelf niet te weten, daar is het eerste gesprek voor. Soms is het antwoord een app, soms een koppeling tussen twee systemen die je al hebt, en soms blijkt een half uur instellen genoeg. Als er niets te winnen valt, zeg ik dat.',
-      k:'probleem oplossen software app nodig helpt zinvol'}
-  };
-  var ICON = {
-    werk:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="3"/><path d="M3.5 9.5h17"/></svg>',
-    vraag:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M9.6 9.6a2.5 2.5 0 1 1 3.4 2.3c-.6.3-1 .8-1 1.5v.4M12 17h.01"/></svg>',
-    cal:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17"/></svg>'
-  };
-  function msg(t, me){ var d = document.createElement('p'); d.className = 'msg' + (me ? ' me' : ''); d.textContent = t; zB.appendChild(d); zB.scrollTop = zB.scrollHeight }
-  function planFromZand(){ closeZand(false); openSheet(null) }
-  function ctaRow(){
-    var w = document.createElement('div'); w.className = 'cta-row';
-    var a = document.createElement('button'); a.type = 'button'; a.className = 'big-btn'; a.textContent = 'Plan een gesprek'; a.addEventListener('click', planFromZand);
-    var b = document.createElement('a'); b.className = 'soft-btn'; b.href = window.AS_WA || '#contact'; b.target = '_blank'; b.rel = 'noopener'; b.textContent = 'WhatsApp';
-    w.appendChild(a); w.appendChild(b); zB.appendChild(w); zB.scrollTop = zB.scrollHeight;
-  }
-  function options(){
-    var w = document.createElement('div'); w.className = 'opts';
-    [{id:'werk', label:'Bekijk het werk', icon:ICON.werk},
-     {id:'kost', label:QA.kost.q, icon:ICON.vraag},
-     {id:'duur', label:QA.duur.q, icon:ICON.vraag},
-     {id:'wie',  label:QA.wie.q,  icon:ICON.vraag},
-     {id:'plan', label:'Plan direct een gesprek', icon:ICON.cal}].forEach(function(o){
-      var b = document.createElement('button'); b.type = 'button'; b.className = 'opt';
-      b.innerHTML = '<span class="oi">' + o.icon + '</span><span></span>';
-      b.lastChild.textContent = o.label;
-      b.addEventListener('click', function(){
-        if(o.id === 'werk'){ closeZand(false); document.getElementById('werk').scrollIntoView({behavior:reduce ? 'auto' : 'smooth'}) }
-        else if(o.id === 'plan') planFromZand();
-        else ask(o.id);
-      });
-      w.appendChild(b);
-    });
-    zB.appendChild(w); zB.scrollTop = zB.scrollHeight;
-  }
-  function ask(id){
-    var x = QA[id]; msg(x.q, true);
-    setTimeout(function(){ msg(x.a); if(x.cta) ctaRow(); options() }, reduce ? 0 : 280);
-  }
-  function match(t){
-    t = t.toLowerCase(); var best = null, score = 0;
-    Object.keys(QA).forEach(function(id){ var s = 0; QA[id].k.split(' ').forEach(function(w){ if(w.length > 2 && t.indexOf(w) > -1) s++ }); if(s > score){ score = s; best = id } });
-    return best;
-  }
-  zF.addEventListener('submit', function(e){
-    e.preventDefault(); var t = zIn.value.trim(); if(!t) return; zIn.value = ''; msg(t, true);
-    var id = match(t);
-    setTimeout(function(){
-      if(id){ msg(QA[id].a); if(QA[id].cta) ctaRow() }
-      else { msg('Daar heb ik geen kant-en-klaar antwoord op, en dan ga ik liever niet gokken. Stel hem in een gesprek van een half uur, dan hoor je het meteen.'); ctaRow() }
-      options();
-    }, reduce ? 0 : 300);
-  });
-  var zOpen = false, zSay = $('#zandSay'), rTimer = null, rIdx = 0;
-  var REACT = [['reaction-hop','Hoi 👋'], ['reaction-wiggle','Ik luister.'], ['reaction-nod','Kom maar door.']];
-  function stopReact(){ clearTimeout(rTimer); rTimer = null; zand.classList.remove('reacting','reaction-hop','reaction-wiggle','reaction-nod') }
-  function openZand(){
-    zp.hidden = false; zOpen = true; zand.classList.add('open'); zBtn.setAttribute('aria-expanded','true'); zAsk.setAttribute('aria-expanded','true');
-    if(!zB.childElementCount) options();
-    if(finePointer) setTimeout(function(){ zIn.focus() }, 60);
-  }
-  function closeZand(focusBack){
-    stopReact(); zp.hidden = true; zOpen = false; zand.classList.remove('open');
-    zBtn.setAttribute('aria-expanded','false'); zAsk.setAttribute('aria-expanded','false');
-    if(focusBack) zBtn.focus();
-  }
-  function reactThenOpen(){
-    if(zOpen){ closeZand(true); return }
-    if(rTimer) return;
-    if(reduce){ openZand(); return }
-    var r = REACT[rIdx++ % REACT.length];
-    stopReact(); void zand.offsetWidth;
-    zSay.textContent = r[1];
-    zand.classList.add('reacting', r[0]);
-    tick();
-    zBtn.setAttribute('aria-expanded','true'); zAsk.setAttribute('aria-expanded','true');
-    rTimer = setTimeout(function(){ stopReact(); openZand() }, 520);
-  }
-  zBtn.addEventListener('click', reactThenOpen);
-  zAsk.addEventListener('click', reactThenOpen);
-  $('#zpX').addEventListener('click', function(){ closeZand(true) });
-
-  /* Zand gaat opzij waar de pagina zelf al knoppen toont */
-  if('IntersectionObserver' in window){
-    var foot = $('.foot'), contact = document.getElementById('contact'), vis = {c:false, f:false};
-    var zIO = new IntersectionObserver(function(es){
-      es.forEach(function(e){ vis[e.target === foot ? 'f' : 'c'] = e.isIntersecting });
-      finalInView = vis.f || (innerWidth <= 680 && vis.c);
-      if(!zOpen) zandHide('x', false);
-    }, {threshold:.15});
-    if(contact) zIO.observe(contact);
-    /* op de telefoon pas verschijnen na de opening, daar staan de knoppen al */
-    var hero = document.getElementById('top');
-    if(hero) new IntersectionObserver(function(es){ zandHide('hero', es[0].isIntersecting && innerWidth <= 680) }, {threshold:.35}).observe(hero);
-    if(foot) zIO.observe(foot);
-  }
-
   /* Escape sluit wat bovenop ligt */
   document.addEventListener('keydown', function(e){
     if(e.key !== 'Escape') return;
     if(S.open) closeSheet(0);
     else if(D.open) closeDetail(0);
-    else if(zOpen || rTimer) closeZand(true);
     else if(!mnav.hidden) closeMenu(true);
   });
 })();

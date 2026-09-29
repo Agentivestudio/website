@@ -9,7 +9,7 @@
   --bg:#F4EFE7; --paper:#FFFDF9; --sunk:#EFE8DD; --tint:#EDE5D9;
   --ink:#1B1814; --ink-2:#37322B; --muted:#5B544B; --faint:#857D72;
   --line:rgba(27,24,20,.10); --line-2:rgba(27,24,20,.06);
-  --brown:#6E4A33; --brown-2:#5C3C28; --copper:#9C5F38; --green:#0F7B5F;
+  --brown:#6E4A33; --brown-2:#5C3C28; --copper:#9C5F38; --copper-text:#8A522E; --green:#0F7B5F;
   --display:'Fraunces',Georgia,serif;
   --ui:'Inter',-apple-system,BlinkMacSystemFont,'SF Pro Text','Segoe UI',sans-serif;
   --hand:'Caveat',cursive;
@@ -40,7 +40,7 @@ button{font:inherit; color:inherit; background:none; border:0; cursor:pointer; p
 .wrap{max-width:1180px; margin:0 auto; padding-inline:var(--gut)}
 
 /* ---------- typografie ---------- */
-.kicker{display:block; font-size:12.5px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--copper)}
+.kicker{display:block; font-size:12.5px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--copper-text)}
 .h1{display:block; font-family:var(--display); font-weight:400; font-size:clamp(46px,8.2vw,104px); line-height:.96; letter-spacing:-.045em; margin-top:16px; color:var(--ink)}
 .h2{font-family:var(--display); font-weight:400; font-size:clamp(32px,4.4vw,54px); line-height:1.04; letter-spacing:-.035em; margin-top:10px}
 .sub{margin-top:16px; max-width:52ch; font-size:clamp(16.5px,1.3vw,18.5px); color:var(--muted)}
@@ -73,7 +73,7 @@ button{font:inherit; color:inherit; background:none; border:0; cursor:pointer; p
 .top.compact{background:var(--glass); backdrop-filter:saturate(1.6) blur(20px); -webkit-backdrop-filter:saturate(1.6) blur(20px); box-shadow:0 10px 30px -26px rgba(60,40,25,.6)}
 .top-in{max-width:1180px; margin:0 auto; padding:12px var(--gut); display:flex; align-items:center; justify-content:space-between; gap:16px}
 .brand{display:flex; align-items:center; gap:10px; text-decoration:none; color:inherit}
-.mark{width:32px; height:32px; border-radius:10px; background:#171614; color:#F7F2EA; display:grid; place-items:center; font-family:var(--display); font-size:17px}
+.mark{width:38px; height:38px; display:block; flex:none}
 .bn{font-size:15px; font-weight:600; letter-spacing:-.01em}
 .nav{display:flex; gap:4px; padding:4px; border-radius:999px; background:rgba(255,253,249,.55)}
 .nav a{padding:8px 15px; border-radius:999px; font-size:14px; font-weight:500; color:var(--ink-2); text-decoration:none; transition:background-color .25s, color .25s}

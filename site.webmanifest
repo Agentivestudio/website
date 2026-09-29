@@ -1,14 +1,28 @@
 {
-  "name": "Agentivestudio",
-  "short_name": "Agentivestudio",
+  "name": "Agentive Studio",
+  "short_name": "Agentive Studio",
   "description": "Software op maat voor het Nederlandse MKB.",
   "lang": "nl",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#F5F0E8",
-  "theme_color": "#F5F0E8",
+  "background_color": "#F4EFE7",
+  "theme_color": "#F4EFE7",
   "icons": [
-    { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any", "purpose": "any" },
-    { "src": "/apple-touch-icon.png", "type": "image/png", "sizes": "180x180" }
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "type": "image/png",
+      "sizes": "180x180"
+    },
+    {
+      "src": "/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
   ]
 }

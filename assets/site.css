@@ -226,7 +226,7 @@ a.card:hover .go span{transform:translateX(4px)}
 .lab p{margin:6px 0 0;font-size:14px;color:var(--ink-2);line-height:1.45}
 .st{font-size:11.5px;font-weight:600;padding:4px 10px;border-radius:99px;background:var(--glass-strong);white-space:nowrap;color:var(--ink)}
 .st::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--green);margin-right:6px;vertical-align:1px}
-.st.dev::before{background:var(--copper)}
+.st.is-dev::before{background:var(--copper)}
 .railnav{display:flex;gap:8px;justify-content:flex-end;margin-top:-8px}
 .railnav button{width:46px;height:46px;border-radius:50%;display:grid;place-items:center}
 .wgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:44px}

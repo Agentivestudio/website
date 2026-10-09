@@ -4,20 +4,23 @@
 
 - Werkwijze: de klant plant zelf een afspraak (online, telefonisch of op locatie). Meestal binnen één werkdag na het gesprek volgt een klikbaar ontwerp. Daarna samen scherpstellen, een vaste prijs, en na akkoord bouwen. Een eerste werkende versie staat er meestal binnen twee tot vier weken.
 - De klant praat direct met degene die het bouwt. Gegevens op servers in Europa, verwerking volgens de AVG. Na volledige betaling zijn de software, de broncode en de uitleg van de klant. Drie maanden garantie na oplevering.
-- Werkgebied: heel Nederland; op locatie vooral in de regio Leiden (onder meer Leiderdorp, Oegstgeest, Katwijk, Noordwijk, Voorschoten, Alphen aan den Rijn, Den Haag).
-- Prijzen staan niet op de site; de klant krijgt een vaste prijs na het ontwerp.
+- Werkgebied: heel Nederland, vanuit Leiden (onder meer Leiderdorp, Oegstgeest, Katwijk, Noordwijk, Voorschoten, Alphen aan den Rijn, Den Haag).
+- Het gesprek en het eerste klikbare ontwerp zijn gratis en vrijblijvend. Bij grotere trajecten kan een betaalde ontwerpfase nodig zijn, die wordt verrekend als de klant laat bouwen.
+- Kennismaken gebeurt in een videogesprek of telefonisch; bij een samenwerking komt Omar ook langs.
+- Prijzen staan niet op de site; ze hangen af van de software of dienst. De klant krijgt een vaste prijs na het ontwerp.
 
 ## Diensten
 - [App laten maken](https://www.agentivestudio.nl/app-laten-maken): apps voor iPhone en Android, inclusief publicatie in de App Store en Google Play.
 - [Webapplicatie laten maken](https://www.agentivestudio.nl/webapplicatie-laten-maken): planning, klantportaal, beheeromgeving, in de browser.
 - [Koppelingen en automatisering](https://www.agentivestudio.nl/koppelingen-en-automatisering): bestaande pakketten laten samenwerken, terugkerend werk automatiseren.
+- [Onderhoud en beheer](https://www.agentivestudio.nl/onderhoud-en-beheer): drie maandelijkse pakketten (Basis, Groei, Zakelijk) met hosting, updates, bewaking en vaste uren.
 
 ## Werk
 - [Proofmakr](https://www.agentivestudio.nl/werk/proofmakr): Vakmensen leggen hun werk vast met foto's voor en na. De klant kijkt mee en keurt meerwerk digitaal goed.
 - [Service-Pro](https://www.agentivestudio.nl/werk/service-pro): De planner werkt op de computer, de medewerker ziet zijn diensten op zijn telefoon en checkt daar in.
 - [Combiworld](https://www.agentivestudio.nl/werk/combiworld): Een platform voor taal- en inburgeringsscholen. Elke school werkt in een eigen omgeving.
 - [SkillsWorld](https://www.agentivestudio.nl/werk/skillsworld): Nieuwkomers laten met badges zien wat ze kunnen. Werkgevers die mensen zoeken, vinden ze daar terug.
-- [ÉLUNE](https://www.agentivestudio.nl/werk/elune): Een webshop voor geurkaarsen met een eigen vormgeving, met Shopify eronder voor voorraad en betalingen.
+- [ÉLUNE](https://www.agentivestudio.nl/werk/elune): Een webshop voor geurkaarsen met een eigen vormgeving, met Shopify eronder voor voorraad en betalingen. (in ontwikkeling)
 - [Iqrawise](https://www.agentivestudio.nl/werk/iqrawise): Een leerlingvolgsysteem voor weekendscholen. Docenten leggen vast wat een leerling beheerst, ouders kijken mee. (in ontwikkeling)
 
 ## Kennisbank

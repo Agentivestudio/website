@@ -121,7 +121,7 @@
   /* ---------- contact: invullen, controleren, dan agenda of mail ---------- */
   var form = $('#intake');
   if(form){
-    var data = {wat:[], omvang:'', vorm:'Online'};
+    var data = {wat:[], omvang:'', vorm:'Videogesprek'};
     $$('.optbtn', form).forEach(function(b){
       b.addEventListener('click', function(){
         var on = b.getAttribute('aria-pressed') !== 'true'; b.setAttribute('aria-pressed', on ? 'true' : 'false');

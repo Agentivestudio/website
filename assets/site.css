@@ -390,3 +390,11 @@ textarea.inp{min-height:132px;resize:vertical}
 .app,.web,.flow{text-align:left}
 .menu{background:color-mix(in srgb,var(--bg) 92%,transparent)}
 .sheet{background:color-mix(in srgb,var(--bg) 90%,transparent)}
+/* onderhoudspakketten */
+.pkc{position:relative}
+.pkc.hl{box-shadow:0 0 0 2px var(--brown),0 18px 44px -26px var(--shade)}
+.pkc .tg{align-self:flex-start;font-size:12px;font-weight:600;padding:4px 10px;border-radius:99px;background:var(--brown);color:var(--on-brown);margin-bottom:12px}
+.pkc .rt{margin:18px 0 20px;padding:12px 14px;border-radius:14px;background:var(--glass-strong);font-size:14px;color:var(--ink)}
+.pkc .rt b{display:block;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.tbl .yes{color:var(--green);font-weight:600}
+.tbl .no{color:var(--muted)}

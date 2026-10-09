@@ -5,117 +5,73 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Privacyverklaring | Agentive Studio</title>
 <meta name="description" content="Hoe Agentivestudio omgaat met persoonsgegevens: wat de website wel en niet bijhoudt, welke partijen worden gebruikt en welke rechten je hebt.">
-<link rel="canonical" href="https://www.agentivestudio.nl/privacy.html">
-<meta name="robots" content="index, follow">
-<meta name="theme-color" content="#F5F0E8">
+<link rel="canonical" href="https://www.agentivestudio.nl/privacy">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="Omar Hamdi">
+<meta name="theme-color" content="#F3EEE6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12100E" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Agentive Studio">
+<meta property="og:locale" content="nl_NL">
+<meta property="og:url" content="https://www.agentivestudio.nl/privacy">
+<meta property="og:title" content="Privacyverklaring | Agentive Studio">
+<meta property="og:description" content="Hoe Agentivestudio omgaat met persoonsgegevens: wat de website wel en niet bijhoudt, welke partijen worden gebruikt en welke rechten je hebt.">
+<meta property="og:image" content="https://www.agentivestudio.nl/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<style>
-@font-face{font-family:'Fraunces';src:url('/fonts/fraunces-latin.woff2') format('woff2');font-weight:400 700;font-display:swap;
- unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'Inter';src:url('/fonts/inter-latin.woff2') format('woff2');font-weight:400 700;font-display:swap;
- unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-</style>
-<style>
-:root{color-scheme:light;
- --paper:#F5F0E8; --paper-2:#EDE4D6; --card:#FFFDF8; --line:#E0D5C4; --line-soft:#EAE1D3;
- --ink:#1B1915; --ink-2:#3E3A33; --ink-soft:#6B655D; --ac:#7A4F34;
- --display:'Fraunces',Georgia,'Times New Roman',serif;
- --ui:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
- --gut:clamp(18px,5vw,60px)}
-*,*::before,*::after{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--ui);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-h1,h2{font-family:var(--display);font-weight:400;margin:0;letter-spacing:-.02em;text-wrap:balance}
-p,ul{margin:0}
-a{color:var(--ac)}
-:focus-visible{outline:2px solid var(--ac);outline-offset:3px;border-radius:3px}
-.wrap{max-width:780px;margin:0 auto;padding-inline:var(--gut)}
-nav{border-bottom:1px solid var(--line);background:var(--paper)}
-.nav-in{max-width:780px;margin:0 auto;padding:14px var(--gut);display:flex;align-items:center;justify-content:space-between;gap:16px}
-.wordmark{font-family:var(--ui);font-weight:650;font-size:13px;letter-spacing:.26em;text-decoration:none;color:var(--ink)}
-.wordmark em{font-style:normal;color:var(--ac)}
-.back{font-size:13.5px;text-decoration:none;color:var(--ink-soft)}
-.back:hover{color:var(--ac)}
-header{padding-block:clamp(38px,6vw,66px) clamp(18px,3vw,26px)}
-header .k{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ac);margin-bottom:14px}
-header h1{font-size:clamp(32px,5.4vw,50px);line-height:1.04;margin-bottom:14px}
-header .date{font-size:13.5px;color:var(--ink-soft)}
-main{padding-bottom:clamp(50px,7vw,90px)}
-section{padding-block:22px;border-top:1px solid var(--line)}
-section h2{font-family:var(--ui);font-size:17px;font-weight:600;letter-spacing:-.01em;margin-bottom:10px}
-section h2 .n{color:var(--ac);font-variant-numeric:tabular-nums;margin-right:10px}
-section p + p{margin-top:11px}
-section ul{padding-left:20px;margin-top:9px}
-section li{margin-bottom:6px}
-.lead{font-size:16.5px;color:var(--ink-2);line-height:1.75;margin-bottom:8px}
-.invullen{background:#F6E2C8;border-bottom:2px solid var(--ac);padding:1px 6px;border-radius:3px;font-weight:600;white-space:nowrap}
-.kader{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 20px;margin-top:16px;font-size:14.5px;color:var(--ink-2)}
-footer{border-top:1px solid var(--line);background:var(--paper-2)}
-.foot-in{max-width:780px;margin:0 auto;padding:22px var(--gut) calc(22px + env(safe-area-inset-bottom,0px));
- display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12.5px;color:var(--ink-soft)}
-.foot-in a{color:var(--ink-soft);text-decoration:none}
-.foot-in a:hover{color:var(--ac)}
-</style>
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Organization","ProfessionalService"],"@id":"https://www.agentivestudio.nl/#org","name":"Agentive Studio","alternateName":"Agentivestudio","url":"https://www.agentivestudio.nl/","logo":"https://www.agentivestudio.nl/icon-512.png","image":"https://www.agentivestudio.nl/og.png","description":"Agentive Studio in Leiden bouwt apps voor iPhone en Android, webapplicaties en koppelingen voor het MKB in heel Nederland.","slogan":"Elke week uren terug.","founder":{"@type":"Person","@id":"https://www.agentivestudio.nl/over#omar","name":"Omar Hamdi","jobTitle":"Oprichter en ontwikkelaar"},"address":{"@type":"PostalAddress","addressLocality":"Leiden","addressRegion":"Zuid-Holland","addressCountry":"NL"},"areaServed":[{"@type":"Country","name":"Nederland"},{"@type":"AdministrativeArea","name":"Zuid-Holland"},{"@type":"City","name":"Leiden"},{"@type":"City","name":"Leiderdorp"},{"@type":"City","name":"Oegstgeest"},{"@type":"City","name":"Katwijk"},{"@type":"City","name":"Noordwijk"},{"@type":"City","name":"Voorschoten"},{"@type":"City","name":"Alphen aan den Rijn"},{"@type":"City","name":"Den Haag"},{"@type":"City","name":"Haarlem"}],"identifier":[{"@type":"PropertyValue","propertyID":"KvK","value":"42005967"}],"vatID":"NL005429711B13","email":"omar@agentivestudio.nl","knowsLanguage":["nl","en","ar","fr"],"knowsAbout":["app laten maken","iOS-apps","Android-apps","webapplicaties","software op maat","koppelingen tussen systemen","procesautomatisering","AVG"],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Diensten","itemListElement":[{"@type":"Offer","itemOffered":{"@id":"https://www.agentivestudio.nl/app-laten-maken#dienst"}},{"@type":"Offer","itemOffered":{"@id":"https://www.agentivestudio.nl/webapplicatie-laten-maken#dienst"}},{"@type":"Offer","itemOffered":{"@id":"https://www.agentivestudio.nl/koppelingen-en-automatisering#dienst"}}]}},{"@type":"WebSite","@id":"https://www.agentivestudio.nl/#website","url":"https://www.agentivestudio.nl/","name":"Agentive Studio","inLanguage":"nl-NL","publisher":{"@id":"https://www.agentivestudio.nl/#org"}},{"@type":"WebPage","@id":"https://www.agentivestudio.nl/privacy#pagina","url":"https://www.agentivestudio.nl/privacy","name":"Privacyverklaring | Agentive Studio","description":"Hoe Agentivestudio omgaat met persoonsgegevens: wat de website wel en niet bijhoudt, welke partijen worden gebruikt en welke rechten je hebt.","inLanguage":"nl-NL","isPartOf":{"@id":"https://www.agentivestudio.nl/#website"},"about":{"@id":"https://www.agentivestudio.nl/#org"},"dateModified":"2026-10-09"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.agentivestudio.nl/"},{"@type":"ListItem","position":2,"name":"Privacyverklaring","item":"https://www.agentivestudio.nl/privacy"}]}]}</script>
 </head>
 <body>
-<nav>
-  <div class="nav-in">
-    <a class="wordmark" href="/">AGENTIVE STUDIO</a>
-    <a class="back" href="/">Terug naar de site</a>
-  </div>
-</nav>
-<main class="wrap">
-  <header>
-    <p class="k">Agentivestudio</p>
-    <h1>Privacyverklaring</h1>
-    <p class="date">Laatst bijgewerkt op 20 september 2026</p>
-  </header>
-  <p class="lead">Deze verklaring legt uit welke persoonsgegevens Agentivestudio verwerkt, waarom dat gebeurt en hoe lang ze bewaard blijven. Hij gaat over deze website en over het contact dat daaruit voortkomt.</p>
-      <section>
-        <h2><span class="n">01</span>Wie is verantwoordelijk</h2>
+<a class="skip" href="#inhoud">Ga naar de inhoud</a><svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><filter id="lens" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox" primitiveUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feImage href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJyIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMCI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSJyZ2IoMCwwLDApIi8+PHN0b3Agb2Zmc2V0PSIuMTIiIHN0b3AtY29sb3I9InJnYigxMjgsMCwwKSIvPjxzdG9wIG9mZnNldD0iLjg4IiBzdG9wLWNvbG9yPSJyZ2IoMTI4LDAsMCkiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9InJnYigyNTUsMCwwKSIvPjwvbGluZWFyR3JhZGllbnQ+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSJyZ2IoMCwwLDApIi8+PHN0b3Agb2Zmc2V0PSIuMiIgc3RvcC1jb2xvcj0icmdiKDAsMTI4LDApIi8+PHN0b3Agb2Zmc2V0PSIuOCIgc3RvcC1jb2xvcj0icmdiKDAsMTI4LDApIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSJyZ2IoMCwyNTUsMCkiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0idXJsKCNyKSIvPjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBmaWxsPSJ1cmwoI2cpIiBzdHlsZT0ibWl4LWJsZW5kLW1vZGU6c2NyZWVuIi8+PC9zdmc+" x="0" y="0" width="1" height="1" preserveAspectRatio="none" result="m"/><feDisplacementMap in="SourceGraphic" in2="m" scale="0.06" xChannelSelector="R" yChannelSelector="G"/></filter></svg><div class="field" aria-hidden="true"><i></i><i></i><i></i></div><header class="top"><div class="bar glass lens"><a class="brand" href="/" aria-label="Agentive Studio, naar de homepage"><svg viewBox="0 0 100 100" aria-hidden="true" focusable="false"><defs><clipPath id="lg39"><rect x="0" y="0" width="100" height="88"/></clipPath></defs><path d="M77.5 92.12 A80 80 0 0 1 22.5 92.12" fill="none" stroke="#9C5F38" stroke-width="4.5"/><circle cx="50" cy="16" r="8.2" fill="none" stroke="currentColor" stroke-width="6"/><g clip-path="url(#lg39)" fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="miter" stroke-miterlimit="10"><path d="M22.2 94 L50 30.4 L77.8 94"/><path d="M33 64 H67"/></g></svg><span>Agentive Studio</span></a><nav class="nav" aria-label="Hoofdmenu"><div class="dd"><button type="button" aria-expanded="false" aria-controls="dienstmenu">Diensten<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></button><div class="menu glass" id="dienstmenu"><a href="/app-laten-maken"><span class="mi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="7" y="2.5" width="10" height="19" rx="2.6"/><path d="M11 18.5h2"/></svg></span><span><b>Een app laten maken</b><small>Voor iPhone en Android, in de App Store en Google Play</small></span></a><a href="/webapplicatie-laten-maken"><span class="mi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4.5" width="18" height="15" rx="2.6"/><path d="M3 9h18"/></svg></span><span><b>Een webapplicatie laten maken</b><small>Planning, klantportaal of beheer in de browser</small></span></a><a href="/koppelingen-en-automatisering"><span class="mi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span><span><b>Koppelingen en automatisering</b><small>Je systemen laten samenwerken, niets meer overtypen</small></span></a></div></div><a href="/werk">Werk</a><a href="/werkwijze">Werkwijze</a><a href="/kennisbank">Kennisbank</a><a href="/over">Over</a></nav><a class="pill" href="/contact">Plan een gesprek</a><button class="menu-btn" id="menuBtn" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="sheet"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9h16M4 15h16"/></svg></button></div></header><div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="Menu" hidden><button class="x glass" type="button" aria-label="Menu sluiten"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></button><nav aria-label="Menu"><a href="/">Home</a><a href="/app-laten-maken">Apps</a><a href="/webapplicatie-laten-maken">Webapplicaties</a><a href="/koppelingen-en-automatisering">Koppelingen</a><a href="/werk">Werk</a><a href="/werkwijze">Werkwijze</a><a href="/kennisbank">Kennisbank</a><a href="/over">Over</a></nav><a class="btn" href="/contact">Plan een gesprek</a></div><main id="inhoud"><section class="page-hero wrap" aria-labelledby="h1"><nav class="crumbs" aria-label="Kruimelpad"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Privacyverklaring</span></nav><span class="k">Agentivestudio</span><h1 id="h1">Privacyverklaring</h1><p class="meta">Laatst bijgewerkt op 9 oktober 2026</p></section><section class="sec wrap" style="padding-top:36px"><div class="prose">
+  
+  <p>Deze verklaring legt uit welke persoonsgegevens Agentivestudio verwerkt, waarom dat gebeurt en hoe lang ze bewaard blijven. Ze gaat over deze website en over het contact dat daaruit voortkomt.</p>
+      
+        <h2>Wie is verantwoordelijk</h2>
         <p>Agentivestudio, eenmanszaak van Omar Hamdi.</p>
         <ul><li>Gevestigd in Leiden, bezoekadres afgeschermd in het Handelsregister</li><li>KvK-nummer: 42005967</li><li>Btw-identificatienummer: NL005429711B13</li><li>E-mail: <a class="js-mail" data-u="omar" data-d="agentivestudio.nl">omar [apenstaartje] agentivestudio.nl</a></li><li>WhatsApp: via de knop op de website</li></ul>
-      </section>
-      <section>
-        <h2><span class="n">02</span>Wat deze website bijhoudt</h2>
+      
+      
+        <h2>Wat deze website bijhoudt</h2>
         <p>Niets wat naar jou te herleiden is. Er staan geen cookies op deze site, geen bezoekersstatistieken en geen trackers van adverteerders of sociale media. Je hoeft dus ook geen keuze te maken in een cookiemelding, want er valt niets te kiezen.</p>
         <p>De lettertypen worden vanaf de eigen server geladen en niet bij een ander bedrijf opgehaald. Er gaat bij het openen van de pagina dus geen enkel gegeven naar een derde partij.</p>
-      </section>
-      <section>
-        <h2><span class="n">03</span>De server waar de site draait</h2>
-        <p>De website draait bij Cloudflare. Die houdt voor beveiliging en storingsonderzoek korte tijd technische gegevens bij, waaronder het IP-adres van de bezoeker. Daar heeft Agentivestudio geen toegang toe en die gegevens worden niet gebruikt om bezoekers te volgen.</p>
-      </section>
-      <section>
-        <h2><span class="n">04</span>Gegevens die je zelf achterlaat</h2>
-        <p>Er is geen formulier op deze site. Contact loopt via de knoppen naar e-mail, WhatsApp of het plannen van een afspraak. Wat je daarin zelf invult, komt bij Agentivestudio terecht.</p>
-        <ul><li>Een afspraak plannen loopt via Cal.com. Daarbij geef je in elk geval je naam, e-mailadres en een tijdstip op.</li><li>WhatsApp loopt via WhatsApp, onderdeel van Meta. Daarbij is je telefoonnummer zichtbaar.</li><li>E-mail komt binnen bij de e-mailprovider van Agentivestudio.</li></ul>
+      
+      
+        <h2>De server waar de site draait</h2>
+        <p>De website draait bij Vercel. Vercel houdt voor beveiliging en storingsonderzoek korte tijd technische gegevens bij, waaronder het IP-adres van de bezoeker. Daar heeft Agentivestudio geen toegang toe en die gegevens worden niet gebruikt om bezoekers te volgen.</p>
+      
+      
+        <h2>Gegevens die je zelf achterlaat</h2>
+        <p>Op de pagina Contact staat een formulier. Dat stuurt niets naar een server van deze site. Wat je invult, gaat mee naar de agenda als je een moment kiest, of naar je eigen e-mailprogramma als je liever mailt. Verder loopt contact via e-mail en WhatsApp. Wat je daarin zelf invult, komt bij Agentivestudio terecht.</p>
+        <ul><li>Een afspraak plannen loopt via Cal.com. Daarbij geef je in elk geval je naam, e-mailadres en een tijdstip op.</li><li>WhatsApp is een dienst van Meta. Daarbij is je telefoonnummer zichtbaar.</li><li>E-mail komt binnen bij de e-mailprovider van Agentivestudio.</li></ul>
         <p>Die gegevens worden alleen gebruikt om je vraag te beantwoorden en een eventuele opdracht uit te voeren. Ze worden niet verkocht en niet gebruikt voor reclame.</p>
-      </section>
-      <section>
-        <h2><span class="n">05</span>Hoe lang gegevens bewaard blijven</h2>
+      
+      
+        <h2>Hoe lang gegevens bewaard blijven</h2>
         <p>Contact dat nergens toe leidt, wordt na uiterlijk een jaar verwijderd. Gegevens die bij een opdracht horen en op een factuur terechtkomen, moeten zeven jaar bewaard blijven voor de Belastingdienst.</p>
-      </section>
-      <section>
-        <h2><span class="n">06</span>Gegevens in software die voor jou gebouwd is</h2>
+      
+      
+        <h2>Gegevens in software die voor jou gebouwd is</h2>
         <p>Bouwt Agentivestudio software voor jouw bedrijf, dan blijft jouw organisatie verantwoordelijk voor de gegevens die daarin staan en is Agentivestudio verwerker. Wat daarvoor geldt, wordt vastgelegd in een verwerkersovereenkomst. De gegevens staan op servers in Europa.</p>
-      </section>
-      <section>
-        <h2><span class="n">07</span>Je rechten</h2>
+      
+      
+        <h2>Je rechten</h2>
         <p>Je mag opvragen welke gegevens er van je zijn, ze laten corrigeren of laten verwijderen, en bezwaar maken tegen het gebruik ervan. Een verzoek daartoe wordt binnen vier weken behandeld.</p>
         <p>Ben je het niet eens met hoe daarmee wordt omgegaan, dan kun je een klacht indienen bij de Autoriteit Persoonsgegevens via autoriteitpersoonsgegevens.nl.</p>
-      </section>
-      <section>
-        <h2><span class="n">08</span>Wijzigingen</h2>
+      
+      
+        <h2>Wijzigingen</h2>
         <p>Verandert er iets aan de website of aan de partijen die gebruikt worden, dan wordt deze verklaring aangepast en de datum bovenaan bijgewerkt.</p>
-      </section>
+      
 
-</main>
-<footer>
-  <div class="foot-in">
-    <span>&copy; 2026 Agentive Studio, Leiden</span>
-    <span><a href="/privacy.html">Privacyverklaring</a> &middot; <a href="/voorwaarden.html">Algemene voorwaarden</a></span>
-  </div>
-</footer>
+</div></section></main><footer class="foot wrap"><div class="footcard glass"><div><a class="brand" href="/"><svg viewBox="0 0 100 100" aria-hidden="true" focusable="false"><defs><clipPath id="lg40"><rect x="0" y="0" width="100" height="88"/></clipPath></defs><path d="M77.5 92.12 A80 80 0 0 1 22.5 92.12" fill="none" stroke="#9C5F38" stroke-width="4.5"/><circle cx="50" cy="16" r="8.2" fill="none" stroke="currentColor" stroke-width="6"/><g clip-path="url(#lg40)" fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="miter" stroke-miterlimit="10"><path d="M22.2 94 L50 30.4 L77.8 94"/><path d="M33 64 H67"/></g></svg><span>Agentive Studio</span></a><p>Apps, webapplicaties en koppelingen voor het MKB. Vanuit Leiden, voor bedrijven in heel Nederland.</p></div><div><h2>Diensten</h2><ul><li><a href="/app-laten-maken">App laten maken</a></li><li><a href="/webapplicatie-laten-maken">Webapplicatie laten maken</a></li><li><a href="/koppelingen-en-automatisering">Koppelingen en automatisering</a></li></ul></div><div><h2>Studio</h2><ul><li><a href="/werk">Werk</a></li><li><a href="/werkwijze">Werkwijze</a></li><li><a href="/kennisbank">Kennisbank</a></li><li><a href="/over">Over</a></li></ul></div><div><h2>Contact</h2><ul><li><a href="/contact">Plan een gesprek</a></li><li><a class="js-mail" data-u="omar" data-d="agentivestudio.nl" href="/contact">omar [apenstaartje] agentivestudio.nl</a></li><li><a class="js-wa" href="/contact" target="_blank" rel="noopener">WhatsApp</a></li></ul></div></div><div class="legal"><span>© 2026 Agentive Studio · Leiden · KvK 42005967 · Btw NL005429711B13</span><nav aria-label="Juridisch"><a href="/privacy">Privacyverklaring</a><a href="/voorwaarden">Algemene voorwaarden</a></nav></div></footer><nav class="dock glass lens" aria-label="Snelmenu"><a href="/"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 11l8-6 8 6v8a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1z"/></svg>Home</a><a href="/werk"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><rect x="13" y="13" width="7" height="7" rx="2"/></svg>Werk</a><a href="/kennisbank"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 4h10a4 4 0 0 1 4 4v12H9a4 4 0 0 1-4-4z"/><path d="M5 16a4 4 0 0 1 4-4h10"/></svg>Kennis</a><a class="cta" href="/contact"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M8 3v4M16 3v4M4 10h16"/></svg>Gesprek</a></nav>
 <script src="/assets/contact.js" defer></script>
+<script src="/assets/site.js" defer></script>
 </body>
 </html>

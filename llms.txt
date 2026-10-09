@@ -1,21 +1,34 @@
 # Agentive Studio
 
-> Agentive Studio (Agentivestudio) is de eenmanszaak van Omar Hamdi in Leiden. Het bouwt software op maat voor het Nederlandse MKB: apps, webapplicaties en koppelingen die terugkerend handwerk overnemen, zoals overtypen, lijsten bijwerken en klanten informeren.
+> Agentive Studio is de studio van Omar Hamdi in Leiden (KvK 42005967). Het bouwt apps voor iPhone en Android, webapplicaties en koppelingen tussen systemen voor het MKB in heel Nederland, en publiceert apps in de App Store en Google Play onder de naam van de klant.
 
-- Werkwijze: een kennismaking van een half uur, daarna uitzoeken wat er nodig is, een prijs vooraf, en meestal binnen twee tot vier weken een eerste werkende versie.
-- De klant praat direct met degene die het bouwt. Gegevens staan op servers in Europa, verwerking volgens de AVG. Wat gebouwd wordt, is van de klant.
-- Voor het MKB in de breedte, niet voor één branche.
+- Werkwijze: de klant plant zelf een afspraak (online, telefonisch of op locatie). Meestal binnen één werkdag na het gesprek volgt een klikbaar ontwerp. Daarna samen scherpstellen, een vaste prijs, en na akkoord bouwen. Een eerste werkende versie staat er meestal binnen twee tot vier weken.
+- De klant praat direct met degene die het bouwt. Gegevens op servers in Europa, verwerking volgens de AVG. Na volledige betaling zijn de software, de broncode en de uitleg van de klant. Drie maanden garantie na oplevering.
+- Werkgebied: heel Nederland; op locatie vooral in de regio Leiden (onder meer Leiderdorp, Oegstgeest, Katwijk, Noordwijk, Voorschoten, Alphen aan den Rijn, Den Haag).
+- Prijzen staan niet op de site; de klant krijgt een vaste prijs na het ontwerp.
 
-## Gebouwde software
-- Proofmakr: app waarmee vakmensen hun werk vastleggen met foto's voor en na; de klant kijkt mee en keurt meerwerk digitaal goed.
-- Service-Pro: planning voor een beveiligings- en uitzendbedrijf, desktop voor de planner en een app voor medewerkers.
-- Combiworld: platform voor taal- en inburgeringsscholen, elke school met een eigen omgeving.
-- SkillsWorld: platform dat vraag en aanbod tussen nieuwkomers en werkgevers bij elkaar brengt via badges.
-- ÉLUNE Amsterdam: webshop voor geurkaarsen, gekoppeld aan Shopify.
-- Iqrawise: leerlingvolgsysteem voor weekend- en moskeescholen (in ontwikkeling).
+## Diensten
+- [App laten maken](https://www.agentivestudio.nl/app-laten-maken): apps voor iPhone en Android, inclusief publicatie in de App Store en Google Play.
+- [Webapplicatie laten maken](https://www.agentivestudio.nl/webapplicatie-laten-maken): planning, klantportaal, beheeromgeving, in de browser.
+- [Koppelingen en automatisering](https://www.agentivestudio.nl/koppelingen-en-automatisering): bestaande pakketten laten samenwerken, terugkerend werk automatiseren.
 
-## Links
-- [Homepage](https://www.agentivestudio.nl/)
-- [Gesprek plannen](https://cal.com/agentivestudio)
-- [Privacyverklaring](https://www.agentivestudio.nl/privacy.html)
-- [Algemene voorwaarden](https://www.agentivestudio.nl/voorwaarden.html)
+## Werk
+- [Proofmakr](https://www.agentivestudio.nl/werk/proofmakr): Vakmensen leggen hun werk vast met foto's voor en na. De klant kijkt mee en keurt meerwerk digitaal goed.
+- [Service-Pro](https://www.agentivestudio.nl/werk/service-pro): De planner werkt op de computer, de medewerker ziet zijn diensten op zijn telefoon en checkt daar in.
+- [Combiworld](https://www.agentivestudio.nl/werk/combiworld): Een platform voor taal- en inburgeringsscholen. Elke school werkt in een eigen omgeving.
+- [SkillsWorld](https://www.agentivestudio.nl/werk/skillsworld): Nieuwkomers laten met badges zien wat ze kunnen. Werkgevers die mensen zoeken, vinden ze daar terug.
+- [ÉLUNE](https://www.agentivestudio.nl/werk/elune): Een webshop voor geurkaarsen met een eigen vormgeving, met Shopify eronder voor voorraad en betalingen.
+- [Iqrawise](https://www.agentivestudio.nl/werk/iqrawise): Een leerlingvolgsysteem voor weekendscholen. Docenten leggen vast wat een leerling beheerst, ouders kijken mee. (in ontwikkeling)
+
+## Kennisbank
+- [Hoe komt een app in de App Store en Google Play?](https://www.agentivestudio.nl/kennisbank/app-in-de-app-store-en-google-play)
+- [Webapp of app: wat past bij jouw bedrijf?](https://www.agentivestudio.nl/kennisbank/webapp-of-app)
+- [Maatwerk of een standaardpakket?](https://www.agentivestudio.nl/kennisbank/maatwerk-of-standaardpakket)
+- [Wat bepaalt de prijs van een app of software op maat?](https://www.agentivestudio.nl/kennisbank/wat-bepaalt-de-prijs-van-software)
+
+## Overig
+- [Werkwijze](https://www.agentivestudio.nl/werkwijze)
+- [Over](https://www.agentivestudio.nl/over)
+- [Plan een gesprek](https://www.agentivestudio.nl/contact)
+- [Privacyverklaring](https://www.agentivestudio.nl/privacy)
+- [Algemene voorwaarden](https://www.agentivestudio.nl/voorwaarden)

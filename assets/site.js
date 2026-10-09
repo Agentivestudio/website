@@ -1,434 +1,189 @@
 /* Agentive Studio · interacties. Geen bibliotheken.
-   Alles wat beweegt loopt op een veer: massa, stijfheid en demping, zoals op een iPhone. */
+   Wat beweegt, loopt op een veer: massa, stijfheid en demping, zoals in iOS. */
 (function(){
   'use strict';
   document.documentElement.classList.add('js');
-  var $  = function(s, r){ return (r || document).querySelector(s) };
-  var $$ = function(s, r){ return [].slice.call((r || document).querySelectorAll(s)) };
-  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var clamp = function(v, a, b){ return Math.max(a, Math.min(b, v)) };
-  var lerp = function(a, b, t){ return a + (b - a) * t };
-  function tick(){ try{ navigator.vibrate && navigator.vibrate(6) }catch(e){} }
+  var REDUCE = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $ = function(s,r){ return (r||document).querySelector(s) };
+  var $$ = function(s,r){ return [].slice.call((r||document).querySelectorAll(s)) };
+  var lerp = function(a,b,t){ return a + (b-a)*t };
   var CAL = 'https://cal.com/agentivestudio';
+  var MAIL = ['omar','agentivestudio.nl'].join('@');
 
-  /* ---------- veer ---------- */
   function spring(o){
-    var x = o.from, v = o.velocity || 0, to = o.to, k = o.stiffness || 320, c = o.damping || 30, id = 0, last = 0, alive = true;
-    if(reduce){ o.update(to, 0); o.done && o.done(); return {stop:function(){}} }
+    var x=o.from, v=0, to=o.to, k=o.stiffness||300, c=o.damping||28, last=0, alive=true;
+    if(REDUCE){ o.update(to); o.done && o.done(); return {stop:function(){}} }
     function f(now){
       if(!alive) return;
-      var dt = last ? Math.min(0.032, (now - last) / 1000) : 1/60; last = now;
-      for(var i = 0; i < 6; i++){ var h = dt / 6, a = -k * (x - to) - c * v; v += a * h; x += v * h }
-      o.update(x, v);
-      if(Math.abs(v) < 0.01 && Math.abs(x - to) < 0.001){ o.update(to, 0); alive = false; o.done && o.done(); return }
-      id = requestAnimationFrame(f);
+      var dt = last ? Math.min(.032,(now-last)/1000) : 1/60; last = now;
+      for(var i=0;i<6;i++){ var h=dt/6, a=-k*(x-to)-c*v; v+=a*h; x+=v*h }
+      o.update(x);
+      if(Math.abs(v)<.01 && Math.abs(x-to)<.001){ o.update(to); alive=false; o.done && o.done(); return }
+      requestAnimationFrame(f);
     }
-    id = requestAnimationFrame(f);
-    return {stop:function(){ alive = false; cancelAnimationFrame(id) }};
+    requestAnimationFrame(f);
+    return {stop:function(){ alive=false }};
   }
 
-  var lockDepth = 0;
-  function lock(){ if(lockDepth++ === 0) document.body.classList.add('locked') }
-  function unlock(){ if(--lockDepth <= 0){ lockDepth = 0; document.body.classList.remove('locked') } }
-  function trap(root){
-    function h(e){
-      if(e.key !== 'Tab') return;
-      var f = $$('button:not([disabled]),a[href],textarea,input,[tabindex]:not([tabindex="-1"])', root).filter(function(x){ return x.offsetParent !== null });
-      if(!f.length) return;
-      var a = f[0], z = f[f.length - 1];
-      if(e.shiftKey && document.activeElement === a){ e.preventDefault(); z.focus() }
-      else if(!e.shiftKey && document.activeElement === z){ e.preventDefault(); a.focus() }
-    }
-    root.addEventListener('keydown', h);
-    return function(){ root.removeEventListener('keydown', h) };
-  }
-  var liveEl = $('#live');
-  function live(t){ if(liveEl) liveEl.textContent = t }
-
-  /* ---------- kop: glas bij scrollen, actieve sectie ---------- */
-  var head = $('#head'), navLinks = $$('.nav a'), ticking = false;
-  function onScroll(){
-    if(ticking) return; ticking = true;
-    requestAnimationFrame(function(){ ticking = false; head.classList.toggle('compact', scrollY > 12) });
-  }
-  addEventListener('scroll', onScroll, {passive:true}); onScroll();
-  if('IntersectionObserver' in window){
-    var ids = ['werk','aanpak','over','vragen'], seen = {};
-    var navIO = new IntersectionObserver(function(es){
-      es.forEach(function(e){ seen[e.target.id] = e.isIntersecting ? e.intersectionRatio : 0 });
-      var best = null, max = 0;
-      ids.forEach(function(id){ if((seen[id] || 0) > max){ max = seen[id]; best = id } });
-      navLinks.forEach(function(a){ a.setAttribute('aria-current', a.getAttribute('href') === '#' + best ? 'true' : 'false') });
-    }, {rootMargin:'-35% 0px -50% 0px', threshold:[0,.01,.25,.5,1]});
-    ids.forEach(function(id){ var el = document.getElementById(id); if(el) navIO.observe(el) });
+  /* ---------- Google Ads: de klikcode gaat mee naar de agenda, zonder iets op te slaan ---------- */
+  var gclid = new URLSearchParams(location.search).get('gclid');
+  if(gclid && /^[\w-]{10,200}$/.test(gclid)){
+    $$('a[href^="/contact"]').forEach(function(a){ a.href = '/contact?gclid=' + encodeURIComponent(gclid) });
   }
 
-  /* ---------- rustig verschijnen ---------- */
-  var reveals = $$('.rv');
-  if(reduce || !('IntersectionObserver' in window)) reveals.forEach(function(el){ el.classList.add('in') });
-  else {
-    var rIO = new IntersectionObserver(function(es){
-      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rIO.unobserve(e.target) } });
-    }, {threshold:.12, rootMargin:'0px 0px -6% 0px'});
-    reveals.forEach(function(el){ rIO.observe(el) });
-  }
+  /* ---------- menu Diensten ---------- */
+  $$('.dd').forEach(function(dd){
+    var b = $('button', dd), m = $('.menu', dd), t = 0;
+    function open(v){ b.setAttribute('aria-expanded', v ? 'true' : 'false'); m.classList.toggle('open', v) }
+    b.addEventListener('click', function(){ open(b.getAttribute('aria-expanded') !== 'true') });
+    dd.addEventListener('mouseenter', function(){ if(matchMedia('(hover:hover)').matches){ clearTimeout(t); open(true) } });
+    dd.addEventListener('mouseleave', function(){ t = setTimeout(function(){ open(false) }, 160) });
+    dd.addEventListener('focusout', function(e){ if(!dd.contains(e.relatedTarget)) open(false) });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && b.getAttribute('aria-expanded') === 'true'){ open(false); b.focus() } });
+  });
 
   /* ---------- mobiel menu ---------- */
-  var mnav = $('#mnav'), menuBtn = $('#menuBtn'), menuX = $('#menuX'), mUntrap = null;
-  function openMenu(){
-    mnav.hidden = false; requestAnimationFrame(function(){ mnav.classList.add('open') });
-    menuBtn.setAttribute('aria-expanded','true'); lock(); mUntrap = trap(mnav); menuX.focus();
+  var sheet = $('#sheet'), mbtn = $('#menuBtn');
+  if(sheet && mbtn){
+    var last = null;
+    function openSheet(){ last = document.activeElement; sheet.hidden = false; document.body.classList.add('locked'); mbtn.setAttribute('aria-expanded','true');
+      requestAnimationFrame(function(){ sheet.classList.add('open') }); $('.x', sheet).focus() }
+    function closeSheet(){ sheet.classList.remove('open'); document.body.classList.remove('locked'); mbtn.setAttribute('aria-expanded','false');
+      setTimeout(function(){ sheet.hidden = true }, REDUCE ? 0 : 280); last && last.focus && last.focus() }
+    mbtn.addEventListener('click', openSheet);
+    $('.x', sheet).addEventListener('click', closeSheet);
+    $$('a', sheet).forEach(function(a){ a.addEventListener('click', closeSheet) });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && !sheet.hidden) closeSheet() });
   }
-  function closeMenu(focusBack){
-    if(mnav.hidden) return;
-    mnav.classList.remove('open'); menuBtn.setAttribute('aria-expanded','false'); unlock();
-    mUntrap && mUntrap(); setTimeout(function(){ mnav.hidden = true }, reduce ? 0 : 300);
-    if(focusBack) menuBtn.focus();
-  }
-  menuBtn.addEventListener('click', openMenu);
-  menuX.addEventListener('click', function(){ closeMenu(true) });
-  $$('#mnav nav a').forEach(function(a){ a.addEventListener('click', function(){ closeMenu(false) }) });
 
-  /* ---------- herkenbaar: tabs ---------- */
-  var hkTabs = $$('.hk-tab'), hkPanels = $$('.hk-panel');
-  function hkShow(i, focus){
-    hkTabs.forEach(function(t, k){
-      var on = k === i;
-      t.classList.toggle('on', on); t.setAttribute('aria-selected', on ? 'true' : 'false'); t.tabIndex = on ? 0 : -1;
-      hkPanels[k].hidden = !on; hkPanels[k].classList.toggle('on', on);
-    });
-    if(focus) hkTabs[i].focus();
-    var t = hkTabs[i]; if(t.parentNode.scrollWidth > t.parentNode.clientWidth) t.parentNode.scrollTo({left:t.offsetLeft - 20, behavior:reduce ? 'auto' : 'smooth'});
-  }
-  hkTabs.forEach(function(t, i){
-    t.addEventListener('click', function(){ hkShow(i) });
-    t.addEventListener('keydown', function(e){
-      var n = e.key === 'ArrowRight' || e.key === 'ArrowDown' ? 1 : e.key === 'ArrowLeft' || e.key === 'ArrowUp' ? -1 : 0;
-      if(!n) return; e.preventDefault(); hkShow((i + n + hkTabs.length) % hkTabs.length, true);
-    });
-  });
-
-  /* ==================================================================
-     Project opent zich tot scherm. Eén getal p stuurt alles:
-     p = 0 is de kaart, p = 1 is de volle weergave.
-     ================================================================== */
-  var scrim = $('#scrim'), scrimOwners = 0;
-  function scrimTo(p){ scrim.hidden = p <= 0.001 && scrimOwners === 0; scrim.style.opacity = clamp(p, 0, 1) }
-
-  var cards = $$('.card');
-  var detail = $('#detail'), dScroll = $('#dScroll'), dBody = $('#dBody'), dClose = $('#dClose'), dImg = $('#dImg'), dContent = $('#dContent');
-  var D = {open:false, card:null, from:null, to:null, p:0, anim:null, untrap:null};
-
-  function targetRect(){
-    var w = innerWidth, h = innerHeight;
-    if(w < 760) return {x:0, y:0, w:w, h:h, r:0};
-    var W = Math.min(800, w - 48), H = h - 48;
-    return {x:(w - W) / 2, y:24, w:W, h:H, r:28};
-  }
-  function applyDetail(p, drag){
-    D.p = p;
-    var a = D.from, b = D.to, s = drag ? drag.s : 1, cp = clamp(p, 0, 1);
-    detail.style.left = lerp(a.x, b.x, p) + 'px'; detail.style.top = lerp(a.y, b.y, p) + 'px';
-    detail.style.width = lerp(a.w, b.w, p) + 'px'; detail.style.height = lerp(a.h, b.h, p) + 'px';
-    detail.style.borderRadius = (lerp(a.r, b.r, cp) + (drag ? 180 * (1 - s) : 0)) + 'px';
-    detail.style.transform = drag ? 'translate3d(0,' + drag.dy + 'px,0) scale(' + s + ')' : '';
-    detail.style.setProperty('--hh', lerp(a.h, Math.max(260, b.h * .56), cp) + 'px');
-    var c = clamp((p - .55) / .45, 0, 1);
-    dBody.style.opacity = c; dBody.style.transform = 'translate3d(0,' + (1 - c) * 18 + 'px,0)';
-    dClose.style.opacity = c;
-    scrimTo(cp * (drag ? s * s : 1));
-  }
-  function rectOf(card){ var r = card.getBoundingClientRect(); return {x:r.left, y:r.top, w:r.width, h:r.height, r:24} }
-  function fillDetail(card){
-    var img = $('img', card);
-    dImg.src = img.getAttribute('src').replace(/\.webp$/, '-l.webp'); dImg.alt = img.alt;
-    $('#d-name').textContent = $('h3 button', card).firstChild.textContent;
-    var chips = $$('.chip', card);
-    var st = $('#dStatus'); st.textContent = chips[0].textContent; st.classList.toggle('dev', chips[0].classList.contains('dev'));
-    $('#dTag').textContent = chips[1] ? chips[1].textContent : '';
-    dContent.innerHTML = ''; dContent.appendChild($('template', card).content.cloneNode(true));
-  }
-  function openDetail(card, fromHistory){
-    if(D.open || S.open) return;
-    D.open = true; D.card = card;
-    fillDetail(card);
-    D.from = rectOf(card); D.to = targetRect();
-    dScroll.scrollTop = 0;
-    detail.hidden = false; scrimOwners++; lock();
-    card.classList.add('hide');
-    applyDetail(0); tick();
-    D.anim && D.anim.stop();
-    D.anim = spring({from:0, to:1, stiffness:260, damping:26, update:function(p){ applyDetail(p) }, done:function(){ D.anim = null; dClose.focus({preventScroll:true}) }});
-    D.untrap = trap(detail);
-    if(!fromHistory) history.pushState({layer:'detail'}, '');
-    live('Project ' + $('#d-name').textContent + ' geopend');
-  }
-  function closeDetail(velocity, fromHistory){
-    if(!D.open) return;
-    D.open = false;
-    var cr = detail.getBoundingClientRect(), card = D.card;
-    D.from = rectOf(card);
-    D.to = {x:cr.left, y:cr.top, w:cr.width, h:cr.height, r:parseFloat(detail.style.borderRadius) || 0};
-    detail.style.transform = '';
-    applyDetail(1);
-    D.anim && D.anim.stop();
-    D.anim = spring({from:1, to:0, velocity:velocity || 0, stiffness:300, damping:30,
-      update:function(p){ applyDetail(p) },
-      done:function(){
-        D.anim = null; detail.hidden = true; card.classList.remove('hide');
-        scrimOwners--; scrimTo(0); unlock();
-        D.untrap && D.untrap(); $('.card-hit', card).focus({preventScroll:true});
-      }});
-    if(!fromHistory && history.state && history.state.layer === 'detail') history.back();
-  }
-  cards.forEach(function(card){
-    var hit = $('.card-hit', card);
-    card.addEventListener('pointerdown', function(e){ if(e.button === 0) card.classList.add('press') });
-    ['pointerup','pointerleave','pointercancel'].forEach(function(ev){ card.addEventListener(ev, function(){ card.classList.remove('press') }) });
-    hit.addEventListener('click', function(){ openDetail(card) });
-  });
-  dClose.addEventListener('click', function(){ closeDetail(0) });
-
-  /* naar beneden vegen sluit, als je bovenaan de inhoud staat */
-  (function(){
-    var st = null, lastY = 0, lastT = 0, vy = 0;
-    function begin(x, y, target){
-      if(!D.open || D.anim || target.closest('button,a')) return false;
-      if(dScroll.scrollTop > 0) return false;
-      st = {x:x, y:y, moved:false}; lastY = y; lastT = performance.now(); vy = 0; return true;
+  /* ---------- glazen schuifknop (gedeeld) ---------- */
+  function slider(group, buttons, onPick, attr){
+    var thumb = $('.thumb', group);
+    attr = attr || 'aria-selected';
+    function place(b, animate){
+      if(!thumb || !b) return;
+      var tx = b.offsetLeft, tw = b.offsetWidth, sx = parseFloat(thumb.dataset.x || tx), sw = parseFloat(thumb.dataset.w || tw);
+      function set(x,w){ thumb.style.transform = 'translateX(' + x + 'px)'; thumb.style.width = w + 'px'; thumb.dataset.x = x; thumb.dataset.w = w }
+      if(!animate){ set(tx,tw); return }
+      spring({from:0, to:1, stiffness:420, damping:30, update:function(k){ set(lerp(sx,tx,k), lerp(sw,tw,k)) }});
     }
-    function move(x, y, ev){
-      if(!st) return;
-      var dy = y - st.y, dx = x - st.x;
-      if(!st.moved){
-        if(Math.abs(dy) < 6 && Math.abs(dx) < 6) return;
-        if(dy < 0 || Math.abs(dx) > Math.abs(dy) || dScroll.scrollTop > 0){ st = null; return }
-        st.moved = true;
-      }
-      if(ev.cancelable) ev.preventDefault();
-      var now = performance.now(); vy = (y - lastY) / Math.max(1, now - lastT); lastY = y; lastT = now;
-      st.dy = dy * .9; st.s = 1 - clamp(dy / 1400, 0, .18);
-      applyDetail(1, {dy:st.dy, s:st.s});
-    }
-    function finish(){
-      if(!st) return;
-      var s0 = st; st = null; if(!s0.moved) return;
-      if(s0.dy > 110 || vy > 0.55){ tick(); closeDetail(-vy * 2) }
-      else spring({from:1, to:0, stiffness:420, damping:34, update:function(k){ applyDetail(1, {dy:s0.dy * k, s:1 - (1 - s0.s) * k}) }});
-    }
-    detail.addEventListener('touchstart', function(e){ var t = e.touches[0]; begin(t.clientX, t.clientY, e.target) }, {passive:true});
-    detail.addEventListener('touchmove', function(e){ var t = e.touches[0]; move(t.clientX, t.clientY, e) }, {passive:false});
-    detail.addEventListener('touchend', finish); detail.addEventListener('touchcancel', finish);
-    detail.addEventListener('mousedown', function(e){ if(e.button === 0 && begin(e.clientX, e.clientY, e.target)) e.preventDefault() });
-    addEventListener('mousemove', function(e){ move(e.clientX, e.clientY, e) });
-    addEventListener('mouseup', finish);
-  })();
-
-  /* ==================================================================
-     Gesprek voorbereiden: vier korte vragen in een sheet
-     ================================================================== */
-  var sheet = $('#sheet'), stage = $('#sStage'), nextBtn = $('#sNext'), backBtn = $('#sBack'), dots = [].slice.call($('#sDots').children);
-  var S = {open:false, step:0, y:1, anim:null, untrap:null, returnFocus:null, data:null};
-  function fresh(){ return {werk:[], team:'', freq:'', vorm:'', notitie:''} }
-  var WERK = ['Gegevens overtypen','Werk vastleggen op locatie','Planning en roosters','Klanten op de hoogte houden','Rapportages maken','Iets anders'];
-  var STEPS = [
-    {titel:'Waar gaat bij jou de tijd heen?', hint:'Kies wat herkenbaar is. Meer dan één mag.', ok:function(){ return S.data.werk.length > 0 },
-     render:function(el){
-       var w = document.createElement('div'); w.className = 's-opts'; w.setAttribute('role','group'); w.setAttribute('aria-label','Soorten werk');
-       WERK.forEach(function(t){
-         var b = document.createElement('button'); b.type = 'button'; b.className = 's-opt'; b.textContent = t;
-         b.setAttribute('aria-pressed', S.data.werk.indexOf(t) > -1 ? 'true' : 'false');
-         b.addEventListener('click', function(){
-           var i = S.data.werk.indexOf(t); if(i > -1) S.data.werk.splice(i, 1); else S.data.werk.push(t);
-           b.setAttribute('aria-pressed', i > -1 ? 'false' : 'true'); tick(); syncNext();
-         });
-         w.appendChild(b);
-       });
-       el.appendChild(w);
-     }},
-    {titel:'Hoe groot is het?', hint:'Een schatting is genoeg.', ok:function(){ return !!S.data.team && !!S.data.freq },
-     render:function(el){
-       el.appendChild(label('Met hoeveel mensen doe je dit werk?'));
-       el.appendChild(segmented(['1 tot 3','4 tot 10','Meer dan 10'], 'team', 'Aantal mensen'));
-       el.appendChild(label('Hoe vaak komt het terug?'));
-       el.appendChild(segmented(['Dagelijks','Wekelijks','Maandelijks'], 'freq', 'Hoe vaak'));
-     }},
-    {titel:'Hoe wil je praten?', hint:'Een half uur, zonder verplichting.', ok:function(){ return !!S.data.vorm },
-     render:function(el){
-       el.appendChild(segmented(['Online','Telefonisch'], 'vorm', 'Soort gesprek'));
-       var l = label('Wil je alvast iets kwijt? Mag ook leeg blijven.'); l.setAttribute('for','sNote'); el.appendChild(l);
-       var t = document.createElement('textarea'); t.className = 'field'; t.id = 'sNote'; t.maxLength = 400; t.rows = 3;
-       t.placeholder = 'Bijvoorbeeld: we typen elke ochtend de bestellingen over.'; t.value = S.data.notitie;
-       t.addEventListener('input', function(){ S.data.notitie = t.value });
-       el.appendChild(t);
-     }},
-    {titel:'Klaar om te plannen', hint:'Je antwoorden gaan mee in de afspraak, zodat we niet bij nul beginnen.', ok:function(){ return true }, last:true,
-     render:function(el){
-       var m = document.createElement('div'); m.className = 'done-mark';
-       m.innerHTML = '<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>';
-       el.insertBefore(m, el.firstChild);
-       requestAnimationFrame(function(){ m.classList.add('go') });
-       var dl = document.createElement('dl'); dl.className = 'sum';
-       [['Tijd gaat naar', S.data.werk.join(', ')], ['Omvang', S.data.team + ', ' + S.data.freq.toLowerCase()], ['Gesprek', S.data.vorm]]
-         .concat(S.data.notitie ? [['Notitie', S.data.notitie]] : [])
-         .forEach(function(r){ var d = document.createElement('div'), dt = document.createElement('dt'), dd = document.createElement('dd');
-           dt.textContent = r[0]; dd.textContent = r[1]; d.appendChild(dt); d.appendChild(dd); dl.appendChild(d) });
-       el.appendChild(dl);
-       var alt = document.createElement('p'); alt.className = 'alt'; alt.appendChild(document.createTextNode('Liever mailen? '));
-       var mail = ['omar','agentivestudio.nl'].join('@'), a = document.createElement('a');
-       a.textContent = mail; a.href = 'mailto:' + mail + '?subject=' + encodeURIComponent('Kennismaking') + '&body=' + encodeURIComponent(samenvatting());
-       alt.appendChild(a); el.appendChild(alt);
-     }}
-  ];
-  function label(t){ var l = document.createElement('label'); l.className = 'lbl'; l.textContent = t; return l }
-  function segmented(items, key, name){
-    var w = document.createElement('div'); w.className = 'seg'; w.setAttribute('role','group'); w.setAttribute('aria-label', name);
-    var thumb = document.createElement('span'); thumb.className = 'thumb'; thumb.setAttribute('aria-hidden','true'); w.appendChild(thumb);
-    var cur = null;
-    var btns = items.map(function(t){
-      var b = document.createElement('button'); b.type = 'button'; b.textContent = t;
-      b.setAttribute('aria-pressed', S.data[key] === t ? 'true' : 'false');
+    buttons.forEach(function(b,i){
       b.addEventListener('click', function(){
-        S.data[key] = t; btns.forEach(function(x){ x.setAttribute('aria-pressed', x === b ? 'true' : 'false') });
-        moveThumb(true); tick(); syncNext();
+        buttons.forEach(function(x){ x.setAttribute(attr, x === b ? 'true' : 'false'); if(attr === 'aria-selected') x.tabIndex = x === b ? 0 : -1 });
+        place(b, true); onPick && onPick(i, b);
       });
-      w.appendChild(b); return b;
+      b.addEventListener('keydown', function(e){
+        var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+        if(!d) return; e.preventDefault(); var n = buttons[(i + d + buttons.length) % buttons.length]; n.click(); n.focus();
+      });
     });
-    function moveThumb(animate){
-      var b = btns.filter(function(x){ return x.getAttribute('aria-pressed') === 'true' })[0];
-      if(!b){ thumb.style.opacity = 0; return }
-      thumb.style.opacity = 1;
-      var tx = b.offsetLeft, tw = b.offsetWidth;
-      if(!animate || !cur){ cur = {x:tx, w:tw}; thumb.style.transform = 'translateX(' + tx + 'px)'; thumb.style.width = tw + 'px'; return }
-      var s = {x:cur.x, w:cur.w};
-      spring({from:0, to:1, stiffness:520, damping:34, update:function(k){
-        cur = {x:lerp(s.x, tx, k), w:lerp(s.w, tw, k)};
-        thumb.style.transform = 'translateX(' + cur.x + 'px)'; thumb.style.width = cur.w + 'px';
-      }});
+    function init(){ place(buttons.filter(function(x){ return x.getAttribute(attr) === 'true' })[0], false) }
+    requestAnimationFrame(init); addEventListener('resize', init);
+    if(document.fonts && document.fonts.ready) document.fonts.ready.then(init);
+  }
+
+  /* ---------- home: één glazen vlak dat van vorm wisselt ---------- */
+  var dev = $('#dev');
+  if(dev){
+    var panes = $$('.pane', dev), tabs = $$('.show .seg button'), cap = $('#cap'), box = $('.stagebox');
+    var CAPS = ['Voorbeeld van een app voor vakmensen, zoals Proofmakr', 'Voorbeeld van een planning in de browser, zoals Service-Pro', 'Voorbeeld van een koppeling: bestellingen vanzelf in je boekhouding'];
+    var cur = 0, anim = null, now;
+    function shapes(){
+      var w = box.clientWidth, small = innerWidth < 900;
+      return [{w:Math.min(300, w-8), h:small?540:600, r:46}, {w:Math.min(760, w-8), h:small?440:470, r:small?26:30}, {w:Math.min(600, w-8), h:small?300:330, r:small?28:34}];
     }
-    requestAnimationFrame(function(){ moveThumb(false) });
-    return w;
-  }
-  function samenvatting(){
-    var d = S.data;
-    return 'Tijd gaat naar: ' + d.werk.join(', ') + '\nOmvang: ' + d.team + ', ' + (d.freq || '').toLowerCase() +
-           '\nGesprek: ' + d.vorm + (d.notitie ? '\nNotitie: ' + d.notitie : '');
-  }
-  function syncNext(){
-    var st = STEPS[S.step];
-    nextBtn.disabled = !st.ok();
-    nextBtn.textContent = st.last ? 'Kies een moment' : 'Verder';
-    backBtn.hidden = S.step === 0;
-    dots.forEach(function(d, i){ d.classList.toggle('on', i === S.step); d.classList.toggle('done', i < S.step) });
-  }
-  function build(i){
-    var el = document.createElement('div'); el.className = 'step';
-    var h = document.createElement('h3'); h.textContent = STEPS[i].titel; h.tabIndex = -1;
-    var p = document.createElement('p'); p.className = 'hint'; p.textContent = STEPS[i].hint;
-    el.appendChild(h); el.appendChild(p); STEPS[i].render(el);
-    return el;
-  }
-  function goto(i, dir){
-    var old = stage.firstElementChild, nu = build(i), h0 = stage.offsetHeight;
-    S.step = i; syncNext();
-    if(!old || reduce){ stage.innerHTML = ''; stage.appendChild(nu); stage.style.height = ''; if(old) focusStep(nu); return }
-    old.style.position = 'absolute'; old.style.left = 0; old.style.right = 0; old.style.top = 0;
-    stage.appendChild(nu);
-    var h1 = nu.offsetHeight, dx = dir > 0 ? 1 : -1;
-    stage.style.height = h0 + 'px';
-    spring({from:0, to:1, stiffness:340, damping:32, update:function(k){
-      stage.style.height = lerp(h0, h1, k) + 'px';
-      old.style.transform = 'translate3d(' + (-dx * 40 * k) + 'px,0,0)'; old.style.opacity = 1 - clamp(k * 1.8, 0, 1);
-      nu.style.transform = 'translate3d(' + (dx * 40 * (1 - k)) + 'px,0,0)'; nu.style.opacity = clamp(k * 1.4, 0, 1);
-    }, done:function(){ old.remove(); stage.style.height = ''; nu.style.transform = ''; nu.style.opacity = ''; focusStep(nu) }});
-  }
-  function focusStep(el){ var h = $('h3', el); h && h.focus({preventScroll:true}) }
-  function applySheet(y){
-    S.y = y;
-    sheet.style.transform = 'translate3d(0,' + (y * 105) + '%,0)';
-    scrimTo(Math.max(1 - y, D.open ? 1 : 0));
-  }
-  function sheetTo(y, v, done){
-    S.anim && S.anim.stop();
-    S.anim = spring({from:S.y, to:y, velocity:v || 0, stiffness:y === 0 ? 300 : 360, damping:y === 0 ? 30 : 36, update:function(k){ applySheet(k) }, done:done});
-  }
-  function openSheet(e){
-    if(e && e.preventDefault) e.preventDefault();
-    if(S.open) return;
-    if(!mnav.hidden) closeMenu(false);
-    S.open = true; S.returnFocus = e && e.currentTarget && e.currentTarget.focus ? e.currentTarget : null;
-    S.step = 0; S.data = fresh();
-    stage.innerHTML = ''; goto(0, 1);
-    sheet.hidden = false; scrimOwners++; lock();
-    applySheet(1); tick();
-    sheetTo(0, 0, function(){ focusStep(stage.firstElementChild) });
-    S.untrap = trap(sheet);
-    history.pushState({layer:'sheet'}, '');
-    live('Gesprek voorbereiden, stap 1 van 4');
-  }
-  function closeSheet(v, fromHistory){
-    if(!S.open) return;
-    S.open = false;
-    sheetTo(1, v, function(){
-      sheet.hidden = true; scrimOwners--; scrimTo(D.open ? 1 : 0); unlock();
-      S.untrap && S.untrap();
-      var back = D.open ? dClose : S.returnFocus;
-      back && back.focus({preventScroll:true});
+    function apply(s){ dev.style.width = s.w + 'px'; dev.style.height = s.h + 'px'; dev.style.borderRadius = s.r + 'px' }
+    now = shapes()[0]; apply(now);
+    slider($('.show .seg'), tabs, function(i){
+      if(i === cur) return;
+      var from = {w:now.w, h:now.h, r:now.r}, to = shapes()[i];
+      panes[cur].classList.remove('on'); panes[i].classList.add('on'); cap.textContent = CAPS[i]; cur = i;
+      anim && anim.stop();
+      anim = spring({from:0, to:1, stiffness:230, damping:24, update:function(k){
+        now = {w:lerp(from.w,to.w,k), h:lerp(from.h,to.h,k), r:lerp(from.r,to.r,Math.min(1,Math.max(0,k)))}; apply(now) }});
     });
-    if(!fromHistory && history.state && history.state.layer === 'sheet') history.back();
+    addEventListener('resize', function(){ now = shapes()[cur]; apply(now) });
   }
-  nextBtn.addEventListener('click', function(){
-    var st = STEPS[S.step];
-    if(!st.ok()) return;
-    if(st.last){ window.open(CAL + '?notes=' + encodeURIComponent(samenvatting()), '_blank', 'noopener'); return }
-    tick(); goto(S.step + 1, 1);
-    live('Stap ' + (S.step + 1) + ' van 4');
-  });
-  backBtn.addEventListener('click', function(){ if(S.step > 0) goto(S.step - 1, -1) });
-  $('#sX').addEventListener('click', function(){ closeSheet(0) });
-  scrim.addEventListener('click', function(){ if(S.open) closeSheet(0); else if(D.open) closeDetail(0) });
-  document.addEventListener('click', function(e){
-    var t = e.target.closest && e.target.closest('[data-open-sheet]');
-    if(!t || e.metaKey || e.ctrlKey || e.shiftKey) return;
-    e.preventDefault(); openSheet({currentTarget:t});
-  });
 
-  (function(){
-    var start = null, lastY = 0, lastT = 0, vy = 0, h = 1;
-    function down(e){
-      if(!S.open || (e.target.closest('button') && !e.target.closest('.s-grab'))) return;
-      start = {y:e.clientY, id:e.pointerId}; h = sheet.offsetHeight; lastY = e.clientY; lastT = performance.now(); vy = 0;
-      S.anim && S.anim.stop();
-      e.currentTarget.setPointerCapture(e.pointerId);
-    }
-    function move(e){
-      if(!start || e.pointerId !== start.id) return;
-      var dy = e.clientY - start.y, now = performance.now();
-      vy = (e.clientY - lastY) / Math.max(1, now - lastT); lastY = e.clientY; lastT = now;
-      applySheet(clamp((dy < 0 ? -Math.sqrt(-dy) * 2 : dy) / (h * 1.05), -0.03, 1));
-    }
-    function up(){
-      if(!start) return; start = null;
-      if(S.y > .28 || vy > .6){ tick(); closeSheet(vy / (h / 1000)) }
-      else sheetTo(0, 0);
-    }
-    [$('#sGrab'), $('.s-head')].forEach(function(el){
-      el.addEventListener('pointerdown', down); el.addEventListener('pointermove', move);
-      el.addEventListener('pointerup', up); el.addEventListener('pointercancel', up);
+  /* ---------- werk: de rij opzij schuiven ---------- */
+  var rail = $('#rail');
+  if(rail){
+    $('#next').addEventListener('click', function(){ rail.scrollBy({left: rail.clientWidth * .8, behavior: REDUCE ? 'auto' : 'smooth'}) });
+    $('#prev').addEventListener('click', function(){ rail.scrollBy({left: -rail.clientWidth * .8, behavior: REDUCE ? 'auto' : 'smooth'}) });
+  }
+
+  /* ---------- rustig verschijnen, alleen wat nog buiten beeld staat ---------- */
+  if(!REDUCE && 'IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.remove('pre'); io.unobserve(e.target) } }) }, {rootMargin:'0px 0px -8% 0px'});
+    $$('.rv').forEach(function(el){ if(el.getBoundingClientRect().top > innerHeight * .92){ el.classList.add('pre'); io.observe(el) } });
+  }
+
+  /* ---------- contact: invullen, controleren, dan agenda of mail ---------- */
+  var form = $('#intake');
+  if(form){
+    var data = {wat:[], omvang:'', vorm:'Online'};
+    $$('.optbtn', form).forEach(function(b){
+      b.addEventListener('click', function(){
+        var on = b.getAttribute('aria-pressed') !== 'true'; b.setAttribute('aria-pressed', on ? 'true' : 'false');
+        data.wat = $$('.optbtn[aria-pressed="true"]', form).map(function(x){ return x.textContent.trim() });
+      });
     });
-  })();
+    var om = $('#omvang');
+    slider(om, $$('button', om), function(i,b){ data.omvang = b.textContent.trim() }, 'aria-pressed');
+    var vm = $('#vorm');
+    slider(vm, $$('button', vm), function(i,b){ data.vorm = b.textContent.trim() }, 'aria-pressed');
 
-  addEventListener('popstate', function(){
-    if(S.open) closeSheet(0, true);
-    else if(D.open) closeDetail(0, true);
-  });
-  addEventListener('resize', function(){ if(D.open){ D.to = targetRect(); if(!D.anim) applyDetail(1) } });
+    var note = $('#toelichting'), count = $('#count');
+    function cnt(){ count.textContent = note.value.length + ' / ' + note.maxLength }
+    note.addEventListener('input', cnt); cnt();
 
-  /* Escape sluit wat bovenop ligt */
-  document.addEventListener('keydown', function(e){
-    if(e.key !== 'Escape') return;
-    if(S.open) closeSheet(0);
-    else if(D.open) closeDetail(0);
-    else if(!mnav.hidden) closeMenu(true);
-  });
+    var rules = {
+      naam:function(v){ return v.trim().length >= 2 || 'Vul je naam in.' },
+      email:function(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) || 'Vul een geldig e-mailadres in, bijvoorbeeld naam@bedrijf.nl.' },
+      telefoon:function(v){ return !v.trim() || /^[+0-9 ()-]{8,20}$/.test(v.trim()) || 'Vul een telefoonnummer in met alleen cijfers, of laat het leeg.' }
+    };
+    function check(id, show){
+      var el = $('#' + id), f = el.closest('.f'), r = rules[id](el.value), err = $('.err', f);
+      var ok = r === true;
+      if(show){ f.classList.toggle('bad', !ok); f.classList.toggle('ok', ok && el.value.trim() !== ''); el.setAttribute('aria-invalid', ok ? 'false' : 'true'); err.textContent = ok ? '' : r }
+      return ok;
+    }
+    Object.keys(rules).forEach(function(id){
+      var el = $('#' + id), touched = false;
+      el.addEventListener('blur', function(){ touched = true; check(id, true) });
+      el.addEventListener('input', function(){ if(touched) check(id, true) });
+    });
+    function summary(){
+      var v = function(id){ return $('#' + id).value.trim() };
+      var lines = ['Naam: ' + v('naam')];
+      if(v('bedrijf')) lines.push('Bedrijf: ' + v('bedrijf'));
+      if(v('telefoon')) lines.push('Telefoon: ' + v('telefoon'));
+      if(data.wat.length) lines.push('Wil laten maken: ' + data.wat.join(', '));
+      if(data.omvang) lines.push('Omvang: ' + data.omvang);
+      lines.push('Gesprek: ' + data.vorm);
+      if(v('toelichting')) lines.push('Toelichting: ' + v('toelichting'));
+      return lines.join('\n');
+    }
+    function valid(){
+      var all = Object.keys(rules).map(function(id){ return check(id, true) });
+      var firstBad = $('.f.bad .inp', form);
+      if(firstBad){ firstBad.focus(); $('#fstatus').textContent = 'Controleer de velden die rood zijn.'; return false }
+      return all.every(Boolean);
+    }
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      if(!valid()) return;
+      var p = new URLSearchParams();
+      p.set('name', $('#naam').value.trim()); p.set('email', $('#email').value.trim()); p.set('notes', summary());
+      var g = new URLSearchParams(location.search).get('gclid');
+      if(g && /^[\w-]{10,200}$/.test(g)) p.set('metadata[gclid]', g);
+      $('#fstatus').textContent = 'De agenda opent in een nieuw venster. Je gegevens staan er al in.';
+      window.open(CAL + '?' + p.toString(), '_blank', 'noopener');
+    });
+    $('#mailBtn').addEventListener('click', function(){
+      if(!valid()) return;
+      location.href = 'mailto:' + MAIL + '?subject=' + encodeURIComponent('Kennismaking via de website') + '&body=' + encodeURIComponent(summary());
+      $('#fstatus').textContent = 'Je e-mailprogramma opent met je bericht klaar om te versturen.';
+    });
+  }
 })();
